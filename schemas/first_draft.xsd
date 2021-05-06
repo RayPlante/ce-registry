@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://schema.nist.gov/xml/res-md/1.0wd-02-2017"
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://schema.nist.gov/xml/ce-res-md/1.0wd1" 
            xmlns="http://www.w3.org/2001/XMLSchema"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:rsm="http://schema.nist.gov/xml/res-md/1.0wd-02-2017"
+           xmlns:rsm="http://schema.nist.gov/xml/ce-res-md/1.0wd1"
            xmlns:am="http://schema.nist.gov/xml/nmrr.schema.annot"
            elementFormDefault="qualified"
            attributeFormDefault="unqualified" version="0.10-02-2017">
@@ -14,10 +14,9 @@
         of resources and incorporate domain-specific metadata.
       </xs:documentation>
       <xs:documentation>
-        While this schema represents the core of the MGI Resource
-        metadata schema, additional extensions are recommended for
-        describing typical materials resources:  resmd-dcite,
-        resmd-access, and resmd-matsci.
+        While this schema is adapted from the NMRR resource registry schema,
+        specialized for circular economy research, including topics of
+        related to the recycling chain.
       </xs:documentation>
       <xs:documentation>
         This schema draws on concepts and patterns used in VOResource v1.0
@@ -26,11 +25,6 @@
         (http://www.ivoa.net/documents/latest/VOResource.html).
       </xs:documentation>
    </xs:annotation>
-
-   <!--
-   <xs:include schemaLocation="http://129.6.153.219/rest/types/get-dependency?id=589d94c86e95520522138e07"/>
-   <xs:include schemaLocation="mse_vocab.xsd"/>
-     -->
 
    <xs:element name="Resource" type="rsm:AccessibleResource">
       <xs:annotation>
@@ -265,6 +259,96 @@
        </xs:enumeration>
 
        <xs:enumeration value="Organization">
+         <xs:annotation>
+           <xs:documentation>
+             A logical set of related data supporting a common scientific purpose
+           </xs:documentation>
+         </xs:annotation>
+       </xs:enumeration>
+
+     </xs:restriction>
+   </xs:simpleType>
+
+   <xs:complexType name="LiteratureResource">
+     <xs:annotation>
+       <xs:documentation>
+         a published document (e.g. article, journal, book, etc.) relevent to circular economy research
+       </xs:documentation>
+     </xs:annotation>
+
+     <xs:complexContent>
+       <xs:extension base="rsm:ResourceRole">
+         <xs:sequence>
+           <xs:element name="type" type="rsm:LitRoleType" minOccurs="1"
+                       maxOccurs="1">
+             <xs:annotation>
+               <xs:appinfo>
+                 <label>Type</label>
+               </xs:appinfo>
+               <xs:documentation>
+                 It is recommended that the pid attribute be set to
+                 http://purl.org/dc/dcmitype/Dataset.  
+               </xs:documentation>
+             </xs:annotation>
+           </xs:element>
+           
+         </xs:sequence>
+       </xs:extension>
+     </xs:complexContent>
+   </xs:complexType>
+
+   <xs:simpleType name="LitRoleType">
+     <xs:annotation>
+       <xs:documentation>
+         Controlled labels that indicate a type of role this resource can
+         play as a dataset.
+       </xs:documentation>
+     </xs:annotation>
+
+     <xs:restriction base="xs:token">
+
+       <xs:enumeration value="Literature: Article">
+         <xs:annotation>
+           <xs:documentation>
+             A long-lived organization that may engage in many projects
+           </xs:documentation>
+         </xs:annotation>
+       </xs:enumeration>
+
+       <xs:enumeration value="Literature: Journal">
+         <xs:annotation>
+           <xs:documentation>
+             An organization that focuses on a particular project, often with
+             a limited lifetime
+           </xs:documentation>
+         </xs:annotation>
+       </xs:enumeration>
+
+       <xs:enumeration value="Literature: Report">
+         <xs:annotation>
+           <xs:documentation>
+             A logical set of related data supporting a common scientific purpose
+           </xs:documentation>
+         </xs:annotation>
+       </xs:enumeration>
+
+       <xs:enumeration value="Literature: Proceedings">
+         <xs:annotation>
+           <xs:documentation>
+             A logical set of related data supporting a common scientific purpose
+           </xs:documentation>
+         </xs:annotation>
+       </xs:enumeration>
+
+       <xs:enumeration value="Literature: Book">
+         <xs:annotation>
+           <xs:documentation>
+             A logical set of related data supporting a common scientific purpose
+           </xs:documentation>
+         </xs:annotation>
+       </xs:enumeration>
+
+       <xs:enumeration value="Literature">
          <xs:annotation>
            <xs:documentation>
              A logical set of related data supporting a common scientific purpose
