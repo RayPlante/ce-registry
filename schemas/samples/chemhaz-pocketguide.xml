@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns="http://schema.nist.gov/xml/ce-res-md/1.0wd1" 
+          localid="https://materials.registry.nist.gov/pid/rest/local/cdcs/FFA968T2CEOH0I8RW2E1"
+          status="active">
+
+  <identity>
+    <title>NIOSH Pocket Guide to Chemical Hazards</title>
+  </identity>
+
+  <providers>
+    <publisher>US Centers for Disease Control and Prevention (CDC)</publisher>
+    <publicationYear>2007</publicationYear>
+    <contact>
+      <name>NIOSH</name>
+      <emailAddress>cdcinfo@cdc.gov</emailAddress>
+      <phoneNumber>1-800-CDC-INFO</phoneNumber>
+    </contact>
+  </providers>
+
+  <content>
+    <description>
+       The NIOSH Pocket Guide to Chemical Hazards (NPG) informs workers,
+       employers, and occupational health professionals about workplace
+       chemicals and their hazards. The NPG gives general industrial hygiene
+       information for hundreds of chemicals/classes. The NPG clearly presents
+       key data for chemicals or substance groupings (such as cyanides,
+       fluorides, manganese compounds) that are found in workplaces. The guide
+       offers key facts, but does not give all relevant data. The NPG helps
+       users recognize and control workplace chemical hazards.  Source:
+       https://www.cdc.gov/niosh/npg/default.html
+    </description>
+    <subject>chemical hazards</subject>
+    <subject>chemistry</subject>
+    <landingPage>https://www.cdc.gov/niosh/npg/default.html</landingPage>
+  </content>
+
+  <role xsi:type="WebSite">
+    <type>Web Site: Informational</type>
+  </role>
+  
+  <applicability>
+    <materialType>
+      <molecular_fluids>molecular fluids</molecular_fluids>
+    </materialType>
+    <materialType>
+      <organic_compounds>organic compounds</organic_compounds>
+    </materialType>
+    <materialType>
+      <organic_compounds>organic compounds: alcohols</organic_compounds>
+    </materialType>
+    <materialType>
+      <organic_compounds>organic compounds: aldehydes</organic_compounds>
+    </materialType>
+    <materialType>
+      <organic_compounds>organic compounds: alkanes</organic_compounds>
+    </materialType>
+    <materialType>
+      <organic_compounds>organic compounds: alkenes</organic_compounds>
+    </materialType>
+    <materialType>
+      <organic_compounds>organic compounds: alkynes</organic_compounds>
+    </materialType>
+    <materialType>
+      <organic_compounds>organic compounds: amines</organic_compounds>
+    </materialType>
+    <materialType>
+      <organic_compounds>organic compounds: carboxylic acids</organic_compounds>
+    </materialType>
+    <materialType>
+      <organic_compounds>organic compounds: cyclic compounds</organic_compounds>
+    </materialType>
+    <materialType>
+      <organic_compounds>organic compounds: cycloalkanes</organic_compounds>
+    </materialType>
+    <materialType>
+      <organic_compounds>organic compounds: esters</organic_compounds>
+    </materialType>
+    <materialType>
+      <organic_compounds>organic compounds: ketones</organic_compounds>
+    </materialType>
+    <materialType>
+      <organic_compounds>organic compounds: nitriles</organic_compounds>
+    </materialType>
+    <propertyAddressed>
+      <toxicity>toxicity</toxicity>
+    </propertyAddressed>
+  </applicability>
+
+  <access>
+    <policy>
+      <restriction>public</restriction>
+    </policy>
+  </access>
+</Resource>
