@@ -41,9 +41,6 @@
   
   <applicability>
     <materialType>
-      <molecular_fluids>molecular fluids</molecular_fluids>
-    </materialType>
-    <materialType>
       <organic_compounds>organic compounds</organic_compounds>
     </materialType>
     <materialType>
@@ -82,9 +79,6 @@
     <materialType>
       <organic_compounds>organic compounds: nitriles</organic_compounds>
     </materialType>
-    <propertyAddressed>
-      <toxicity>toxicity</toxicity>
-    </propertyAddressed>
   </applicability>
 
   <access>

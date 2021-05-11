@@ -114,11 +114,11 @@
            </xs:annotation>
          </xs:element>
 
-         <xs:element name="applicability" type="rsm:MaterialsScience"
+         <xs:element name="applicability" type="rsm:CircularEconomy"
                      minOccurs="0" maxOccurs="unbounded">
            <xs:annotation>
              <xs:appinfo>
-               <label>Applicability to Material Science</label>
+               <label>Applicability to Circular Economy technologies and research</label>
              </xs:appinfo>
              <xs:documentation>
                Information describing the resource's applicability to a
@@ -254,6 +254,22 @@
            <xs:documentation>
              An organization that focuses on a particular project, often with
              a limited lifetime
+           </xs:documentation>
+         </xs:annotation>
+       </xs:enumeration>
+
+       <xs:enumeration value="Organization: Trade Association">
+         <xs:annotation>
+           <xs:documentation>
+             An industry-based group focused on issues the circular economy.
+           </xs:documentation>
+         </xs:annotation>
+       </xs:enumeration>
+
+       <xs:enumeration value="Organization: Consortium">
+         <xs:annotation>
+           <xs:documentation>
+             An association of collaboring organizations 
            </xs:documentation>
          </xs:annotation>
        </xs:enumeration>
@@ -445,6 +461,20 @@
                </xs:documentation>
              </xs:annotation>
            </xs:element>
+
+           <xs:element name="dataOrigin" type="rsm:Data_origin"
+                       minOccurs="0" maxOccurs="4">
+             <xs:annotation>
+               <xs:appinfo>
+                <module>module-fancy-tree-registry</module>
+                 <label>Origin of Data</label>
+               </xs:appinfo>
+               <xs:documentation>
+                 A category reflecting broadly how the data was produced.
+               </xs:documentation>
+             </xs:annotation>
+           </xs:element>
+
          </xs:sequence>
        </xs:extension>
      </xs:complexContent>
@@ -549,7 +579,7 @@
                 </xs:documentation>
              </xs:annotation>
            </xs:element>
-
+           
            <xs:element name="baseURL" type="xs:anyURI" minOccurs="0">
               <xs:annotation>
                 <xs:appinfo>
@@ -561,7 +591,7 @@
                   access different functions of the API.
                  </xs:documentation>
               </xs:annotation>
-           </xs:element>
+           </xs:element>       
 
            <xs:element name="documentationURL" type="xs:anyURI" minOccurs="0">
               <xs:annotation>
@@ -573,7 +603,7 @@
                    specifically describes how to use the API.
                  </xs:documentation>
               </xs:annotation>
-           </xs:element>
+           </xs:element>       
 
            <xs:element name="specificationURL" type="xs:anyURI" minOccurs="0">
               <xs:annotation>
@@ -585,7 +615,7 @@
                    service interface (e.g. WSDL, ...).
                  </xs:documentation>
               </xs:annotation>
-           </xs:element>
+           </xs:element>       
 
            <xs:element name="complianceID" type="xs:anyURI" minOccurs="0">
               <xs:annotation>
@@ -593,12 +623,12 @@
                   <label>Compliance ID</label>
                 </xs:appinfo>
                  <xs:documentation>
-                   a URI for a service standard that this service is
+                   a URI for a service standard that this service is 
                    compliant with.
                  </xs:documentation>
               </xs:annotation>
-           </xs:element>
-
+           </xs:element>       
+   
          </xs:sequence>
        </xs:extension>
      </xs:complexContent>
@@ -627,7 +657,7 @@
      </xs:restriction>
    </xs:simpleType>
 
-   <xs:complexType name="Software">
+   <xs:complexType name="Tool">
      <xs:annotation>
        <xs:documentation>
          metadata for describing software
@@ -638,7 +668,7 @@
        <xs:extension base="rsm:ResourceRole">
          <xs:sequence>
 
-           <xs:element name="type" type="rsm:SoftwareRoleType">
+           <xs:element name="type" type="rsm:ToolRoleType">
              <xs:annotation>
                <xs:appinfo>
                  <label>Type</label>
@@ -781,6 +811,54 @@
      </xs:complexContent>
 
    </xs:complexType>
+
+   <xs:simpleType name="ToolRoleType">
+     <xs:annotation>
+       <xs:documentation>
+         Controlled labels that indicate a type of role this resource can
+         play as a dataset.
+       </xs:documentation>
+     </xs:annotation>
+
+     <xs:restriction base="xs:token">
+
+       <xs:enumeration value="Tool: Desktop App">
+         <xs:annotation>
+           <xs:documentation>
+             A useful software applcation that runs in a computer desktop environment
+           </xs:documentation>
+         </xs:annotation>
+       </xs:enumeration>
+
+       <xs:enumeration value="Tool: Web App">
+         <xs:annotation>
+           <xs:documentation>
+             A useful software application that runs in a web browser and is
+             served from a web site
+           </xs:documentation>
+         </xs:annotation>
+       </xs:enumeration>
+
+       <xs:enumeration value="Tool: Software Library">
+         <xs:annotation>
+           <xs:documentation>
+             A software package that can be used to create scripts or programs
+             useful to research adn technology for the circular economy
+           </xs:documentation>
+         </xs:annotation>
+       </xs:enumeration>
+
+       <xs:enumeration value="Tool">
+         <xs:annotation>
+           <xs:documentation>
+             A software application that is useful for analyzing, visualizing, or
+             interpreting data and information related to the circular economy.
+           </xs:documentation>
+         </xs:annotation>
+       </xs:enumeration>
+
+     </xs:restriction>
+   </xs:simpleType>
 
    <xs:complexType name="Link">
      <xs:annotation>
@@ -2264,11 +2342,11 @@
      </xs:complexContent>
    </xs:complexType>
 
-   <xs:complexType name="SoftwareMethod">
+   <xs:complexType name="ToolMethod">
      <xs:annotation>
        <xs:documentation>
-         metadata describing how one can access a resource via locally
-         installable software.
+         metadata describing how one can access a resource via a specialized 
+         software tool
        </xs:documentation>
        <xs:documentation>
          The accessURL points to the home page for the software from which it
@@ -2283,14 +2361,14 @@
      <xs:complexContent>
        <xs:extension base="rsm:AccessMethod">
          <xs:sequence>
-           <xs:element name="details" type="rsm:Software"
+           <xs:element name="details" type="rsm:Tool"
                        minOccurs="1" maxOccurs="1"/>
          </xs:sequence>
        </xs:extension>
      </xs:complexContent>
    </xs:complexType>
 
-   <xs:complexType name="MaterialsScience">
+   <xs:complexType name="CircularEconomy">
      <xs:annotation>
        <xs:documentation>
          Information describing a resource's applicability to Materials Science
@@ -2300,15 +2378,16 @@
      <xs:complexContent>
        <xs:extension base="rsm:Applicability">
          <xs:sequence>
-           <xs:element name="dataOrigin" type="rsm:Data_origin"
-                       minOccurs="0" maxOccurs="4">
+           <xs:element name="productClass" type="rsm:Product_class"
+                       minOccurs="0" maxOccurs="unbounded">
              <xs:annotation>
                <xs:appinfo>
-                <module>module-fancy-tree-registry</module>
-                 <label>Origin of Data</label>
+                   <module>module-fancy-tree-registry</module>
+                 <label>Product Class</label>
                </xs:appinfo>
                <xs:documentation>
-                 A category reflecting broadly how the data was produced.
+                 the category of product to be processed or recycled that 
+                 this resource is concerned with.
                </xs:documentation>
              </xs:annotation>
            </xs:element>
@@ -2327,75 +2406,6 @@
              </xs:annotation>
            </xs:element>
 
-           <xs:element name="structuralFeature"
-                       type="rsm:Structural_features"
-                       minOccurs="0" maxOccurs="unbounded">
-             <xs:annotation>
-               <xs:appinfo>
-                   <module>module-fancy-tree-registry</module>
-                 <label>Structural Feature</label>
-               </xs:appinfo>
-               <xs:documentation>
-                 the primary or prevalent characteristic of the structure of
-                 the material of interest to this resource
-               </xs:documentation>
-             </xs:annotation>
-           </xs:element>
-
-           <xs:element name="propertyAddressed" type="rsm:Properties_addressed"
-                       minOccurs="0" maxOccurs="unbounded">
-             <xs:annotation>
-               <xs:appinfo>
-                   <module>module-fancy-tree-registry</module>
-                 <label>Property Addressed</label>
-               </xs:appinfo>
-               <xs:documentation>
-                 a category of property that is sampled by the contained data
-               </xs:documentation>
-             </xs:annotation>
-           </xs:element>
-
-           <xs:element name="characterizationMethod" type="rsm:Characterization_methods"
-                       minOccurs="0" maxOccurs="unbounded">
-             <xs:annotation>
-               <xs:appinfo>
-                   <module>module-fancy-tree-registry</module>
-                 <label>Experimental Characterization Methods</label>
-               </xs:appinfo>
-               <xs:documentation>
-                  the experimental technique used to acquire the data
-                  within this resource
-               </xs:documentation>
-             </xs:annotation>
-           </xs:element>
-
-           <xs:element name="computationalMethod" type="rsm:Computational_methods"
-                       minOccurs="0" maxOccurs="unbounded">
-             <xs:annotation>
-               <xs:appinfo>
-                   <module>module-fancy-tree-registry</module>
-                 <label>Computational Data Acquisition Methods</label>
-               </xs:appinfo>
-               <xs:documentation>
-                  the computational technique used to acquire the data
-                  within this resource
-               </xs:documentation>
-             </xs:annotation>
-           </xs:element>
-
-           <xs:element name="computeScale" type="rsm:Compute_scales"
-                       minOccurs="0" maxOccurs="unbounded">
-             <xs:annotation>
-               <xs:appinfo>
-                   <module>module-fancy-tree-registry</module>
-                 <label>Physical scale modeled by computation</label>
-               </xs:appinfo>
-               <xs:documentation>
-                  the physical scale that is represented by a computation
-               </xs:documentation>
-             </xs:annotation>
-           </xs:element>
-
            <xs:element name="synthesisProcessing"
                        type="rsm:Synthesis_and_processing"
                        minOccurs="0" maxOccurs="unbounded">
@@ -2407,6 +2417,20 @@
                <xs:documentation>
                  the physical processing or preparation technique applied
                  to the material being studied.
+               </xs:documentation>
+             </xs:annotation>
+           </xs:element>
+
+           <xs:element name="circularPathway" type="rsm:Pathway_type"
+                       minOccurs="0" maxOccurs="unbounded">
+             <xs:annotation>
+               <xs:appinfo>
+                   <module>module-fancy-tree-registry</module>
+                 <label>Circular Pathway</label>
+               </xs:appinfo>
+               <xs:documentation>
+                 the reprocessing technique for reuse or recycling of concern
+                 to this resource.
                </xs:documentation>
              </xs:annotation>
            </xs:element>
@@ -2484,6 +2508,35 @@
      </xs:restriction>
    </xs:simpleType>
 
+   <xs:simpleType name="Product_class">
+     <xs:annotation>
+       <xs:documentation>
+         a catagory of product to be processed or recycled
+       </xs:documentation>
+     </xs:annotation>
+
+     <xs:restriction base="xs:token">
+       <xs:enumeration value="batteries"/>
+       <xs:enumeration value="electronics"/>
+       <xs:enumeration value="organics"/>
+       <xs:enumeration value="packaging"/>
+       <xs:enumeration value="textiles"/>
+     </xs:restriction>
+   </xs:simpleType>
+
+   <xs:simpleType name="Pathway_type">
+     <xs:annotation>
+       <xs:documentation>
+         a type of product reprocessing technique for reuse or recycling
+       </xs:documentation>
+     </xs:annotation>
+
+     <xs:restriction base="xs:token">
+       <xs:enumeration value="solvents"/>
+       <xs:enumeration value="mechanical"/>
+     </xs:restriction>
+   </xs:simpleType>
+
    <xs:complexType name="Material_types">
      <xs:annotation>
        <xs:documentation>
@@ -2492,30 +2545,13 @@
      </xs:annotation>
 
      <xs:choice minOccurs="0">
-         <xs:element name="biological" type="rsm:biological_Material_types"/>
          <xs:element name="biomaterials" type="rsm:biomaterials_Material_types"/>
          <xs:element name="ceramics" type="rsm:ceramics_Material_types"/>
          <xs:element name="metals_and_alloys" type="rsm:metals_and_alloys_Material_types"/>
-         <xs:element name="metamaterials" type="rsm:metamaterials_Material_types"/>
-         <xs:element name="molecular_fluids" type="rsm:molecular_fluids_Material_types"/>
          <xs:element name="organic_compounds" type="rsm:organic_compounds_Material_types"/>
-         <xs:element name="organometallics" type="rsm:organometallics_Material_types"/>
          <xs:element name="polymers" type="rsm:polymers_Material_types"/>
-         <xs:element name="semiconductors" type="rsm:semiconductors_Material_types"/>
      </xs:choice>
    </xs:complexType>
-
-   <xs:simpleType name="biological_Material_types">
-     <xs:annotation>
-       <xs:documentation>
-         Allowed values for biological vocabulary terms describing Material types
-       </xs:documentation>
-     </xs:annotation>
-
-     <xs:restriction base="xs:token">
-       <xs:enumeration value="biological"/>
-     </xs:restriction>
-   </xs:simpleType>
 
    <xs:simpleType name="biomaterials_Material_types">
      <xs:annotation>
@@ -2571,30 +2607,6 @@
      </xs:restriction>
    </xs:simpleType>
 
-   <xs:simpleType name="metamaterials_Material_types">
-     <xs:annotation>
-       <xs:documentation>
-         Allowed values for metamaterials vocabulary terms describing Material types
-       </xs:documentation>
-     </xs:annotation>
-
-     <xs:restriction base="xs:token">
-       <xs:enumeration value="metamaterials"/>
-     </xs:restriction>
-   </xs:simpleType>
-
-   <xs:simpleType name="molecular_fluids_Material_types">
-     <xs:annotation>
-       <xs:documentation>
-         Allowed values for molecular fluids vocabulary terms describing Material types
-       </xs:documentation>
-     </xs:annotation>
-
-     <xs:restriction base="xs:token">
-       <xs:enumeration value="molecular fluids"/>
-     </xs:restriction>
-   </xs:simpleType>
-
    <xs:simpleType name="organic_compounds_Material_types">
      <xs:annotation>
        <xs:documentation>
@@ -2619,18 +2631,6 @@
      </xs:restriction>
    </xs:simpleType>
 
-   <xs:simpleType name="organometallics_Material_types">
-     <xs:annotation>
-       <xs:documentation>
-         Allowed values for organometallics vocabulary terms describing Material types
-       </xs:documentation>
-     </xs:annotation>
-
-     <xs:restriction base="xs:token">
-       <xs:enumeration value="organometallics"/>
-     </xs:restriction>
-   </xs:simpleType>
-
    <xs:simpleType name="polymers_Material_types">
      <xs:annotation>
        <xs:documentation>
@@ -2648,24 +2648,6 @@
        <xs:enumeration value="polymers: rubbers"/>
        <xs:enumeration value="polymers: thermoplastics"/>
        <xs:enumeration value="polymers: thermosets"/>
-     </xs:restriction>
-   </xs:simpleType>
-
-   <xs:simpleType name="semiconductors_Material_types">
-     <xs:annotation>
-       <xs:documentation>
-         Allowed values for semiconductors vocabulary terms describing Material types
-       </xs:documentation>
-     </xs:annotation>
-
-     <xs:restriction base="xs:token">
-       <xs:enumeration value="semiconductors"/>
-       <xs:enumeration value="semiconductors: II-VI"/>
-       <xs:enumeration value="semiconductors: III-V"/>
-       <xs:enumeration value="semiconductors: extrinsic"/>
-       <xs:enumeration value="semiconductors: intrinsic"/>
-       <xs:enumeration value="semiconductors: n-type"/>
-       <xs:enumeration value="semiconductors: p-type"/>
      </xs:restriction>
    </xs:simpleType>
 
@@ -4949,25 +4931,39 @@
      </xs:annotation>
      
      <xs:restriction base="xs:token">
-       <xs:enumeration value="research">
+       <xs:enumeration value="researchers">
          <xs:annotation>
            <xs:documentation>
              intended for academic and commercial researchers
            </xs:documentation>
          </xs:annotation>
        </xs:enumeration>
-       <xs:enumeration value="education">
+       <xs:enumeration value="practitioners">
+         <xs:annotation>
+           <xs:documentation>
+             intended for academic and commercial researchers
+           </xs:documentation>
+         </xs:annotation>
+       </xs:enumeration>
+       <xs:enumeration value="educators">
          <xs:annotation>
            <xs:documentation>
              intended for formal and informal educational settings
            </xs:documentation>
          </xs:annotation>
        </xs:enumeration>
-       <xs:enumeration value="public outreach">
+       <xs:enumeration value="public outreachers">
          <xs:annotation>
            <xs:documentation>
              intended for broad public consumption for purposes of news 
              and awareness
+           </xs:documentation>
+         </xs:annotation>
+       </xs:enumeration>
+       <xs:enumeration value="policy makers">
+         <xs:annotation>
+           <xs:documentation>
+             intended for policy makers and governmental agencies
            </xs:documentation>
          </xs:annotation>
        </xs:enumeration>
