@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns="http://schema.nist.gov/xml/ce-res-md/1.0wd1" 
+          status="active">
+
+  <identity>
+    <title>Survey of California Plastic Waste Processors</title>
+  </identity>
+
+  <providers>
+    <publisher>State of California</publisher>
+    <publicationYear>2020</publicationYear>
+    <contact>
+      <name>Gavin Newsom</name>
+      <emailAddress>GovNewsom@calepa.ca.gov</emailAddress>
+    </contact>
+  </providers>
+
+  <content>
+    <description>
+       This spreadsheet provides information on plastic Waste processors in the
+       state of California, compiling data collected as part fo the CA
+       Processor Survey.
+    </description>
+    <subject>plastics</subject>
+    <subject>Post-consumer waste: PET Bottles</subject>
+    <subject>Post-industrial waste</subject>
+    <landingPage>https://agency.calepa.ca.gov/data/caplasticssurvey.xlsx</landingPage>
+  </content>
+
+  <role xsi:type="Dataset">
+    <type>Dataset</type>
+    <dataOrigin>surveys</dataOrigin>
+  </role>
+
+  <applicability>
+    <productClass>packaging</productClass>
+    <materialType>
+      <polymers>polymers</polymers>
+    </materialType>
+
+    <circularPathway>solvents</circularPathway>
+  </applicability>
+
+</Resource>

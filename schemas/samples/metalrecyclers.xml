@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns="http://schema.nist.gov/xml/ce-res-md/1.0wd1" 
+          status="active">
+
+  <identity>
+    <title>Metal Recyclers in Montgomery County</title>
+  </identity>
+
+  <providers>
+    <publisher>Department of Environmental Protection, Montgomery County, Maryland</publisher>
+    <publicationYear>2017</publicationYear>
+    <contact>
+      <name>DEP/MPIA Requests</name>
+      <emailAddress>DEP.MPIA-Request@montgomerycountymd.org</emailAddress>
+      <phoneNumber>240-777-7730</phoneNumber>
+    </contact>
+  </providers>
+
+  <content>
+    <description>
+       This spreadsheet provides information on public and private metal
+       recyclers in Montgomery County, Maryland.  It includes contact
+       information, type of materials accepted, processes used on collected
+       materials, target markets, and statistics on throughput.
+    </description>
+    <subject>metal recycler</subject>
+    <subject>aluminum</subject>
+    <landingPage>https://www.montgomerycountymd.gov/sws/data/metalrecyclers.cvs</landingPage>
+  </content>
+
+  <role xsi:type="Dataset">
+    <type>Dataset</type>
+    <dataOrigin>surveys</dataOrigin>
+  </role>
+
+  <applicability>
+    <materialType>
+      <metals_and_alloys>metals and alloys: Fe-containing</metals_and_alloys>
+    </materialType>
+    <materialType>
+      <metals_and_alloys>metals and alloys: Cu-containing</metals_and_alloys>
+    </materialType>
+    <materialType>
+      <metals_and_alloys>metals and alloys: Al-containing</metals_and_alloys>
+    </materialType>
+    <materialType>
+      <metals_and_alloys>metals and alloys: steels</metals_and_alloys>
+    </materialType>
+
+    <circularPathway>solvents</circularPathway>
+  </applicability>
+
+</Resource>

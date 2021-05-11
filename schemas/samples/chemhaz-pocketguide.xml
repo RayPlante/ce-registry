@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xmlns="http://schema.nist.gov/xml/ce-res-md/1.0wd1" 
-          localid="https://materials.registry.nist.gov/pid/rest/local/cdcs/FFA968T2CEOH0I8RW2E1"
           status="active">
 
   <identity>
@@ -35,8 +34,8 @@
     <landingPage>https://www.cdc.gov/niosh/npg/default.html</landingPage>
   </content>
 
-  <role xsi:type="WebSite">
-    <type>Web Site: Informational</type>
+  <role xsi:type="LiteratureResource">
+    <type>Literature: Book</type>
   </role>
   
   <applicability>
