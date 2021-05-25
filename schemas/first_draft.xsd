@@ -114,11 +114,11 @@
            </xs:annotation>
          </xs:element>
 
-         <xs:element name="applicability" type="rsm:CircularEconomy"
+         <xs:element name="applicability" type="rsm:CircularStage"
                      minOccurs="0" maxOccurs="unbounded">
            <xs:annotation>
              <xs:appinfo>
-               <label>Applicability to Circular Economy technologies and research</label>
+               <label>Circular Stage</label>
              </xs:appinfo>
              <xs:documentation>
                Information describing the resource's applicability to a
@@ -2367,7 +2367,7 @@
      </xs:complexContent>
    </xs:complexType>
 
-   <xs:complexType name="CircularEconomy">
+   <xs:complexType name="CircularStage">
      <xs:annotation>
        <xs:documentation>
          Information describing a resource's applicability to Materials Science
@@ -2403,6 +2403,61 @@
              </xs:annotation>
            </xs:element>
 
+          <xs:element name="materialDesign" minOccurs="0" maxOccurs="unbounded">
+             <xs:annotation>
+               <xs:appinfo>
+                 <label>Material Design</label>
+               </xs:appinfo>
+               <xs:documentation>
+               </xs:documentation>
+             </xs:annotation>
+           </xs:element>
+
+          <xs:element name="processing" minOccurs="0" maxOccurs="unbounded">
+           <xs:annotation>
+             <xs:appinfo>
+               <label>Processing</label>
+             </xs:appinfo>
+             <xs:documentation>
+               the category of material studied in the data contained in
+               this resource.
+             </xs:documentation>
+           </xs:annotation>
+         </xs:element>
+
+           <xs:element name="productDesign" minOccurs="0" maxOccurs="unbounded">
+             <xs:annotation>
+               <xs:appinfo>
+                 <label>Product Design</label>
+               </xs:appinfo>
+               <xs:documentation>
+               a way to design waste out the system and to minimize negative external impacts.
+               </xs:documentation>
+             </xs:annotation>
+           </xs:element>
+
+            <xs:element name="collectionAndSortation"
+                       minOccurs="0" maxOccurs="unbounded">
+             <xs:annotation>
+               <xs:appinfo>
+                 <label>Collection and sortation</label>
+               </xs:appinfo>
+               <xs:documentation>
+               </xs:documentation>
+             </xs:annotation>
+           </xs:element>
+
+            <xs:element name="newMarkets"
+                       minOccurs="0" maxOccurs="unbounded">
+             <xs:annotation>
+               <xs:appinfo>
+                 <label>New Markets</label>
+               </xs:appinfo>
+               <xs:documentation>
+               </xs:documentation>
+             </xs:annotation>
+           </xs:element>
+
            <xs:element name="synthesisProcessing"
                        type="rsm:Synthesis_and_processing"
                        minOccurs="0" maxOccurs="unbounded">
@@ -2417,11 +2472,11 @@
              </xs:annotation>
            </xs:element>
 
-           <xs:element name="circularPathway" type="rsm:Pathway_type"
+           <xs:element name="circularPathway" type="rsm:circular_pathways"
                        minOccurs="0" maxOccurs="unbounded">
              <xs:annotation>
                <xs:appinfo>
-                 <label>Circular Pathway</label>
+                 <label>Circular Pathways</label>
                </xs:appinfo>
                <xs:documentation>
                  the reprocessing technique for reuse or recycling of concern
@@ -2472,7 +2527,7 @@
      </xs:restriction>
    </xs:simpleType>
 
-   <xs:simpleType name="Pathway_type">
+   <xs:simpleType name="circular_pathways">
      <xs:annotation>
        <xs:documentation>
          a type of product reprocessing technique for reuse or recycling
@@ -2480,8 +2535,9 @@
      </xs:annotation>
 
      <xs:restriction base="xs:token">
-       <xs:enumeration value="solvents"/>
-       <xs:enumeration value="mechanical"/>
+       <xs:enumeration value="Mechanical recycling"/>
+       <xs:enumeration value="Solvent processing/extraction"/>
+       <xs:enumeration value="Chemical recycling"/>
      </xs:restriction>
    </xs:simpleType>
 
@@ -2493,23 +2549,23 @@
      </xs:annotation>
 
      <xs:choice minOccurs="0">
-         <xs:element name="biomaterials" type="rsm:biomaterials_Material_types"/>
+         <xs:element name="biomass" type="rsm:biomass_Material_types"/>
          <xs:element name="ceramics" type="rsm:ceramics_Material_types"/>
          <xs:element name="metals_and_alloys" type="rsm:metals_and_alloys_Material_types"/>
-         <xs:element name="organic_compounds" type="rsm:organic_compounds_Material_types"/>
+         <xs:element name="small_molecule_organics" type="rsm:small_molecule_organics_Material_types"/>
          <xs:element name="polymers" type="rsm:polymers_Material_types"/>
      </xs:choice>
    </xs:complexType>
 
-   <xs:simpleType name="biomaterials_Material_types">
+   <xs:simpleType name="biomass_Material_types">
      <xs:annotation>
        <xs:documentation>
-         Allowed values for biomaterials vocabulary terms describing Material types
+         Allowed values for biomass vocabulary terms describing Material types
        </xs:documentation>
      </xs:annotation>
 
      <xs:restriction base="xs:token">
-       <xs:enumeration value="biomaterials"/>
+       <xs:enumeration value="biomass"/>
      </xs:restriction>
    </xs:simpleType>
 
@@ -2555,47 +2611,63 @@
      </xs:restriction>
    </xs:simpleType>
 
-   <xs:simpleType name="organic_compounds_Material_types">
+   <xs:simpleType name="small_molecule_organics_Material_types">
      <xs:annotation>
        <xs:documentation>
-         Allowed values for organic compounds vocabulary terms describing Material types
+         Allowed values for small molecule organics vocabulary terms describing Material types
        </xs:documentation>
      </xs:annotation>
 
      <xs:restriction base="xs:token">
-       <xs:enumeration value="organic compounds"/>
-       <xs:enumeration value="organic compounds: alcohols"/>
-       <xs:enumeration value="organic compounds: aldehydes"/>
-       <xs:enumeration value="organic compounds: alkanes"/>
-       <xs:enumeration value="organic compounds: alkenes"/>
-       <xs:enumeration value="organic compounds: alkynes"/>
-       <xs:enumeration value="organic compounds: amines"/>
-       <xs:enumeration value="organic compounds: carboxylic acids"/>
-       <xs:enumeration value="organic compounds: cyclic compounds"/>
-       <xs:enumeration value="organic compounds: cycloalkanes"/>
-       <xs:enumeration value="organic compounds: esters"/>
-       <xs:enumeration value="organic compounds: ketones"/>
-       <xs:enumeration value="organic compounds: nitriles"/>
+       <xs:enumeration value="small molecule organics"/>
+       <xs:enumeration value="small molecule organics: alcohols"/>
+       <xs:enumeration value="small molecule organics: aldehydes"/>
+       <xs:enumeration value="small molecule organics: alkanes"/>
+       <xs:enumeration value="small molecule organics: alkenes"/>
+       <xs:enumeration value="small molecule organics: alkynes"/>
+       <xs:enumeration value="small molecule organics: amines"/>
+       <xs:enumeration value="small molecule organics: carboxylic acids"/>
+       <xs:enumeration value="small molecule organics: cyclic compounds"/>
+       <xs:enumeration value="small molecule organics: cycloalkanes"/>
+       <xs:enumeration value="small molecule organics: esters"/>
+       <xs:enumeration value="small molecule organics: ketones"/>
+       <xs:enumeration value="small molecule organics: nitriles"/>
      </xs:restriction>
    </xs:simpleType>
 
-   <xs:simpleType name="polymers_Material_types">
+   <xs:complexType name="polymers_Material_types">
      <xs:annotation>
        <xs:documentation>
          Allowed values for polymers vocabulary terms describing Material types
        </xs:documentation>
      </xs:annotation>
 
+     <xs:choice minOccurs="0">
+         <xs:element name="property_based" type="rsm:property_based_Polymers"/>
+         <xs:element name="chemical_based_Polymers" type="rsm:chemical_based_Polymers"/>
+     </xs:choice>
+   </xs:complexType>
+
+   <xs:simpleType name = "property_based_Polymers">
      <xs:restriction base="xs:token">
-       <xs:enumeration value="polymers"/>
-       <xs:enumeration value="polymers: copolymers"/>
-       <xs:enumeration value="polymers: elastomers"/>
-       <xs:enumeration value="polymers: homopolymers"/>
-       <xs:enumeration value="polymers: liquid crystals"/>
-       <xs:enumeration value="polymers: polymer blends"/>
-       <xs:enumeration value="polymers: rubbers"/>
-       <xs:enumeration value="polymers: thermoplastics"/>
-       <xs:enumeration value="polymers: thermosets"/>
+       <xs:enumeration value="elastomers"/>
+       <xs:enumeration value="liquid crystals"/>
+       <xs:enumeration value="rubbers"/>
+       <xs:enumeration value="thermoplastics"/>
+       <xs:enumeration value="thermosets"/>
+     </xs:restriction>
+   </xs:simpleType>
+
+
+   <xs:simpleType name = "chemical_based_Polymers">
+     <xs:restriction base="xs:token">
+       <xs:enumeration value="Polyolefins"/>
+       <xs:enumeration value="Polyesters"/>
+       <xs:enumeration value="Polyamides"/>
+       <xs:enumeration value="Polystyrenes"/>
+       <xs:enumeration value="Polycarbonates"/>
+       <xs:enumeration value="Specialty polymers"/>
+       <xs:enumeration value="Other polymers"/>
      </xs:restriction>
    </xs:simpleType>
 
