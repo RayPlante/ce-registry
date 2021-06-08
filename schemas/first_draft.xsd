@@ -114,6 +114,20 @@
            </xs:annotation>
          </xs:element>
 
+          <xs:element name="productClass" type="rsm:Product_class"
+                       minOccurs="0" maxOccurs="unbounded">
+             <xs:annotation>
+               <xs:appinfo>
+                 <label>Product Class</label>
+               </xs:appinfo>
+               <xs:documentation>
+                 the category of product to be processed or recycled that 
+                 this resource is concerned with.
+               </xs:documentation>
+             </xs:annotation>
+           </xs:element>
+
+
          <xs:element name="applicability" type="rsm:CircularStage"
                      minOccurs="0" maxOccurs="unbounded">
            <xs:annotation>
@@ -129,7 +143,24 @@
              </xs:documentation>
            </xs:annotation>
          </xs:element>
+         
+         <xs:element name="materialType" type="rsm:MaterialType"
+                     minOccurs="0" maxOccurs="unbounded">
+           <xs:annotation>
+             <xs:appinfo>
+               <label>Material Type</label>
+             </xs:appinfo>
+           </xs:annotation>
+         </xs:element>
 
+         <xs:element name="processingTechnique"
+                     minOccurs="0" maxOccurs="unbounded">
+           <xs:annotation>
+             <xs:appinfo>
+               <label>Processing Technique</label>
+             </xs:appinfo>
+           </xs:annotation>
+         </xs:element>
       </xs:sequence>
 
       <xs:attribute name="localid">
@@ -2377,32 +2408,6 @@
      <xs:complexContent>
        <xs:extension base="rsm:Applicability">
          <xs:sequence>
-           <xs:element name="productClass" type="rsm:Product_class"
-                       minOccurs="0" maxOccurs="unbounded">
-             <xs:annotation>
-               <xs:appinfo>
-                 <label>Product Class</label>
-               </xs:appinfo>
-               <xs:documentation>
-                 the category of product to be processed or recycled that 
-                 this resource is concerned with.
-               </xs:documentation>
-             </xs:annotation>
-           </xs:element>
-
-           <xs:element name="materialType" type="rsm:Material_types"
-                       minOccurs="0" maxOccurs="unbounded">
-             <xs:annotation>
-               <xs:appinfo>
-                 <label>Material Type</label>
-               </xs:appinfo>
-               <xs:documentation>
-                 the category of material studied in the data contained in
-                 this resource.
-               </xs:documentation>
-             </xs:annotation>
-           </xs:element>
-
           <xs:element name="materialDesign" minOccurs="0" maxOccurs="unbounded">
              <xs:annotation>
                <xs:appinfo>
@@ -2436,6 +2441,23 @@
              </xs:annotation>
            </xs:element>
 
+
+           <xs:element name="useReuse" minOccurs="0" maxOccurs="unbounded">
+             <xs:annotation>
+               <xs:appinfo>
+                 <label>Use and Reuse</label>
+               </xs:appinfo>
+             </xs:annotation>
+           </xs:element>
+
+           <xs:element name="repairRefurbishment" minOccurs="0" maxOccurs="unbounded">
+             <xs:annotation>
+               <xs:appinfo>
+                 <label>Repair and Refurbishmentt</label>
+               </xs:appinfo>
+
+             </xs:annotation>
+           </xs:element>
             <xs:element name="collectionAndSortation"
                        minOccurs="0" maxOccurs="unbounded">
              <xs:annotation>
@@ -2476,7 +2498,7 @@
                        minOccurs="0" maxOccurs="unbounded">
              <xs:annotation>
                <xs:appinfo>
-                 <label>Circular Pathways</label>
+                 <label>Recycling</label>
                </xs:appinfo>
                <xs:documentation>
                  the reprocessing technique for reuse or recycling of concern
@@ -2541,7 +2563,7 @@
      </xs:restriction>
    </xs:simpleType>
 
-   <xs:complexType name="Material_types">
+   <xs:complexType name="MaterialType">
      <xs:annotation>
        <xs:documentation>
          a property that captures Material types vocabulary
@@ -2549,6 +2571,7 @@
      </xs:annotation>
 
      <xs:choice minOccurs="0">
+         <xs:element name="glass" type="rsm:glass_Material_types"/>
          <xs:element name="biomass" type="rsm:biomass_Material_types"/>
          <xs:element name="ceramics" type="rsm:ceramics_Material_types"/>
          <xs:element name="metals_and_alloys" type="rsm:metals_and_alloys_Material_types"/>
@@ -2556,6 +2579,20 @@
          <xs:element name="polymers" type="rsm:polymers_Material_types"/>
      </xs:choice>
    </xs:complexType>
+
+
+
+   <xs:simpleType name="glass_Material_types">
+     <xs:annotation>
+       <xs:documentation>
+         Allowed values for glass vocabulary terms describing Material types
+       </xs:documentation>
+     </xs:annotation>
+
+     <xs:restriction base="xs:token">
+       <xs:enumeration value="silica"/>
+     </xs:restriction>
+   </xs:simpleType>
 
    <xs:simpleType name="biomass_Material_types">
      <xs:annotation>
