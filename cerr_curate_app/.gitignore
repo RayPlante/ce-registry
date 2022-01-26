@@ -1,0 +1,12 @@
+# Add python- and Django-specific files here
+#
+
+# Compiled files
+*.py[co]
+__pycache__
+
+# Sphinx
+_build
+_generated
+api
+
