@@ -1,29 +1,27 @@
 """Curate registry app user views
 """
+from xml.etree.ElementTree import Element, tostring
+
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views import View
 
 import core_curate_app.permissions.rights as rights
 import core_main_app.utils.decorators as decorators
+from cerr_curate_app.components.cerrdata import api as cerrdata_api
+from cerr_curate_app.components.cerrdata.models import CerrData
+from cerr_curate_app.components.draft import api as draft_api
 from core_curate_registry_app.settings import REGISTRY_XSD_FILENAME
 from core_main_app.commons import exceptions
-from core_main_app.components.version_manager import api as version_manager_api
 from core_main_app.components.template import api as template_api
-from core_main_app.utils.rendering import render
-from core_main_registry_app.components.custom_resource import api as custom_resource_api
-from cerr_curate_app.components.cerrdata.models import CerrData
-from cerr_curate_app.components.cerrdata import api as cerrdata_api
-
-from xml.etree.ElementTree import Element,tostring
 from core_main_app.components.version_manager import api as version_manager_api
 from core_main_app.components.version_manager.models import VersionManager
+from core_main_app.utils.rendering import render
+from core_main_registry_app.components.custom_resource import api as custom_resource_api
+from .forms import NameForm
 
-from .forms import  NameForm
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
-from core_main_registry_app.components.category import api as category_api
-from cerr_curate_app.components.draft import api as draft_api
 
 def index(request):
     if request.method == 'POST':
@@ -31,7 +29,7 @@ def index(request):
         if form.is_valid():
             cd = form.cleaned_data
             return HttpResponseRedirect('/curate?submitted=True')
-    else :
+    else:
 
         context = {}
         context['form'] = NameForm()
@@ -57,7 +55,7 @@ def get_name(request):
             version_manager = version_manager.filter(_cls='VersionManager.TemplateVersionManager')
             template = template_api.get(str(version_manager[0].current), request)
             data.template = template
-            data.user_id = str(request.user.id)            # process the data in form.cleaned_data as required
+            data.user_id = str(request.user.id)  # process the data in form.cleaned_data as required
             # set content
             data.xml_content = form_string
             # save data
@@ -72,11 +70,11 @@ def get_name(request):
 
         form = NameForm()
 
-    return render(request, 'cerr_curate_app/user/curate.html', context= {'form': form})
+    return render(request, 'cerr_curate_app/user/curate.html', context={'form': form})
 
 
 def save_as_draft(request):
-    form=NameForm(request.POST)
+    form = NameForm(request.POST)
     if form.is_valid():
         cd = form.cleaned_data
         form_string = render_xml('Resource', cd, 'active')
@@ -84,6 +82,7 @@ def save_as_draft(request):
         version_manager = version_manager.filter(_cls='VersionManager.TemplateVersionManager')
         template = template_api.get(str(version_manager[0].current), request)
         draft_api.dict_to_string(cd)
+
 
 class StartCurate(View):
     """Start curate."""
@@ -141,7 +140,7 @@ class StartCurate(View):
         )
 
 
-def render_xml(tag,clean_data, status):
+def render_xml(tag, clean_data, status):
     elem = Element(tag)
     elem.set('status', status)
     for key, val in clean_data.items():
@@ -152,4 +151,3 @@ def render_xml(tag,clean_data, status):
         elem.append(child)
 
     return tostring(elem)
-
