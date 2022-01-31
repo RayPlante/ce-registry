@@ -8,6 +8,7 @@ from collections.abc import Mapping
 
 from django import forms as djforms
 from django.utils.html import conditional_escape
+from django.forms.utils import ErrorDict
 
 from cerr_curate_app.forms import MultiForm, CerrErrorList
 
@@ -81,12 +82,13 @@ class CreateForm(djforms.Form):
      * an array of radio buttons for selecting a type
     """
     template_name = 'createrec/create.html'
-    name = djforms.CharField(required=False)
+    name = djforms.CharField(required=True)
     homepage = djforms.URLField(required=False)
 
     def __init__(self, data=None, files=None, is_top=True, show_errors=None, **kwargs):
         self.is_top = is_top
         self.show_aggregate_errors = show_errors
+        self.disabled = False
         if self.show_aggregate_errors is None:
             self.show_aggregate_errors = self.is_top
         if 'error_class' not in kwargs:
@@ -106,6 +108,13 @@ class CreateForm(djforms.Form):
         return the errors associated with the homepage input
         """
         return self.errors.get("homepage", self.error_class(error_class="errorlist", renderer=self.renderer))
+
+    def full_clean(self):
+        if self.disabled:
+            self._errors = ErrorDict()
+            self.cleaned_data = {}
+        else:
+            super(CreateForm, self).full_clean()
 
 class MethodSelect(djforms.RadioSelect):
     option_template_name = 'createrec/method_option.html'
@@ -130,12 +139,13 @@ class StartForm(MultiForm):
                                         is_top, show_errors, **kwargs)
         
     def _clean_form(self):
+        if self.cleaned_data.get('start_meth') == 'upload':
+            self.create.disabled = True
+            if not self.files.get('xmlfile'):
+                if 'xmlfile' not in self._errors:
+                    self._errors['xmlfile'] = CerrErrorList([], error_class="errorlist",
+                                                            renderer=self.renderer)
+                self._errors['xmlfile'].append('Please select an XML file to upload')
         super(StartForm, self)._clean_form()
-        if self.cleaned_data.get('start_meth') == 'upload' and not self.cleaned_data.get('xmlfile'):
-            pdb.set_trace()
-            if 'xmlfile' not in self._errors:
-                self._errors['xmlfile'] = CerrErrorList([], error_class="errorlist", renderer=self.renderer)
-            self._errors['xmlfile'].append('Please select an XML file to upload')
-
 
 

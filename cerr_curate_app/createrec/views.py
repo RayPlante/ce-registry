@@ -12,7 +12,7 @@ def start(request):
     Present or handle the starting form for creating a record
     """
     if request.method == 'POST':
-        form = StartForm(request.POST)
+        form = StartForm(request.POST, request.FILES)
         if form.is_valid():
             ctx = form.cleaned_data
             ctx['errors'] = form.create.errors

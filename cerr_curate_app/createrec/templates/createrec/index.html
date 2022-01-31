@@ -12,7 +12,7 @@
 <body id="content">
 <h1>Create or Upload a New Record</h1>
 
-<form enctype="multipart/form-data" action="{% url 'createrec:start' %}" method="post">
+<form enctype="multipart/form-data" action="/createrec/" method="post">
 {% csrf_token %}
 
   {{ startform }}
