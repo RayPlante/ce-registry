@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Create a New Record</title>
+  <script src="{% static 'js/jquery.slim.min.js' %}" ></script>
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'createrec/css/main.css' %}" rel="stylesheet">
+</head>
+
+<body id="content">
+<h1>New Record Data</h1>
+
+<strong>Method:</strong> {{ start_meth }} <br>
+{% if start_meth == 'create' %}
+<strong>name: </strong> {{ create.name }} <br>
+<strong>home: </strong> {{ create.homepage }} <br>
+{% else %}
+<strong>file: </strong> <br>
+<verbatim>
+{{ xmlfile }}
+</verbatim>
+{% endif %}
+
+{% if errors %}
+Errors:
+<ul>
+  {% for fld,err in errors.items %}
+  <li> {{ fld }}: {{ err }} </li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+</body> </html>

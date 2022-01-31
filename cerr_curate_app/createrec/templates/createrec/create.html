@@ -1,8 +1,15 @@
-<div id="create-record">
+<div id="id_create">
+{% if form.show_aggregate_errors %}
+{% if form.errors %}<div style="color: red;"><i>Please correct the errors indicated below</i></div>{% endif %}
+{{ errors }}
+{% endif %}
 <fieldset>
   <div class="mb-3">
     <label class="form-label" for="input-name">Short mnemonic name:</label> <br/>
-    <input type="text" class="form-label" name="name" id="input-name" size="30" minlength="1"/>
+    {{ form.name_errors }}
+    <input type="text" class="form-label" id="input-name" size="30" minlength="1"
+           {% if form.name.value != None %}value="{{ form.name.value|stringformat:'s' }}"{% endif %}
+           name="{{ form.name.html_name }}" />
     <div id="nameHelp" class="form-text">
       This is a short name you can use to recognize this record; it is not shared publicly.
     </div>
@@ -10,7 +17,10 @@
 
   <div class="mb-3">
     <label class="form-label" for="input-homepage">Resource's Home Page URL (optional):</label> <br/>
-    <input type="text" class="form-label" name="homepage" id="input-homepage" size="80"/>
+    {{ form.homepage_errors }}
+    <input type="text" class="form-label" id="input-homepage" size="80"
+           {% if form.homepage.value != None %}value="{{ form.homepage.value|stringformat:'s' }}"{% endif %}
+           name="{{ form.homepage.html_name }}"/>
   </div>
 </fieldset>
 </div>
