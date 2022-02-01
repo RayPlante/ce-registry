@@ -1,8 +1,10 @@
 import pdb
+from collections import OrderedDict
 
 from django.shortcuts import render
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.template import loader
+from django.urls import reverse
 
 from .forms import StartForm
 
@@ -14,14 +16,31 @@ def start(request):
     if request.method == 'POST':
         form = StartForm(request.POST, request.FILES)
         if form.is_valid():
-            ctx = form.cleaned_data
-            ctx['errors'] = form.create.errors
-            return render(request, 'createrec/show.html', ctx)
+            id = process_create_request(form.cleaned_data, request.FILES.get('xmlfile'))
+            return HttpResponseRedirect(reverse('editrec:edit', args=(id,)))
 
     else:
         form = StartForm()
 
     return render(request, 'createrec/index.html', { 'startform': form })
+
+drafts = {}
+def process_create_request(reqdata, file_submission=None):
+    global drafts
+    draft = OrderedDict([('identity', OrderedDict()),
+                         ('content',  OrderedDict())])
+    if file_submission is None or reqdata['start_meth'] == 'create':
+        if reqdata['create'].get('homepage'):
+            draft['content']['landingPage'] = reqdata['create'].get('homepage')
+        drafts[reqdata['create']['name']] = draft
+        return reqdata['create']['name']
+
+    draft['file'] = file_submission
+    drafts[file_submission.name] = draft
+    return file_submission.name
+    
+    
+
 
 def store_post_as_draft(data):
     """

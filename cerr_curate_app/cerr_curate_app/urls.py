@@ -18,5 +18,6 @@ from django.contrib import admin
 
 urlpatterns = [
     path(r'createrec/', include('createrec.urls')),
+    path(r'editrec/', include('editrec.urls')),
     path(r'admin/', admin.site.urls),
 ]
