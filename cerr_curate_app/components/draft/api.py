@@ -76,6 +76,7 @@ def save_as_draft(request):
         template = template_api.get(str(version_manager[0].current), request)
         draft_api.dict_to_string(cd)
         draft = Draft(user=request.user, template=template, name=cd.name, form_string=form_string)
+        draft_api.upsert(draft, request.user)
         return draft
 
 
