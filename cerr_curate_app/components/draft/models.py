@@ -1,16 +1,14 @@
 import logging
-from abc import abstractmethod
 
-from django_mongoengine import fields, Document
+from django_mongoengine import Document
+from django_mongoengine import fields
+from mongoengine import errors as mongoengine_errors
+from mongoengine.errors import NotUniqueError
+from mongoengine.queryset.base import CASCADE
 
 from core_main_app.commons import exceptions
-from core_main_app.components.template.models import Template
-from core_parser_app.components.data_structure_element.models import (
-    DataStructureElement,
-)
-from core_parser_app.tasks import delete_branch_task
 from core_main_app.components.data.models import Data
-from mongoengine.queryset.base import CASCADE
+from core_main_app.components.template.models import Template
 
 logger = logging.getLogger(__name__)
 
@@ -21,8 +19,50 @@ class Draft(Document):
     user = fields.StringField()
     template = fields.ReferenceField(Template)
     name = fields.StringField(unique_with=["user", "template"])
-    form_string = fields.StringField(blank=True)
+    # Dict_string
+    form_data = fields.StringField(blank=True)
     data = fields.ReferenceField(Data, blank=True, reverse_delete_rule=CASCADE)
 
     meta = {"abstract": True}
 
+    @staticmethod
+    def get_all_by_user_id(user_id):
+        """Return all drafts by user
+
+        Returns:
+
+        """
+        return Draft.objects(
+            user=str(user_id)
+        ).all()
+
+    @staticmethod
+    def get_by_id(draft_id):
+        """Return the object with the given id.
+
+        Args:
+            draft_id:
+
+        Returns:
+            Draft (obj): Draft object with the given id
+
+        """
+        try:
+            return Draft.objects.get(pk=str(draft_id))
+        except mongoengine_errors.DoesNotExist as e:
+            raise exceptions.DoesNotExist(str(e))
+        except Exception as ex:
+            raise exceptions.ModelError(str(ex))
+
+    def save_object(self):
+        """Custom save
+
+        Returns:
+
+        """
+        try:
+            return self.save()
+        except NotUniqueError:
+            raise exceptions.ModelError("Unable to save the document: not unique.")
+        except Exception as ex:
+            raise exceptions.ModelError(str(ex))
