@@ -30,12 +30,16 @@ develop-eggs
 distribute-*.tar.gz
 m2repo
 
+# Emacs
+*~
+.\#*
+\#*
+
 # Other
 .cache
 .tox
 .bak
 .*.swp
-*~
 .project
 .pydevproject
 .settings

@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>CERR Editing: {{ recname }}</title>
+  <script src="{% static 'cerr_curate_app/js/jquery.slim.min.js' %}" ></script>
+  <link href="{% static 'cerr_curate_app/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'cerr_curate_app/css/main.css' %}" rel="stylesheet">
+  <link href="{% static 'cerr_curate_app/user/base/css/forms.css' %}" rel="stylesheet">
+</head>
+
+<body id="content">
+<h1>Edit Record: {{ recname }}</h1>
+
+<form action="{% url 'edit' draft_id %}" method="post">
+{% csrf_token %}
+
+  {{ editform }}
+  <div style="margin-top: 2ex">
+  <input type="submit" value="Save draft"/>
+  <div>
+</form>
+
+
+
+</body> </html>
