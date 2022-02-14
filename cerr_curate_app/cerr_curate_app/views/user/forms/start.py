@@ -9,13 +9,13 @@ from django import forms as forms
 from django.utils.html import conditional_escape
 from django.forms.utils import ErrorDict
 
-from .base import MultiForm, CerrErrorList
+from .base import ComposableForm, MultiForm, CerrErrorList
 
 __all__ = "CreateForm StartForm".split()
 
 TMPL8S = 'cerr_curate_app/user/forms/'
 
-class CreateForm(forms.Form):
+class CreateForm(ComposableForm):
     """
     A Form for creating an initial draft of a record.
 
@@ -27,6 +27,7 @@ class CreateForm(forms.Form):
     template_name = TMPL8S + 'createform.html'
     name = forms.CharField(required=True)
     homepage = forms.URLField(required=False)
+    scrape = forms.BooleanField(initial=True)
 
     def __init__(self, data=None, files=None, is_top=True, show_errors=None, **kwargs):
         self.is_top = is_top
@@ -43,14 +44,14 @@ class CreateForm(forms.Form):
         """
         return the errors associated with the name input
         """
-        return self.errors.get("name", self.error_class(error_class="errorlist", renderer=self.renderer))
+        return self.errors.get("name", self.error_class(error_class="errorlist"))
         
     @property
     def homepage_errors(self):
         """
         return the errors associated with the homepage input
         """
-        return self.errors.get("homepage", self.error_class(error_class="errorlist", renderer=self.renderer))
+        return self.errors.get("homepage", self.error_class(error_class="errorlist"))
 
     def full_clean(self):
         if self.disabled:
@@ -94,8 +95,7 @@ class StartForm(MultiForm):
             self.create.disabled = True
             if not self.files.get('xmlfile'):
                 if 'xmlfile' not in self._errors:
-                    self._errors['xmlfile'] = CerrErrorList([], error_class="errorlist",
-                                                            renderer=self.renderer)
+                    self._errors['xmlfile'] = CerrErrorList([], error_class="errorlist")
                 self._errors['xmlfile'].append('Please select an XML file to upload')
         super(StartForm, self)._clean_form()
 
