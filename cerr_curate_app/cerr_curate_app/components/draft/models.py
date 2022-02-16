@@ -9,7 +9,7 @@ from mongoengine.queryset.base import CASCADE
 from core_main_app.commons import exceptions
 from core_main_app.components.data.models import Data
 from core_main_app.components.template.models import Template
-
+from cerr_curate_app.components.Cerrdata.models import CerrData
 logger = logging.getLogger(__name__)
 
 
@@ -17,11 +17,14 @@ class Draft(Document):
     """Stores data being entered and not yet curated"""
 
     user = fields.StringField()
+    # schema associated with the draft document
     template = fields.ReferenceField(Template)
+    # name of the document
     name = fields.StringField(unique_with=["user", "template"])
-    # Dict_string
+    # Whole XML data of the document
     form_data = fields.StringField(blank=True)
-    data = fields.ReferenceField(Data, blank=True, reverse_delete_rule=CASCADE)
+    # Reference to the saved CerrData
+    data = fields.ReferenceField(CerrData, blank=True, reverse_delete_rule=CASCADE)
 
     meta = {"abstract": True}
 

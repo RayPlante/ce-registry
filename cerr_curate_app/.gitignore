@@ -4,9 +4,9 @@
 # Compiled files
 *.py[co]
 __pycache__
-
+db.sqlite3
 # Sphinx
 _build
 _generated
 api
-
+.idea
