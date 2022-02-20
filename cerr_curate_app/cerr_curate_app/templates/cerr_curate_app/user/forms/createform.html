@@ -27,5 +27,14 @@
       <label class="form-check-label" for="create-scrape">Scrape this URL for metadata (recommended)</label>
     </span>
   </div>
+  <div>
+    <p><b>Type of resource</b> <br />
+       Choose one type from the choices below that <it>best</it> describes the resource.  (Don't worry:
+       you'll be able to change it or add to it later.) <br />
+       {{ form.restype_errors }}
+    </p>
+    {{ form.restype }}
+  </div>
+
 </fieldset>
 </div>

@@ -1,7 +1,7 @@
 """
 a module defining Forms used to start a draft record
 """
-import os
+import os, pdb
 from collections import OrderedDict
 from collections.abc import Mapping
 
@@ -10,6 +10,7 @@ from django.utils.html import conditional_escape
 from django.forms.utils import ErrorDict
 
 from .base import ComposableForm, MultiForm, CerrErrorList
+from .selectrestype import ResourceTypeChoiceField
 
 __all__ = "CreateForm StartForm".split()
 
@@ -28,6 +29,7 @@ class CreateForm(ComposableForm):
     name = forms.CharField(required=True)
     homepage = forms.URLField(required=False)
     scrape = forms.BooleanField(initial=True)
+    restype = ResourceTypeChoiceField()
 
     def __init__(self, data=None, files=None, is_top=True, show_errors=None, **kwargs):
         self.is_top = is_top
@@ -52,6 +54,13 @@ class CreateForm(ComposableForm):
         return the errors associated with the homepage input
         """
         return self.errors.get("homepage", self.error_class(error_class="errorlist"))
+
+    @property
+    def restype_errors(self):
+        """
+        return the errors associated with the homepage input
+        """
+        return self.errors.get("restype", self.error_class(error_class="errorlist"))
 
     def full_clean(self):
         if self.disabled:
