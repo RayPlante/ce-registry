@@ -100,7 +100,9 @@ def uploaded_file_to_draft(filedata):
 def draftdoc_to_edit(draft_doc, draft_id):
     data = {}
     draft = draft_doc.get('Resource',{})
-    data['homepage'] = draft.get('content', {}).get('landingPage','')
+    content = draft.get('content', {})
+    if content:
+        data['homepage'] = content.get('landingPage','')
     data['draft_id'] = draft_id
     return data
 
