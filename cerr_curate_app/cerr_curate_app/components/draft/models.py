@@ -9,24 +9,24 @@ from mongoengine.queryset.base import CASCADE
 from core_main_app.commons import exceptions
 from core_main_app.components.data.models import Data
 from core_main_app.components.template.models import Template
-from cerr_curate_app.components.Cerrdata.models import CerrData
+from cerr_curate_app.components.cerrdata.models import CerrData
 logger = logging.getLogger(__name__)
 
 
 class Draft(Document):
     """Stores data being entered and not yet curated"""
 
-    user = fields.StringField()
+    user_id = fields.StringField()
     # schema associated with the draft document
     template = fields.ReferenceField(Template)
     # name of the document
-    name = fields.StringField(unique_with=["user", "template"])
+    name = fields.StringField(unique_with=["user_id", "template"])
     # Whole XML data of the document
     form_data = fields.StringField(blank=True)
     # Reference to the saved CerrData
     data = fields.ReferenceField(CerrData, blank=True, reverse_delete_rule=CASCADE)
 
-    meta = {"abstract": True}
+#    meta = {"abstract": True}
 
     @staticmethod
     def get_all_by_user_id(user_id):

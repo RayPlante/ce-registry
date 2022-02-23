@@ -9,12 +9,14 @@ https://docs.djangoproject.com/en/1.11/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
-
 import os
+
+from mongoengine.connection import connect
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+CAN_ANONYMOUS_ACCESS_PUBLIC_DOCUMENT = True
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -81,6 +83,15 @@ DATABASES = {
     }
 }
 
+MONGO_HOST = os.environ["MONGO_HOST"] if "MONGO_HOST" in os.environ else "localhost"
+MONGO_PORT = os.environ["MONGO_PORT"] if "MONGO_PORT" in os.environ else "27017"
+MONGO_DB = os.environ["MONGO_DB"] if "MONGO_DB" in os.environ else "cdcs"
+MONGO_USER = os.environ["MONGO_USER"] if "MONGO_USER" in os.environ else "curator"
+MONGO_PASS = os.environ["MONGO_PASS"] if "MONGO_PASS" in os.environ else "curator"
+MONGODB_URI = (
+    f"mongodb://{MONGO_USER}:{MONGO_PASS}@{MONGO_HOST}:{MONGO_PORT}/{MONGO_DB}"
+)
+connect(MONGO_DB, host=MONGODB_URI).close()
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
