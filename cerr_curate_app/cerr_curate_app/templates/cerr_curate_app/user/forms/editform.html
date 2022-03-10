@@ -1,19 +1,36 @@
-{% include 'cerr_curate_app/user/base/p.html' %}
-  <script type="text/javascript">
-  function createrec_disable_create(ev) {
-      // var fs = $("#id_create fieldset")
-      // console.log("flipping disable on "+fs.get(0).localName+" to "+(ev.target.value != "create"));
-      $("#id_create fieldset").get(0).disabled = ev.target.value != "create";
-      $("#id_xmlfile").get(0).disabled = ev.target.value == "create";
-  }
-  </script>
+<!DOCTYPE html>
+<html>
+  <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!--Bootstrap CSS-->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+    {% load crispy_forms_tags %}
+    <!-- Optional Javascript -->
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </body>
+</html>
+
+
+
+
+
+{{form.title|as_crispy_field }}
+{{form.description|as_crispy_field }}
 
   {{ errors }}
   <div class="form-check">
     {{ form.start_meth.0 }}
   </div>
-  <div style="margin-left: 1.5rem">
-{{form.urlform}}
+  <div>
+  {{form.urlform|crispy }}
+    <button type ="button">Auto-Fill</button> Press this to autofill the form </br>
+
   </div>
   <div style="margin-top: 1em;">
   <div class="form-check">
@@ -21,7 +38,7 @@
   </div>
   <div style="margin-left: 1.5rem; margin-top: .125rem;">
 
-{{form.product}}
+{{form.productform }}
   </div>
         <div style="margin-top: 1em;">
   <div class="form-check">
@@ -29,7 +46,7 @@
   </div>
   <div style="margin-left: 1.5rem; margin-top: .125rem;">
 
-{{form.material}}
+{{form.material|crispy }}
   </div>
         </div>
   </div>
