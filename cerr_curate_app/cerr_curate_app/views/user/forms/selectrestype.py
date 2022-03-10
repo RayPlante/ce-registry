@@ -95,3 +95,24 @@ class ResourceTypeChoiceField(forms.MultipleChoiceField):
         if not isinstance(value, (list, tuple)):
             value = [value]
         return super().to_python(value)
+
+
+class ProductTypeChoiceField(forms.MultipleChoiceField):
+    """
+    A choice of a resource type (role)
+    """
+    def __init__(self, allow_multiple=False, **kwargs):
+        self._allow_multiple = allow_multiple
+
+        resources = (
+             ("batteries", "electronics ", "packaging","textiles"),
+        )
+
+        widget = ResourceSelect(allow_multiple, resources)
+        super(ProductTypeChoiceField, self).__init__(choices=widget.choices, widget=widget, **kwargs)
+
+    def to_python(self, value):
+        if not isinstance(value, (list, tuple)):
+            value = [value]
+        return super().to_python(value)
+
