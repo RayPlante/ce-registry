@@ -116,7 +116,7 @@ def draftdoc_to_edit(draft_doc, draft_id):
     content = draft.get('content', {})
     if content:
         data['homepage'] = content.get('landingPage','')
-        data['resourceType'] = content.get('resourceType','')
+        data['resourceType'] = draft.get('resourceType','')
     data['draft_id'] = draft_id
     return data
 
