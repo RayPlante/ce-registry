@@ -11,7 +11,6 @@ from django.template import loader
 from django.urls import reverse
 
 from .forms import StartForm, EditForm
-
 from ...components.draft import api as draft_api
 
 TMPL8S = 'cerr_curate_app/user/draft/'
@@ -51,6 +50,7 @@ def edit(request, draft_id):
             try:
                 draft = edit_to_draftdoc(form.cleaned_data)
                 draft_api.save_updated_draft(draft, draft_id, request)
+                draft_obj = draft
                 return HttpResponseRedirect(reverse('start'))
             except DetectedFailure as ex:
                 return handleFailure(ex)
@@ -58,21 +58,24 @@ def edit(request, draft_id):
                 return handleFailure(Http401(message=str(ex)))
 
     else:
+
         try:
             draft_obj = draft_api.get_by_id(draft_id, request.user)
             draft_doc = draft_api.unrender_xml(draft_obj.form_data)
         except draft_api.AccessControlError as ex:
             return handleFailure(Http401(message=str(ex)))
-        form = EditForm(initial=draftdoc_to_edit(draft_doc, draft_obj.id))
+        form = EditForm(data=draftdoc_to_edit(draft_doc, draft_obj.id))
 
     return render(request, TMPL8S+'edit.html',
-                  { 'recname': draft_obj.name, 'editform': form, 'draft_id': draft_id })
+                  { 'editform': form, 'draft_id': draft_id
+                    })
 
 def start_to_draftdoc(startdata, file_submission=None):
     """
     Convert the cleaned data from the form into a draft XML document.  
     :return:  a dictionary containing an "xml_to_dict" representation of the XML document.
     """
+
 
     if file_submission is None or startdata['start_meth'] == 'create':
         draft = Node(_schema)
@@ -81,13 +84,17 @@ def start_to_draftdoc(startdata, file_submission=None):
         draft.add('Resource/@status', 'active')
         draft.add('name', startdata['create'].get('name'))
 
+        if startdata['create'].get('restype'):
+            draft.add('resourceType', startdata['create'].get('restype'))
+
         if startdata['create'].get('scrape'):
             hp = startdata['create'].get('homepage');
             if hp and (hp.startswith('doi:') or hp.startswith('https://doi.org/')):
                 doi_into_draftdoc(hp, draft)
-        
+
         out = draft.todict()
-        return {'Resource': out['Resource'][0], 'name': out['name'][0]}
+        return {'Resource': out['Resource'][0], 'name': out['name'][0],
+                'resourceType': out['resourceType'][0]}
 
     elif file_submission:
         draft = load_uploaded_file(file_submission)
@@ -109,6 +116,7 @@ def draftdoc_to_edit(draft_doc, draft_id):
     content = draft.get('content', {})
     if content:
         data['homepage'] = content.get('landingPage','')
+        data['resourceType'] = content.get('resourceType','')
     data['draft_id'] = draft_id
     return data
 
