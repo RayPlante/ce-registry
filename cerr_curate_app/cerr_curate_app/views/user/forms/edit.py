@@ -8,7 +8,7 @@ from collections.abc import Mapping
 from django import forms as forms
 from django.utils.html import conditional_escape
 from django.forms.utils import ErrorDict
-from core_main_registry_app.utils.fancytree.widget import FancyTreeWidget
+from cerr_curate_app.utils.fancytree.widget import FancyTreeWidget
 from .base import MultiForm, CerrErrorList, ComposableForm
 
 __all__ = ['EditForm']
@@ -20,7 +20,7 @@ from .selectrestype import ResourceTypeChoiceField
 class ProductForm(ComposableForm):
     choices = ("batteries", "electronics ", "packaging","textiles"),
     template_name = TMPL8S + 'ProductForm.html'
-    restype = forms.MultipleChoiceField(choices = choices)
+    restype = forms.MultipleChoiceField(choices = choices,widget = forms.RadioSelect)
     def __init__(self, data=None, files=None, is_top=True, show_errors=None, **kwargs):
         self.is_top = is_top
         self.show_aggregate_errors = show_errors
@@ -141,11 +141,12 @@ class EditForm(MultiForm):
     description = forms.CharField(widget=forms.Textarea, label='Description')
 
     def __init__(self,data=None,files=None, title=None, is_top=True, show_errors=None, **kwargs):
-        if data :
+        if data.get('homepage') :
             self.urlform = UrlForm(data,files,is_top=False,initial = {'homepage': data['homepage']})
         else :
             self.urlform = UrlForm(data, files, is_top=False)
         self.productform = ProductForm(data, files, is_top = False)
+        self.material = MaterialTypeForm()
         self.is_top = is_top
         self.show_aggregate_errors = show_errors
         self.title = title
@@ -154,3 +155,21 @@ class EditForm(MultiForm):
         if 'error_class' not in kwargs:
             kwargs['error_class'] = CerrErrorList
         super(EditForm, self).__init__(data,{'urlform':self.urlform, 'productform':self.productform},**kwargs)
+
+from django.db import models
+from mptt.models import MPTTModel, TreeForeignKey
+
+class Fruit(MPTTModel):
+    name = models.CharField(max_length=50, unique=True)
+    parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
+
+    class MPTTMeta:
+        order_insertion_by = ['name']
+
+class MaterialTypeForm(forms.Form):
+    fields = ('name', 'categories')
+    categories = Fruit.objects.order_by('tree_id', 'lft')
+    widgets = forms.ModelMultipleChoiceField(
+       queryset=categories,
+       widget=FancyTreeWidget(queryset=categories, count_mode=True)
+    )

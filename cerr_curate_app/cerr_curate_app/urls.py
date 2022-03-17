@@ -22,5 +22,5 @@ app_name = 'draft'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('draft/start/', draft.start, name='start'),
-    path('draft/edit/<str:draft_id>', draft.edit, name='edit'),
+    path('draft/edit/<str:draft_id>', draft.EditView.as_view(), name='edit'),
 ]

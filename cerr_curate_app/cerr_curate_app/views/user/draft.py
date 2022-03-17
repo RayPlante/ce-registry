@@ -8,6 +8,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, Http404, HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
+from django.views.generic import View
 
 from .forms import StartForm, EditForm
 from ...components.draft import api as draft_api
@@ -36,13 +37,32 @@ def start(request):
 
     return render(request, TMPL8S+'start.html', { 'startform': form })
 
-def edit(request, draft_id):
+class EditView(View):
     """
     present and accept updates from an editable version of a draft
     On GET, retrieve a requested draft and load it into the edit form.
     On POST, accept the updated draft and save it.
     """
-    if request.method == 'POST':
+    def __init__(self, **kwargs):
+        self.assets = self._load_assets()
+
+        super().__init__(**kwargs)
+    def get(self,request, **kwargs):
+        draft_id= kwargs['draft_id']
+        form = EditForm(request.POST)
+        try:
+            draft_obj = draft_api.get_by_id(draft_id, request.user)
+            draft_doc = draft_api.unrender_xml(draft_obj.form_data)
+        except draft_api.AccessControlError as ex:
+            return handleFailure(Http401(message=str(ex)))
+        form = EditForm(data=draftdoc_to_edit(draft_doc, draft_obj.id))
+
+        return render(request, TMPL8S + 'edit.html' ,
+                      {'editform': form, 'draft_id': draft_id
+                       })
+
+    def post(self, request, **kwargs):
+        draft_id = ''
         form = EditForm(request.POST)
         if form.is_valid():
             try:
@@ -55,18 +75,52 @@ def edit(request, draft_id):
             except draft_api.AccessControlError as ex:
                 return handleFailure(Http401(message=str(ex)))
 
-    else:
 
-        try:
-            draft_obj = draft_api.get_by_id(draft_id, request.user)
-            draft_doc = draft_api.unrender_xml(draft_obj.form_data)
-        except draft_api.AccessControlError as ex:
-            return handleFailure(Http401(message=str(ex)))
-        form = EditForm(data=draftdoc_to_edit(draft_doc, draft_obj.id))
+        return render(request, TMPL8S+'edit.html',
+                      { 'editform': form, 'draft_id': draft_id
+                        })
 
-    return render(request, TMPL8S+'edit.html',
-                  { 'editform': form, 'draft_id': draft_id
-                    })
+    def _load_assets(self):
+        """Update assets structure relative to the registry
+
+        Returns:
+
+        """
+
+        # add all assets needed
+        assets= {
+            "js": [
+                {
+                    "path": "core_explore_keyword_registry_app/user/js/search/tagit.custom.js",
+                    "is_raw": False,
+                },
+                {
+                    "path": "core_explore_keyword_registry_app/user/js/search/fancytree.custom.js",
+                    "is_raw": False,
+                },
+                {
+                    "path": "core_explore_keyword_registry_app/user/js/search/resource_type_icons_table.js",
+                    "is_raw": False,
+                },
+                {
+                    "path": "core_explore_keyword_registry_app/user/js/search/filters.js",
+                    "is_raw": False,
+                },
+            ],
+
+            "css":
+            [
+                "core_explore_keyword_registry_app/user/css/fancytree/fancytree.custom.css",
+                "core_main_registry_app/user/css/resource_banner/selection.css",
+                "core_main_registry_app/user/css/resource_banner/resource_banner.css",
+                "core_explore_keyword_registry_app/user/css/search/filters.css",
+                "core_main_registry_app/libs/fancytree/skin-bootstrap/ui.fancytree.css",
+
+            ]
+    }
+
+        return assets
+
 
 def start_to_draftdoc(startdata, file_submission=None):
     """
@@ -120,6 +174,11 @@ def edit_to_draftdoc(data):
                          ('content',  OrderedDict())])
     if data.get('homepage'):
         draft['content']['landingPage'] = data.get('homepage','')
+    if data.get('title'):
+            draft['content']['title'] = data.get('title', '')
+    if data.get('description'):
+        draft['content']['description'] = data.get('description','')
+
     draft = OrderedDict([('Resource', draft)])
     return draft
 
