@@ -17,10 +17,14 @@ from django.urls import include, path
 from django.contrib import admin
 
 from .views.user import draft
+from .views.user import ajax
 
-app_name = 'draft'
+app_name = "draft"
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('draft/start/', draft.start, name='start'),
-    path('draft/edit/<str:draft_id>', draft.EditView.as_view(), name='edit'),
+    path("admin/", admin.site.urls),
+    path("draft/start/", draft.start, name="start"),
+    path("draft/edit/<str:draft_id>", draft.EditView.as_view(), name="edit"),
+    path(
+        r"^save-list-data", ajax.data_structure_element_value, name="ajax_save_element"
+    ),
 ]

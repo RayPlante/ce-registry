@@ -1,1 +1,0 @@
-var editXSLTPostUrl = "{% url 'core_main_app_edit_xslt' %}";

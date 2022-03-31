@@ -11,25 +11,26 @@ from django.forms.utils import ErrorDict
 from cerr_curate_app.utils.fancytree.widget import FancyTreeWidget
 from .base import MultiForm, CerrErrorList, ComposableForm
 
-__all__ = ['EditForm']
+__all__ = ["EditForm"]
 
-TMPL8S = 'cerr_curate_app/user/forms/'
+TMPL8S = "cerr_curate_app/user/forms/"
 from .selectrestype import ResourceTypeChoiceField
 
 
 class ProductForm(ComposableForm):
-    choices = ("batteries", "electronics ", "packaging","textiles"),
-    template_name = TMPL8S + 'ProductForm.html'
-    restype = forms.MultipleChoiceField(choices = choices,widget = forms.RadioSelect)
+    choices = (("batteries", "electronics ", "packaging", "textiles"),)
+    template_name = TMPL8S + "ProductForm.html"
+    restype = forms.MultipleChoiceField(choices=choices, widget=forms.RadioSelect)
+
     def __init__(self, data=None, files=None, is_top=True, show_errors=None, **kwargs):
         self.is_top = is_top
         self.show_aggregate_errors = show_errors
         self.disabled = False
         if self.show_aggregate_errors is None:
             self.show_aggregate_errors = self.is_top
-        if 'error_class' not in kwargs:
-            kwargs['error_class'] = CerrErrorList
-        super(ProductForm, self).__init__(data,files,**kwargs)
+        if "error_class" not in kwargs:
+            kwargs["error_class"] = CerrErrorList
+        super(ProductForm, self).__init__(data, files, **kwargs)
 
     @property
     def homepage_errors(self):
@@ -37,7 +38,6 @@ class ProductForm(ComposableForm):
         return the errors associated with the homepage input
         """
         return self.errors.get("homepage", self.error_class(error_class="errorlist"))
-
 
     def full_clean(self):
         if self.disabled:
@@ -46,9 +46,10 @@ class ProductForm(ComposableForm):
         else:
             super(ProductForm, self).full_clean()
 
+
 class UrlForm(ComposableForm):
-    template_name = TMPL8S + 'urlform.html'
-    homepage = forms.URLField(label='Home Page URL')
+    template_name = TMPL8S + "urlform.html"
+    homepage = forms.URLField(label="Home Page URL")
 
     def __init__(self, data=None, files=None, is_top=True, show_errors=None, **kwargs):
         self.is_top = is_top
@@ -56,9 +57,9 @@ class UrlForm(ComposableForm):
         self.disabled = False
         if self.show_aggregate_errors is None:
             self.show_aggregate_errors = self.is_top
-        if 'error_class' not in kwargs:
-            kwargs['error_class'] = CerrErrorList
-        super(UrlForm, self).__init__(data,files,**kwargs)
+        if "error_class" not in kwargs:
+            kwargs["error_class"] = CerrErrorList
+        super(UrlForm, self).__init__(data, files, **kwargs)
 
     @property
     def homepage_errors(self):
@@ -66,7 +67,6 @@ class UrlForm(ComposableForm):
         return the errors associated with the homepage input
         """
         return self.errors.get("homepage", self.error_class(error_class="errorlist"))
-
 
     def full_clean(self):
         if self.disabled:
@@ -85,20 +85,21 @@ class CreateForm(ComposableForm):
      * a URL field for entering the resource's landing page
      * an array of radio buttons for selecting a type
     """
-    template_name = TMPL8S + 'createform.html'
+
+    template_name = TMPL8S + "createform.html"
     name = forms.CharField(required=True)
     homepage = forms.URLField(required=False)
     restype = ResourceTypeChoiceField()
 
-    def __init__(self, data=None,  is_top=True, show_errors=None, **kwargs):
+    def __init__(self, data=None, is_top=True, show_errors=None, **kwargs):
         self.is_top = is_top
         self.show_aggregate_errors = show_errors
         self.disabled = False
         if self.show_aggregate_errors is None:
             self.show_aggregate_errors = self.is_top
-        if 'error_class' not in kwargs:
-            kwargs['error_class'] = CerrErrorList
-        super(CreateForm, self).__init__(data,  **kwargs)
+        if "error_class" not in kwargs:
+            kwargs["error_class"] = CerrErrorList
+        super(CreateForm, self).__init__(data, **kwargs)
 
     @property
     def name_errors(self):
@@ -131,45 +132,54 @@ class CreateForm(ComposableForm):
 
 class EditForm(MultiForm):
     """
-    Form that allows a user to create a new record.  
+    Form that allows a user to create a new record.
 
     The cleaned_data provides data collected from the form in the following fields:
     :param str homepage:   the resource's home page URL
     """
-    template_name = TMPL8S + 'editform.html'
-    title = forms.CharField(label ='Title of Resource Type' ,required=True)
-    description = forms.CharField(widget=forms.Textarea, label='Description')
 
-    def __init__(self,data=None,files=None, title=None, is_top=True, show_errors=None, **kwargs):
-        if data.get('homepage') :
-            self.urlform = UrlForm(data,files,is_top=False,initial = {'homepage': data['homepage']})
-        else :
+    template_name = TMPL8S + "editform.html"
+    title = forms.CharField(label="Title of Resource Type", required=True)
+    description = forms.CharField(widget=forms.Textarea, label="Description")
+    publisher = forms.CharField(label="Publisher of Resource Type", required=True)
+
+    def __init__(
+        self, data=None, files=None, title=None, is_top=True, show_errors=None, **kwargs
+    ):
+        if data.get("homepage"):
+            self.urlform = UrlForm(
+                data, files, is_top=False, initial={"homepage": data["homepage"]}
+            )
+        else:
             self.urlform = UrlForm(data, files, is_top=False)
-        self.productform = ProductForm(data, files, is_top = False)
+        self.productform = ProductForm(data, files, is_top=False)
         self.material = MaterialTypeForm()
         self.is_top = is_top
         self.show_aggregate_errors = show_errors
         self.title = title
         if self.show_aggregate_errors is None:
             self.show_aggregate_errors = self.is_top
-        if 'error_class' not in kwargs:
-            kwargs['error_class'] = CerrErrorList
-        super(EditForm, self).__init__(data,{'urlform':self.urlform, 'productform':self.productform},**kwargs)
+        if "error_class" not in kwargs:
+            kwargs["error_class"] = CerrErrorList
+        super(EditForm, self).__init__(
+            data, {"urlform": self.urlform, "productform": self.productform}, **kwargs
+        )
+
 
 from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
+from cerr_curate_app.components.material.models import Material
 
-class Fruit(MPTTModel):
-    name = models.CharField(max_length=50, unique=True)
-    parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
-
-    class MPTTMeta:
-        order_insertion_by = ['name']
 
 class MaterialTypeForm(forms.Form):
-    fields = ('name', 'categories')
-    categories = Fruit.objects.order_by('tree_id', 'lft')
-    widgets = forms.ModelMultipleChoiceField(
-       queryset=categories,
-       widget=FancyTreeWidget(queryset=categories, count_mode=True)
+    fields = ("name", "categories")
+    categories = Material.objects.order_by("tree_id", "lft")
+    widget = forms.ModelMultipleChoiceField(
+        label="Material Type",
+        required=False,
+        queryset=categories,
+        widget=FancyTreeWidget(queryset=categories),
     )
+
+    def _clean_form(self):
+        super(MaterialTypeForm)._clean_form()

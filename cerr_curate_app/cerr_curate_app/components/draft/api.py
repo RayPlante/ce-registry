@@ -7,11 +7,14 @@ from cerr_curate_app.components.draft.models import Draft
 from core_main_app.access_control.api import can_read_id, can_write, AccessControlError
 from core_main_app.access_control.decorators import access_control
 from core_main_app.components.template import api as template_api
-from core_main_app.components.template_version_manager.models import TemplateVersionManager
+from core_main_app.components.template_version_manager.models import (
+    TemplateVersionManager,
+)
 
 from xml_to_dict import XMLtoDict
 
 logger = logging.getLogger(__name__)
+
 
 def get_all_by_user_id(user_id):
     """Returns all drafts with the given user
@@ -28,8 +31,8 @@ def get_all_by_user_id(user_id):
 def get_by_id(draft_id, user):
     """
     Returns the Draft data object with the given ID
-    :param str draft_id:  the ID for the desired draft 
-    :param User user:     the user making the request; used to authorize the 
+    :param str draft_id:  the ID for the desired draft
+    :param User user:     the user making the request; used to authorize the
                           creation of the draft.
 
     :return: the requested Draft object
@@ -41,11 +44,11 @@ def get_by_id(draft_id, user):
 @access_control(can_write)
 def upsert(draft, user, id=None):
     """
-    Save a draft data object.  If id attribute is set or the id is provided, the object will 
-    replace the previously-saved draft having that ID.  
+    Save a draft data object.  If id attribute is set or the id is provided, the object will
+    replace the previously-saved draft having that ID.
 
     :param Draft draft:  the draft object to save
-    :param User user:    the user making the request; used to authorize the 
+    :param User user:    the user making the request; used to authorize the
                          creation of the draft.
     :param str id:       the ID of the previously saved draft to replace; if None,
                          a new draft object is created with a new ID.
@@ -64,7 +67,7 @@ def save_new_draft(draftdoc, name, request):
     save a new draft XML document with the given name
     :param dict draftdoc:   the draft XML document as an "xml_to_dict" dictionary
     :param str      name:   the mnemonic name to save the draft under
-    :param HttpRequest request:  the HTTP request that delivered the draft; this is used 
+    :param HttpRequest request:  the HTTP request that delivered the draft; this is used
                             to authorize the creation of the draft.
     """
     # convert the dictionary to an XML-encoded string
@@ -72,20 +75,28 @@ def save_new_draft(draftdoc, name, request):
 
     # get the current registry template
     version_manager = TemplateVersionManager.get_all()
-    version_manager = version_manager.filter(_cls='VersionManager.TemplateVersionManager')
+    version_manager = version_manager.filter(
+        _cls="VersionManager.TemplateVersionManager"
+    )
     template = template_api.get(str(version_manager[0].current), request)
-    
+
     # create the Draft object and save
-    draft = Draft(user_id=str(request.user.id), template=template, name=name, form_data=form_string)
+    draft = Draft(
+        user_id=str(request.user.id),
+        template=template,
+        name=name,
+        form_data=form_string,
+    )
     upsert(draft, request.user)
     return draft
+
 
 def save_updated_draft(draftdoc, id, request):
     """
     save a new draft XML document with the given name
     :param dict draftdoc:   the draft XML document as an "xml_to_dict" dictionary
     :param str      name:   the mnemonic name to save the draft under
-    :param HttpRequest request:  the HTTP request that delivered the draft; this is used 
+    :param HttpRequest request:  the HTTP request that delivered the draft; this is used
                             to authorize the creation of the draft.
     """
     # convert the dictionary to an XML-encoded string
@@ -101,11 +112,13 @@ def save_updated_draft(draftdoc, id, request):
     upsert(draft, request.user)
     return draft
 
+
 def unrender_xml(xmlstr):
     """
-    Convert an XML-formatted string to an "xml_to_dict" dictionary 
+    Convert an XML-formatted string to an "xml_to_dict" dictionary
     """
     return _to_dict(ET.fromstring(xmlstr))
+
 
 def _to_dict(t):
     # based on xml_to_dict (https://github.com/xthehatterx/xml_to_dict)
@@ -118,23 +131,29 @@ def _to_dict(t):
                 if k not in dd:
                     dd[k] = []
                 dd[k].append(v)
-        d = OrderedDict([
-            (t.tag, OrderedDict(
-                [(k, v[0] if len(v) == 1 else v) for k, v in dd.items()]
-            ))
-        ])
+        d = OrderedDict(
+            [
+                (
+                    t.tag,
+                    OrderedDict(
+                        [(k, v[0] if len(v) == 1 else v) for k, v in dd.items()]
+                    ),
+                )
+            ]
+        )
     if t.attrib:
-        d[t.tag].update(('@' + k, v) for k, v in t.attrib.items())
+        d[t.tag].update(("@" + k, v) for k, v in t.attrib.items())
     if t.text:
         text = t.text.strip()
         if children or t.attrib:
             if text:
-                d[t.tag]['#text'] = text
+                d[t.tag]["#text"] = text
         else:
             d[t.tag] = text
     return d
 
-def _render_xml(draftdoc, roottag='Resource'):
+
+def _render_xml(draftdoc, roottag="Resource"):
     """
     Convert an XML document stored as a "xml_to_dict" dictionary to an XML-formatted string
 
@@ -155,15 +174,17 @@ def _render_xml(draftdoc, roottag='Resource'):
 
     return ET.tostring(elem)
 
+
 def render_xml(draftdoc):
     roottag = list(draftdoc.keys())[0]
     root = ET.Element(roottag)
     _load_children(root, draftdoc[roottag])
     return ET.tostring(root).decode()
 
+
 def _load_children(parent, data):
     for key, value in data.items():
-        if key.startswith('@'):
+        if key.startswith("@"):
             parent.attrib[key[1:]] = str(value)
         elif key == "#text":
             parent.text = str(value)
@@ -176,5 +197,3 @@ def _load_children(parent, data):
                     _load_children(child, val)
                 else:
                     child.text = str(val)
-
-            

@@ -2,343 +2,299 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c218203-b5c3-4f42-a436-bc305897b356" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app/user/css/fancytree/fancytree.custom.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app/user/css/search/filters.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app/user/css/search/search.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app/user/js/search/fancytree.custom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app/user/js/search/fancytree.custom.raw.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app/user/js/search/filters.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app/user/js/search/resource_type_icons_table.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app/user/js/search/resource_type_icons_table.raw.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app/user/js/search/search.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app/user/js/search/tagit.custom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app/user/libs/jquery-shorten/1.1.0/jquery.shorten.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/admin/_theme/css/additional.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/admin/_theme/css/skins.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/admin/_theme/css/theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/admin/_theme/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/admin/_theme/js/menu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/admin/css/data_migration.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/admin/css/templates_xslt/form.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/admin/css/web_page/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/admin/js/templates/data_migration.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/admin/js/templates/data_migration.raw.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/admin/js/templates/upload/dependencies.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/admin/js/templates/upload/dependencies.raw.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/admin/js/templates/upload/dependency_resolver.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/admin/js/templates_xslt/detail_xslt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/css/XMLTree.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/css/buttons.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/css/fields.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/css/switch.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/css/table.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/css/word-wrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/img/collapse.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/img/expand.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/XMLTree.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/backtoprevious.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/csrf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/debounce.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/elementViewport.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/leave_notice.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/modals/add.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/modals/delete.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/modals/edit.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/modals/error_page_modal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/notify-styles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/templates/list/modals/disable.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/templates/list/modals/disable.raw.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/templates/list/restore.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/templates/list/restore.raw.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/templates/versions/modals/disable.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/templates/versions/modals/disable.raw.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/templates/versions/restore.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/templates/versions/restore.raw.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/templates/versions/set_current.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/templates/versions/set_current.raw.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/xslt/list/modals/delete.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/xslt/list/modals/delete.raw.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/xslt/list/modals/edit.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/xslt/list/modals/edit.raw.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/xsl/xml2html.xsl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/bootstrap/4.5.2/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/bootstrap/4.5.2/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/datatables/1.10.13/css/jquery.dataTables.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/datatables/1.10.13/images/sort_asc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/datatables/1.10.13/images/sort_asc_disabled.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/datatables/1.10.13/images/sort_both.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/datatables/1.10.13/images/sort_desc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/datatables/1.10.13/images/sort_desc_disabled.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/datatables/1.10.13/js/jquery.dataTables.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/fSelect/css/fSelect.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/fSelect/js/fSelect.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/css/all.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/webfonts/fa-brands-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/webfonts/fa-brands-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/webfonts/fa-brands-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/webfonts/fa-brands-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/webfonts/fa-brands-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/webfonts/fa-regular-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/webfonts/fa-regular-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/webfonts/fa-regular-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/webfonts/fa-regular-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/webfonts/fa-regular-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/webfonts/fa-solid-900.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/webfonts/fa-solid-900.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/webfonts/fa-solid-900.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/webfonts/fa-solid-900.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/webfonts/fa-solid-900.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/jquery-ui/1.12.1/images/ui-icons_444444_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/jquery-ui/1.12.1/images/ui-icons_555555_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/jquery-ui/1.12.1/images/ui-icons_777620_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/jquery-ui/1.12.1/images/ui-icons_777777_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/jquery-ui/1.12.1/images/ui-icons_cc0000_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/jquery-ui/1.12.1/images/ui-icons_ffffff_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/jquery-ui/1.12.1/jquery-ui.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/jquery-ui/1.12.1/jquery-ui.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/jquery-ui/1.12.1/jquery-ui.structure.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/jquery-ui/1.12.1/jquery-ui.theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/jquery/3.5.1/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/notify.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/popper-js/popper.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/css/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/css/registration.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/data/change_display.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/data/change_display.raw.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/data/detail.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/login/message.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/login/message.raw.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/sharing_modal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/add_group.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/add_group.raw.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/add_user.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/add_user.raw.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/create_workspace.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/create_workspace.raw.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/init.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/init.raw.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/list/modals/assign_blob_workspace.raw.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/list/modals/assign_data_workspace.raw.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/list/modals/assign_workspace.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/list/modals/remove_rights.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/list/modals/remove_rights.raw.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/list/modals/set_private.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/list/modals/set_private.raw.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/list/modals/set_public.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/list/modals/set_public.raw.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/list/modals/switch_right.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/list/modals/switch_right.raw.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/tables.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_registry_app/libs/fancytree/jquery.fancytree.childcounter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_registry_app/libs/fancytree/jquery.fancytree.clones.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_registry_app/libs/fancytree/jquery.fancytree.columnview.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_registry_app/libs/fancytree/jquery.fancytree.customtag.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_registry_app/libs/fancytree/jquery.fancytree.debug.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_registry_app/libs/fancytree/jquery.fancytree.dnd.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_registry_app/libs/fancytree/jquery.fancytree.dnd5.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_registry_app/libs/fancytree/jquery.fancytree.edit.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_registry_app/libs/fancytree/jquery.fancytree.filter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_registry_app/libs/fancytree/jquery.fancytree.fixed.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_registry_app/libs/fancytree/jquery.fancytree.glyph.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_registry_app/libs/fancytree/jquery.fancytree.gridnav.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_registry_app/libs/fancytree/jquery.fancytree.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_registry_app/libs/fancytree/jquery.fancytree.menu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_registry_app/libs/fancytree/jquery.fancytree.persist.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_registry_app/libs/fancytree/jquery.fancytree.table.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_registry_app/libs/fancytree/jquery.fancytree.themeroller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_registry_app/libs/fancytree/jquery.fancytree.wide.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_registry_app/libs/fancytree/jsdoc-globals.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_registry_app/libs/fancytree/skin-bootstrap-n/ui.fancytree.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_registry_app/libs/fancytree/skin-bootstrap-n/ui.fancytree.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_registry_app/libs/fancytree/skin-bootstrap-n/ui.fancytree.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_registry_app/libs/fancytree/skin-bootstrap-n/vline-rtl.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_registry_app/libs/fancytree/skin-bootstrap-n/vline.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_registry_app/libs/fancytree/skin-bootstrap/ui.fancytree.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_registry_app/libs/fancytree/skin-bootstrap/ui.fancytree.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_registry_app/libs/fancytree/skin-bootstrap/ui.fancytree.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_registry_app/libs/fancytree/skin-bootstrap/vline-rtl.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_registry_app/libs/fancytree/skin-bootstrap/vline.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_registry_app/libs/fancytree/skin-common.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/utils/fancytree/widget.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/components/material/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/components/material/api.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/components/material/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/discover.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/fancytree/jquery.fancytree.childcounter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/fancytree/jquery.fancytree.clones.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/fancytree/jquery.fancytree.columnview.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/fancytree/jquery.fancytree.customtag.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/fancytree/jquery.fancytree.debug.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/fancytree/jquery.fancytree.dnd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/fancytree/jquery.fancytree.dnd5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/fancytree/jquery.fancytree.edit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/fancytree/jquery.fancytree.filter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/fancytree/jquery.fancytree.fixed.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/fancytree/jquery.fancytree.glyph.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/fancytree/jquery.fancytree.gridnav.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/fancytree/jquery.fancytree.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/fancytree/jquery.fancytree.menu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/fancytree/jquery.fancytree.persist.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/fancytree/jquery.fancytree.table.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/fancytree/jquery.fancytree.themeroller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/fancytree/jquery.fancytree.wide.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/fancytree/jsdoc-globals.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/fancytree/skin-bootstrap-n/ui.fancytree.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/fancytree/skin-bootstrap-n/ui.fancytree.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/fancytree/skin-bootstrap-n/ui.fancytree.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/fancytree/skin-bootstrap-n/vline-rtl.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/fancytree/skin-bootstrap-n/vline.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/fancytree/skin-bootstrap/ui.fancytree.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/fancytree/skin-bootstrap/ui.fancytree.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/fancytree/skin-bootstrap/ui.fancytree.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/fancytree/skin-bootstrap/vline-rtl.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/fancytree/skin-bootstrap/vline.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/fancytree/skin-common.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/user/js/keyword.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/user/js/keyword.raw.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/ajax.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/components/cerrdata/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/components/cerrdata/api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/components/cerrdata/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/components/cerrdata/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/components/draft/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/components/draft/api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/components/draft/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/components/draft/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/common/css/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/css/jquery.fancytree/skin-bootstrap/ui.fancytree.css" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/common/css/jquery.fancytree/skin-bootstrap/ui.fancytree.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/css/jquery.fancytree/skin-bootstrap/ui.fancytree.less" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/common/css/jquery.fancytree/skin-bootstrap/ui.fancytree.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/css/jquery.fancytree/skin-bootstrap/ui.fancytree.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/common/css/jquery.fancytree/skin-bootstrap/ui.fancytree.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/css/jquery.fancytree/skin-bootstrap/vline-rtl.gif" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/common/css/jquery.fancytree/skin-bootstrap/vline-rtl.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/css/jquery.fancytree/skin-bootstrap/vline.gif" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/common/css/jquery.fancytree/skin-bootstrap/vline.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/common/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/js/bootstrap.bundle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/common/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/js/jquery-3.6.0.slim.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/common/js/jquery-3.6.0.slim.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/js/jquery.fancytree-all-deps.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/common/js/jquery.fancytree-all-deps.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/js/jquery.fancytree.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/common/js/jquery.fancytree.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/js/jquery.slim.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/common/js/jquery.slim.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app/user/css/fancytree/fancytree.custom.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app/user/css/search/filters.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app/user/css/search/search.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app/user/js/search/fancytree.custom.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app/user/js/search/fancytree.custom.raw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app/user/js/search/filters.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app/user/js/search/resource_type_icons_table.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app/user/js/search/resource_type_icons_table.raw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app/user/js/search/search.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app/user/js/search/tagit.custom.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app/user/libs/jquery-shorten/1.1.0/jquery.shorten.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/admin/_theme/css/additional.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/admin/_theme/css/skins.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/admin/_theme/css/theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/admin/_theme/js/app.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/admin/_theme/js/menu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/admin/css/data_migration.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/admin/css/templates_xslt/form.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/admin/css/web_page/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/admin/js/templates/data_migration.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/admin/js/templates/data_migration.raw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/admin/js/templates/upload/dependencies.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/admin/js/templates/upload/dependencies.raw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/admin/js/templates/upload/dependency_resolver.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/admin/js/templates_xslt/detail_xslt.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/css/XMLTree.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/css/buttons.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/css/fields.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/css/switch.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/css/table.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/css/word-wrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/img/collapse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/img/expand.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/XMLTree.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/backtoprevious.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/csrf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/debounce.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/elementViewport.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/leave_notice.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/modals/add.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/modals/delete.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/modals/edit.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/modals/error_page_modal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/notify-styles.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/templates/list/modals/disable.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/templates/list/modals/disable.raw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/templates/list/restore.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/templates/list/restore.raw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/templates/versions/modals/disable.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/templates/versions/modals/disable.raw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/templates/versions/restore.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/templates/versions/restore.raw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/templates/versions/set_current.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/templates/versions/set_current.raw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/xslt/list/modals/delete.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/xslt/list/modals/delete.raw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/xslt/list/modals/edit.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/js/xslt/list/modals/edit.raw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/common/xsl/xml2html.xsl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/bootstrap/4.5.2/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/bootstrap/4.5.2/css/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/bootstrap/4.5.2/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/bootstrap/4.5.2/js/bootstrap.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/datatables/1.10.13/css/jquery.dataTables.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/datatables/1.10.13/images/sort_asc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/datatables/1.10.13/images/sort_asc_disabled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/datatables/1.10.13/images/sort_both.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/datatables/1.10.13/images/sort_desc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/datatables/1.10.13/images/sort_desc_disabled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/datatables/1.10.13/js/jquery.dataTables.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/fSelect/css/fSelect.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/fSelect/js/fSelect.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/css/all.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/font-awesome/5.13.0/css/all.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/webfonts/fa-brands-400.eot" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/font-awesome/5.13.0/webfonts/fa-brands-400.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/webfonts/fa-brands-400.svg" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/font-awesome/5.13.0/webfonts/fa-brands-400.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/webfonts/fa-brands-400.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/font-awesome/5.13.0/webfonts/fa-brands-400.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/webfonts/fa-brands-400.woff" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/font-awesome/5.13.0/webfonts/fa-brands-400.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/webfonts/fa-brands-400.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/font-awesome/5.13.0/webfonts/fa-brands-400.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/webfonts/fa-regular-400.eot" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/font-awesome/5.13.0/webfonts/fa-regular-400.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/webfonts/fa-regular-400.svg" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/font-awesome/5.13.0/webfonts/fa-regular-400.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/webfonts/fa-regular-400.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/font-awesome/5.13.0/webfonts/fa-regular-400.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/webfonts/fa-regular-400.woff" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/font-awesome/5.13.0/webfonts/fa-regular-400.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/webfonts/fa-regular-400.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/font-awesome/5.13.0/webfonts/fa-regular-400.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/webfonts/fa-solid-900.eot" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/font-awesome/5.13.0/webfonts/fa-solid-900.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/webfonts/fa-solid-900.svg" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/font-awesome/5.13.0/webfonts/fa-solid-900.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/webfonts/fa-solid-900.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/font-awesome/5.13.0/webfonts/fa-solid-900.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/webfonts/fa-solid-900.woff" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/font-awesome/5.13.0/webfonts/fa-solid-900.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/font-awesome/5.13.0/webfonts/fa-solid-900.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs/font-awesome/5.13.0/webfonts/fa-solid-900.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/jquery-ui/1.12.1/images/ui-icons_444444_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/jquery-ui/1.12.1/images/ui-icons_555555_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/jquery-ui/1.12.1/images/ui-icons_777620_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/jquery-ui/1.12.1/images/ui-icons_777777_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/jquery-ui/1.12.1/images/ui-icons_cc0000_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/jquery-ui/1.12.1/images/ui-icons_ffffff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/jquery-ui/1.12.1/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/jquery-ui/1.12.1/jquery-ui.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/jquery-ui/1.12.1/jquery-ui.structure.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/jquery-ui/1.12.1/jquery-ui.theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/jquery/3.5.1/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/notify.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/popper-js/popper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/css/login.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/css/registration.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/data/change_display.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/data/change_display.raw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/data/detail.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/login/message.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/login/message.raw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/sharing_modal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/add_group.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/add_group.raw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/add_user.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/add_user.raw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/create_workspace.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/create_workspace.raw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/init.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/init.raw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/list/modals/assign_blob_workspace.raw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/list/modals/assign_data_workspace.raw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/list/modals/assign_workspace.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/list/modals/remove_rights.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/list/modals/remove_rights.raw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/list/modals/set_private.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/list/modals/set_private.raw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/list/modals/set_public.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/list/modals/set_public.raw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/list/modals/switch_right.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/list/modals/switch_right.raw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/user/js/workspaces/tables.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/cerr_curate_app/user/draft/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/cerr_curate_app/user/draft/edit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/cerr_curate_app/user/forms/editform.html" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/cerr_curate_app/user/forms/editform.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/draft.py" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/draft.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/base.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/edit.py" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/edit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/selectrestype.py" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/selectrestype.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/start.py" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/draft.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="353">
-                  <caret line="112" column="63" selection-start-line="112" selection-end-line="113" />
-                  <folding>
-                    <element signature="e#91#126#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/urls.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="315">
-                  <caret line="24" column="62" selection-start-line="24" selection-start-column="62" selection-end-line="24" selection-end-column="62" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/components/draft/api.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="211">
-                  <caret line="37" selection-start-line="37" selection-end-line="37" />
-                  <folding>
-                    <element signature="e#0#14#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/cerr_curate_app/user/forms/editform.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="281">
-                  <caret line="55" column="14" selection-start-line="55" selection-start-column="14" selection-end-line="55" selection-end-column="14" />
-                  <folding>
-                    <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#1;n#div#2;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#2;n#div#2;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#1;n#div#2;n#div#2;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/cerr_curate_app/user/forms/createform.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="240">
-                  <caret line="16" selection-start-line="16" selection-end-line="16" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/cerr_curate_app/user/draft/edit.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="331">
-                  <caret line="31" selection-start-line="31" selection-end-line="31" />
-                  <folding>
-                    <element signature="n#style#0;n#div#0;n#form#0;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/utils/fancytree/widget.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2781">
-                  <caret line="243" column="55" selection-start-line="243" selection-start-column="55" selection-end-line="243" selection-end-column="55" />
-                  <folding>
-                    <element signature="e#123#150#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/start.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="223">
-                  <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
-                  <folding>
-                    <element signature="e#61#75#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/edit.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="266">
-                  <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
-                  <folding>
-                    <element signature="e#70#79#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/selectrestype.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="204">
-                  <caret line="107" column="66" selection-start-line="107" selection-start-column="66" selection-end-line="107" selection-end-column="66" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/settings.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="369">
-                  <caret line="115" selection-start-line="115" selection-end-line="116" />
-                  <folding>
-                    <element signature="e#3396#3487#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/cerr_curate_app/.gitignore">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="195">
-                  <caret line="13" selection-start-line="13" selection-end-line="13" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/draft.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="130">
+              <caret line="71" column="18" lean-forward="true" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="18" />
+              <folding>
+                <element signature="e#91#126#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/user/js/keyword.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/components/draft/api.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="97">
+              <caret line="35" column="7" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="7" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/edit.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="173">
+              <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+              <folding>
+                <element signature="e#70#79#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>slim</find>
-      <find>fancytree</find>
-      <find>category</find>
-      <find>fancytree-icon</find>
-      <find>css</find>
-      <find>loa</find>
-      <find>bootstrap.</find>
-      <find>tz</find>
-      <find>fancytree-expander</find>
-      <find>Media</find>
+      <find>get_tree</find>
+      <find>staticfiles</find>
+      <find>render</find>
+      <find>s</find>
+      <find>fancytree.dnd.js</find>
+      <find>resource_type</find>
+      <find>fancytree-checkbox</find>
+      <find>fancyTreeSelectDelaySubmit</find>
+      <find>fancytree-checkbox</find>
+      <find>checkbox</find>
+      <find>jquery-3</find>
+      <find>edi</find>
+      <find>Title of</find>
+      <find>publisherr</find>
+      <find>add item</find>
+      <find>add i</find>
+      <find>addite</find>
+      <find>additem</find>
+      <find>widgetss</find>
+      <find>Draft.objects</find>
+      <find>save_upda</find>
+      <find>\</find>
+      <find>clean_form</find>
+      <find>full_c</find>
+      <find>edit</find>
+      <find>full_clean</find>
+      <find>clean</find>
+      <find>select</find>
+      <find>selectmode</find>
+      <find>save_widgets</find>
     </findStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/common</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -346,15 +302,24 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/utils/fancytree/widget.py" />
-        <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/edit.py" />
-        <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/cerr_curate_app/user/base/base_thene.html" />
-        <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/urls.py" />
-        <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/cerr_curate_app/user/base/theme_base.html" />
-        <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/settings.py" />
-        <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/draft.py" />
+        <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/css/main.css" />
+        <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/_render/user/app_wrapper.html" />
+        <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/common/css/main.css" />
         <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/cerr_curate_app/user/forms/editform.html" />
+        <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/user/js/keyword.raw.js" />
+        <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/ajax.py" />
+        <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/urls.py" />
+        <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/utils/fancytree/widget.py" />
+        <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/settings.py" />
         <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/cerr_curate_app/user/draft/edit.html" />
+        <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/__init__.py" />
+        <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/components/draft/models.py" />
+        <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/edit.py" />
+        <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/discover.py" />
+        <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/components/material/models.py" />
+        <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/components/material/api.py" />
+        <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/draft.py" />
+        <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/user/js/keyword.js" />
       </list>
     </option>
   </component>
@@ -371,6 +336,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="ce-registry" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Documents/ce-registry" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -394,6 +370,13 @@
               <item name="ce-registry" type="462c0819:PsiDirectoryNode" />
               <item name="cerr_curate_app" type="462c0819:PsiDirectoryNode" />
               <item name="cerr_curate_app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ce-registry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ce-registry" type="462c0819:PsiDirectoryNode" />
+              <item name="cerr_curate_app" type="462c0819:PsiDirectoryNode" />
+              <item name="cerr_curate_app" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -402,7 +385,7 @@
               <item name="cerr_curate_app" type="462c0819:PsiDirectoryNode" />
               <item name="cerr_curate_app" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="core_main_registry_app" type="462c0819:PsiDirectoryNode" />
+              <item name="cerr_curate_app" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ce-registry" type="b2602c69:ProjectViewProjectNode" />
@@ -410,8 +393,8 @@
               <item name="cerr_curate_app" type="462c0819:PsiDirectoryNode" />
               <item name="cerr_curate_app" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="core_main_registry_app" type="462c0819:PsiDirectoryNode" />
-              <item name="libs" type="462c0819:PsiDirectoryNode" />
+              <item name="cerr_curate_app" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ce-registry" type="b2602c69:ProjectViewProjectNode" />
@@ -419,20 +402,36 @@
               <item name="cerr_curate_app" type="462c0819:PsiDirectoryNode" />
               <item name="cerr_curate_app" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="core_main_registry_app" type="462c0819:PsiDirectoryNode" />
-              <item name="libs" type="462c0819:PsiDirectoryNode" />
+              <item name="cerr_curate_app" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ce-registry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ce-registry" type="462c0819:PsiDirectoryNode" />
+              <item name="cerr_curate_app" type="462c0819:PsiDirectoryNode" />
+              <item name="cerr_curate_app" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ce-registry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ce-registry" type="462c0819:PsiDirectoryNode" />
+              <item name="cerr_curate_app" type="462c0819:PsiDirectoryNode" />
+              <item name="cerr_curate_app" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
               <item name="fancytree" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ce-registry" type="b2602c69:ProjectViewProjectNode" />
               <item name="ce-registry" type="462c0819:PsiDirectoryNode" />
               <item name="cerr_curate_app" type="462c0819:PsiDirectoryNode" />
+              <item name="docker" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ce-registry" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ce-registry" type="462c0819:PsiDirectoryNode" />
               <item name="cerr_curate_app" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="core_main_registry_app" type="462c0819:PsiDirectoryNode" />
-              <item name="libs" type="462c0819:PsiDirectoryNode" />
-              <item name="fancytree" type="462c0819:PsiDirectoryNode" />
-              <item name="skin-bootstrap" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ce-registry" type="b2602c69:ProjectViewProjectNode" />
@@ -448,29 +447,17 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope">
-        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
-          <expand>
-            <path>
-              <item name="ce-registry" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/Documents/ce-registry" type="442cc68d:ScopeViewTreeModel$RootNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app" />
-      <recent name="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static" />
-      <recent name="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_registry_app" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/libs" />
+      <recent name="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/common" />
+      <recent name="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/core_main_app" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -487,19 +474,19 @@
   </component>
   <component name="RunManager">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="ce-registry" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="$USER_HOME$/anaconda3/envs/ce-registry/bin/python" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/cerr_curate_app" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cerr_curate_app/manage.py" />
-      <option name="PARAMETERS" value="runserver" />
+      <module name="" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -507,7 +494,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="runserver" type="PythonConfigurationType" factoryName="Python">
+    <configuration name="manage" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="ce-registry" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -533,13 +520,20 @@
     <configuration />
   </component>
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9c218203-b5c3-4f42-a436-bc305897b356" name="Default Changelist" comment="" />
+      <created>1647983581818</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1647983581818</updated>
+    </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="25" width="1680" height="940" extended-state="6" />
+    <frame x="-1" y="28" width="1680" height="940" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info auto_hide="true" content_ui="combo" id="Project" order="0" sideWeight="0.4991274" weight="0.1935287" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4991274" visible="true" weight="0.2991453" />
       <window_info id="Structure" order="1" sideWeight="0.5008726" side_tool="true" weight="0.25274727" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -579,43 +573,58 @@
       <window_info anchor="right" id="PlantUML" order="3" />
     </layout-to-restore>
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/draft.py</url>
-          <line>68</line>
-          <option name="timeStamp" value="102" />
+          <url>file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/ajax.py</url>
+          <line>14</line>
+          <option name="timeStamp" value="113" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/ajax.py</url>
+          <line>10</line>
+          <option name="timeStamp" value="114" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/ajax.py</url>
+          <line>9</line>
+          <option name="timeStamp" value="115" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/draft.py</url>
-          <line>69</line>
-          <option name="timeStamp" value="105" />
+          <line>75</line>
+          <option name="timeStamp" value="125" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/components/draft/api.py</url>
-          <line>99</line>
-          <option name="timeStamp" value="106" />
+          <url>file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/discover.py</url>
+          <line>7</line>
+          <option name="timeStamp" value="132" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/components/draft/api.py</url>
-          <line>94</line>
-          <option name="timeStamp" value="107" />
+          <url>file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/apps.py</url>
+          <line>12</line>
+          <option name="timeStamp" value="133" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$USER_HOME$/anaconda3/envs/ce-registry/lib/python3.6/site-packages/django/core/handlers/base.py</url>
-          <line>142</line>
-          <option name="timeStamp" value="108" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/draft.py</url>
-          <line>50</line>
-          <option name="timeStamp" value="109" />
+          <url>file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/edit.py</url>
+          <line>184</line>
+          <option name="timeStamp" value="134" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/draft.py</url>
-          <line>46</line>
-          <option name="timeStamp" value="110" />
+          <line>268</line>
+          <option name="timeStamp" value="137" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -623,229 +632,441 @@
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
       <expression>
-        <expression-string>kwargs</expression-string>
+        <expression-string>Material.objects.all()[5]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>**kwargs</expression-string>
+        <expression-string>Material.objects.all()[0]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>data.get('title')</expression-string>
+        <expression-string>Material.objects.all()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>form.cleaned_data</expression-string>
+        <expression-string>Material.objects.all</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>form.urlform.cleaned_data</expression-string>
+        <expression-string>Material.objects.all[1]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>data</expression-string>
+        <expression-string>dict(request.POST.lists())['widget']
+Material.objects.all()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>form.productform.cleaned_data</expression-string>
+        <expression-string>dict(request.POST.lists())['widget']
+material.objects.all()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>data = form.cleaned_data.update(form.urlform.cleaned_data)</expression-string>
+        <expression-string>dict(request.POST.lists())['widget']</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>dict(request.POST.lists())['widget']
+from cerr_curate_app.components.material.models import Material</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>dict(request.POST.lists()).widget</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
     </expressions>
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>request</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>form.cleaned_data['widget'] = object_string</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>form.cleaned_data['widget']</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>form.cleaned_data</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>object_string</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>object_string = ', '.join([str(x.name) for x in materials])</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>object_string = ', '.join([str(x) for x in materials.name])</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>object_string = ', '.join([str(x) for x in materials])</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>str(materials[0].name)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cerr_curate_app/.gitignore">
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app/user/js/search/filters.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/envs/ce-registry/lib/python3.6/site-packages/django/template/loader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="885">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/envs/ce-registry/lib/python3.6/site-packages/core_main_app/utils/rendering.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="90" column="2" selection-start-line="90" selection-start-column="2" selection-end-line="90" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/core_main_app/_render/user/app_wrapper.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/envs/ce-registry/lib/python3.6/site-packages/django/shortcuts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-198" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/user/base/css/forms.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/common/css/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/common/css/jquery.fancytree/skin-bootstrap/ui.fancytree.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="2" lean-forward="true" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/common/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app/user/js/search/resource_type_icons_table.raw.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app/user/js/search/fancytree.custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-745">
+          <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app/user/js/search/fancytree.custom.raw.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/common/css/jquery.fancytree/skin-bootstrap/ui.fancytree.min.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app/user/js/search/resource_type_icons_table.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/cerr_curate_app/user/forms/editform.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="39" column="26" lean-forward="true" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/cerr_curate_app/user/forms/productform.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="34" lean-forward="true" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/cerr_curate_app/user/forms/createform.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-111">
+          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+          <folding>
+            <element signature="e#649#686#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/user/js/keyword.raw.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="50" lean-forward="true" selection-start-column="50" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/ajax.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/base.py">
+    <entry file="file://$USER_HOME$/anaconda3/envs/ce-registry/lib/python3.6/site-packages/django/utils/deprecation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-124">
-          <caret line="133" column="16" selection-start-line="133" selection-start-column="16" selection-end-line="133" selection-end-column="16" />
-          <folding>
-            <element signature="e#67#102#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="376">
+          <caret line="96" selection-start-line="96" selection-end-line="96" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/anaconda3/envs/ce-registry/lib/python3.6/site-packages/django/core/handlers/exception.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/envs/ce-registry/lib/python3.6/site-packages/django/core/handlers/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="146" selection-start-line="146" selection-end-line="146" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/envs/ce-registry/lib/python3.6/site-packages/core_main_app/access_control/api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="232" selection-start-line="232" selection-end-line="232" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/envs/ce-registry/lib/python3.6/site-packages/core_main_app/access_control/decorators.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/envs/ce-registry/lib/python3.6/site-packages/django/views/generic/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="96" selection-start-line="96" selection-end-line="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/docker/mongodb.sh">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/docker/load_schema.sh">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/docker/inenv.sh">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/docker/env.sh">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/start.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
+        <state relative-caret-position="-868">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
           <folding>
             <element signature="e#61#75#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/cerr_curate_app/user/forms/urlform.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#559#565#0" expanded="true" />
-            <element signature="e#566#572#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/cerr_curate_app/user/forms/startform.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#2;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/cerr_curate_app/user/forms/productform.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/edit.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
-          <folding>
-            <element signature="e#70#79#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_main_app/libs/jquery/3.5.1/jquery.js">
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/cerr_curate_app/user/draft/start.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$USER_HOME$/anaconda3/envs/ce-registry/lib/python3.6/site-packages/django/core/handlers/base.py">
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/cerr_curate_app/user/draft/edit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="135" column="9" selection-start-line="135" selection-start-column="9" selection-end-line="135" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="24" column="62" selection-start-line="24" selection-start-column="62" selection-end-line="24" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app/user/js/search/search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/anaconda3/envs/ce-registry/lib/python3.6/site-packages/django/views/generic/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
-          <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/utils/fancytree/widget.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2781">
-          <caret line="243" column="55" selection-start-line="243" selection-start-column="55" selection-end-line="243" selection-end-column="55" />
+        <state relative-caret-position="330">
+          <caret line="22" column="7" lean-forward="true" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
           <folding>
-            <element signature="e#123#150#0" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#form#0;n#body#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app/user/css/search/search.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app/user/css/search/filters.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/core_explore_keyword_registry_app/user/css/fancytree/fancytree.custom.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/cerr_curate_app/user/base/theme_base.html">
+    <entry file="file://$USER_HOME$/anaconda3/envs/ce-registry/lib/python3.6/site-packages/django/apps/registry.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41">
-          <caret line="29" column="40" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
+        <state relative-caret-position="158">
+          <caret line="134" selection-start-line="134" selection-end-line="134" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/cerr_curate_app/user/forms/createform.html">
+    <entry file="file://$USER_HOME$/anaconda3/envs/ce-registry/lib/python3.6/site-packages/mptt/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="64">
+          <caret line="398" column="6" selection-start-line="398" selection-start-column="6" selection-end-line="398" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/cerr_curate_app/user/forms/editform.html">
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="55" column="14" selection-start-line="55" selection-start-column="14" selection-end-line="55" selection-end-column="14" />
+        <state>
+          <caret column="1" selection-start-column="1" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/components/cerrdata/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
           <folding>
-            <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#2;n#div#2;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/components/draft/api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/draft.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="112" column="63" selection-start-line="112" selection-end-line="113" />
-          <folding>
-            <element signature="e#91#126#0" expanded="true" />
+            <element signature="e#0#37#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="115" selection-start-line="115" selection-end-line="116" />
+        <state relative-caret-position="1153">
+          <caret line="95" selection-start-line="95" selection-end-line="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/discover.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="28" lean-forward="true" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
           <folding>
-            <element signature="e#3396#3487#0" />
+            <element signature="e#0#4#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/cerr_curate_app/user/draft/edit.html">
+    <entry file="file://$USER_HOME$/anaconda3/envs/ce-registry/lib/python3.6/site-packages/django/forms/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
+        <state relative-caret-position="160">
+          <caret line="182" column="8" selection-start-line="182" selection-start-column="8" selection-end-line="182" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/components/draft/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-65">
+          <caret line="8" column="39" lean-forward="true" selection-start-line="8" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/components/material/api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/components/material/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="26" column="24" lean-forward="true" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#form#0;n#!!top" expanded="true" />
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/manage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/utils/fancytree/widget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="169" column="42" selection-start-line="169" selection-start-column="42" selection-end-line="169" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/components/draft/api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="35" column="7" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/user/js/keyword.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/draft.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="71" column="18" lean-forward="true" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="18" />
+          <folding>
+            <element signature="e#91#126#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/edit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+          <folding>
+            <element signature="e#70#79#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -22,7 +22,7 @@ def convert_clean_data_to_xml(tag, clean_data, status):
     :return:
     """
     elem = Element(tag)
-    elem.set('status', status)
+    elem.set("status", status)
     for key, val in clean_data.items():
         # create an Element
         # class object
@@ -61,14 +61,18 @@ def save_as_cerr_data(request):
     form = NameForm(request.POST)
 
     cd = form.cleaned_data
-    form_string = convert_clean_data_to_xml('Resource', cd, 'active')
+    form_string = convert_clean_data_to_xml("Resource", cd, "active")
     data = CerrData()
-    data.title = cd['name']
+    data.title = cd["name"]
     version_manager = VersionManager.get_all()
-    version_manager = version_manager.filter(_cls='VersionManager.TemplateVersionManager')
+    version_manager = version_manager.filter(
+        _cls="VersionManager.TemplateVersionManager"
+    )
     template = template_api.get(str(version_manager[0].current), request)
     data.template = template
-    data.user_id = str(request.user.id)  # process the data in form.cleaned_data as required
+    data.user_id = str(
+        request.user.id
+    )  # process the data in form.cleaned_data as required
     # set content
     data.xml_content = form_string
     # save data
@@ -91,7 +95,6 @@ def upsert(data, request=None):
 
     check_xml_file_is_valid(data, request=request)
     return data.cerr_convert_and_save()
-
 
 
 def check_xml_file_is_valid(data, request=None):
@@ -119,5 +122,3 @@ def check_xml_file_is_valid(data, request=None):
         raise exceptions.XMLError(error)
     else:
         return True
-
-

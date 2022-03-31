@@ -10,6 +10,7 @@ from core_main_app.commons import exceptions
 from core_main_app.components.data.models import Data
 from core_main_app.components.template.models import Template
 from cerr_curate_app.components.cerrdata.models import CerrData
+
 logger = logging.getLogger(__name__)
 
 
@@ -26,7 +27,7 @@ class Draft(Document):
     # Reference to the saved CerrData
     data = fields.ReferenceField(CerrData, blank=True, reverse_delete_rule=CASCADE)
 
-#    meta = {"abstract": True}
+    #    meta = {"abstract": True}
 
     @staticmethod
     def get_all_by_user_id(user_id):
@@ -35,9 +36,7 @@ class Draft(Document):
         Returns:
 
         """
-        return Draft.objects(
-            user=str(user_id)
-        ).all()
+        return Draft.objects(user=str(user_id)).all()
 
     @staticmethod
     def get_by_id(draft_id):

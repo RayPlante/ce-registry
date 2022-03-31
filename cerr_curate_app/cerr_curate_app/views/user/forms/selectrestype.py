@@ -4,32 +4,41 @@ This module provides widgets for selecting the resource type
 from django import forms
 from django.forms import widgets
 
-TMPL8S = 'cerr_curate_app/user/forms/'
+TMPL8S = "cerr_curate_app/user/forms/"
+
 
 class ResourceSelect(widgets.ChoiceWidget):
-    template_name = TMPL8S + 'restype.html'
+    template_name = TMPL8S + "restype.html"
     # group_template_name = TMPL8S + 'selectGroup.html'
 
     def __init__(self, allow_multiple=False, resources=(), attrs=None):
         self._allow_multiple = allow_multiple
-        self.input_type = 'checkbox' if allow_multiple else 'radio'
-#        self.template_name = forms.CheckboxSelectMultiple.template_name \
-#                                        if allow_multiple \
-#                                        else forms.RadioSelect.template_name
-        self.option_template_name = forms.CheckboxSelectMultiple.option_template_name \
-                                        if allow_multiple \
-                                        else forms.RadioSelect.option_template_name
+        self.input_type = "checkbox" if allow_multiple else "radio"
+        #        self.template_name = forms.CheckboxSelectMultiple.template_name \
+        #                                        if allow_multiple \
+        #                                        else forms.RadioSelect.template_name
+        self.option_template_name = (
+            forms.CheckboxSelectMultiple.option_template_name
+            if allow_multiple
+            else forms.RadioSelect.option_template_name
+        )
 
         choices = []
         for group, subs in resources:
-            choices.append((group, [(group, group)] + [("%s: %s" % (group, s), s) for s in subs]))
+            choices.append(
+                (group, [(group, group)] + [("%s: %s" % (group, s), s) for s in subs])
+            )
 
         super().__init__(attrs, choices)
 
-    def create_option(self, name, value, label, selected, index, subindex=None, attrs=None):
-        out = super().create_option(name, value, label, selected, index, subindex, attrs)
+    def create_option(
+        self, name, value, label, selected, index, subindex=None, attrs=None
+    ):
+        out = super().create_option(
+            name, value, label, selected, index, subindex, attrs
+        )
         if subindex is not None:
-            out['subindex'] = subindex
+            out["subindex"] = subindex
         return out
 
     def use_required_attribute(self, initial):
@@ -52,14 +61,15 @@ class ResourceSelect(widgets.ChoiceWidget):
         would toggle the first checkbox.
         """
         if self._allow_multiple and index is None:
-            return ''
+            return ""
         return super().id_for_label(id_, index)
-    
+
 
 class ResourceTypeChoice:
     """
     a container for a resource type choice and its sub-choices, used to configure a ResourceChoiceField
     """
+
     def __init__(self, value, label, subchoice_field=None):
         self.value = value
         self.label = label
@@ -72,10 +82,12 @@ class ResourceTypeChoice:
     def to_choices(cls, choice_seq):
         return tuple([c.to_tuple() for c in choice_seq])
 
+
 class ResourceTypeChoiceField(forms.MultipleChoiceField):
     """
     A choice of a resource type (role)
     """
+
     def __init__(self, allow_multiple=False, **kwargs):
         self._allow_multiple = allow_multiple
 
@@ -85,11 +97,13 @@ class ResourceTypeChoiceField(forms.MultipleChoiceField):
             ("Dataset", ("Database",)),
             ("Literature", ("Article", "Journal", "Report", "Proceedings")),
             ("Web Site", ("Portal", "Informational")),
-            ("Tool", ("Desktop App", "Web App", "Software Library"))
+            ("Tool", ("Desktop App", "Web App", "Software Library")),
         )
 
         widget = ResourceSelect(allow_multiple, resources)
-        super(ResourceTypeChoiceField, self).__init__(choices=widget.choices, widget=widget, **kwargs)
+        super(ResourceTypeChoiceField, self).__init__(
+            choices=widget.choices, widget=widget, **kwargs
+        )
 
     def to_python(self, value):
         if not isinstance(value, (list, tuple)):
@@ -101,18 +115,18 @@ class ProductTypeChoiceField(forms.MultipleChoiceField):
     """
     A choice of a resource type (role)
     """
+
     def __init__(self, allow_multiple=False, **kwargs):
         self._allow_multiple = allow_multiple
 
-        resources = (
-             ("batteries", "electronics ", "packaging","textiles"),
-        )
+        resources = (("batteries", "electronics ", "packaging", "textiles"),)
 
         widget = ResourceSelect(allow_multiple, resources)
-        super(ProductTypeChoiceField, self).__init__(choices=widget.choices, widget=widget, **kwargs)
+        super(ProductTypeChoiceField, self).__init__(
+            choices=widget.choices, widget=widget, **kwargs
+        )
 
     def to_python(self, value):
         if not isinstance(value, (list, tuple)):
             value = [value]
         return super().to_python(value)
-

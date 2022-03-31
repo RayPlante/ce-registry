@@ -1,1 +1,0 @@
-var publicWorkspaceUrl = "{% url 'core_main_app_rest_workspace_set_public' 'workspace_id' %}";
