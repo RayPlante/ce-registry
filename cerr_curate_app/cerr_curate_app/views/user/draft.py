@@ -258,7 +258,7 @@ def handleFailure(exc):
     if isinstance(exc, DetectedFailure):
         return HttpResponse(status=exc.status_code, reason=exc.reason_phrase)
 
-
+#TODO HANDLE EMPTY WIDGET
 def save_widgets(request,form):
     """
     Retrieves the correct widget data and put it back in the form
