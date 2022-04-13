@@ -177,7 +177,7 @@ class DOIInfo(object):
 
         # this may raise an exception
         try:
-            resp = requests.get(url, headers=hdrs)
+            resp = requests.get(url, headers=hdrs, timeout=10)
         except (requests.ConnectionError,
                 requests.HTTPError,
                 requests.ConnectTimeout)   as ex:

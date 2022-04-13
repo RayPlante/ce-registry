@@ -56,7 +56,7 @@ class Resolver(object):
 
         # Do a HEAD request on the DOI to examine where it gets forwarded to
         try:
-            resp = requests.head(url, headers=hdrs, allow_redirects=False)
+            resp = requests.head(url, headers=hdrs, allow_redirects=False, timeout=10)
         except (requests.ConnectionError,
                 requests.HTTPError,
                 requests.ConnectTimeout)   as ex:
