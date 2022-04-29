@@ -17,10 +17,12 @@ from django.urls import include, path
 from django.contrib import admin
 
 from .views.user import draft
-
+from .views.user import ajax as user_ajax
 app_name = "draft"
 urlpatterns = [
+    path(r"^role-form$", user_ajax.role_form, name="ajax_get_role"),
     path("admin/", admin.site.urls),
     path("draft/start/", draft.start, name="start"),
     path("draft/edit/<str:draft_id>", draft.EditView.as_view(), name="edit"),
+
 ]

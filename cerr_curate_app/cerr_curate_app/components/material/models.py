@@ -4,6 +4,9 @@ from core_main_app.components.template.models import Template
 from django_mongoengine import fields
 from mongoengine import errors as mongoengine_errors
 from core_main_app.commons import exceptions
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class Material(MPTTModel):
@@ -37,3 +40,11 @@ class Material(MPTTModel):
         except Exception as ex:
             raise exceptions.ModelError(str(ex))
 
+    @staticmethod
+    def get_all():
+        """Get all Materials
+
+        Returns:
+
+        """
+        return Material.objects.all()

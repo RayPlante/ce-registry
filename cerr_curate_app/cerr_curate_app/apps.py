@@ -20,4 +20,4 @@ class InitApp(AppConfig):
         """
         if "migrate" not in sys.argv:
             # Init registry
-            discover.init_registry()
+            discover.init_cerr()

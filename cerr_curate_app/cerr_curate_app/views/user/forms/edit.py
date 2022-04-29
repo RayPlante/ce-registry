@@ -10,7 +10,10 @@ from django.utils.html import conditional_escape
 from django.forms.utils import ErrorDict
 from cerr_curate_app.utils.fancytree.widget import FancyTreeWidget
 from .base import MultiForm, CerrErrorList, ComposableForm
-
+from django.db import models
+from mptt.models import MPTTModel, TreeForeignKey
+from cerr_curate_app.components.material.models import Material
+from .roles import sequenceForm as sequenceForm
 __all__ = ["EditForm"]
 
 TMPL8S = "cerr_curate_app/user/forms/"
@@ -154,6 +157,8 @@ class EditForm(MultiForm):
             self.urlform = UrlForm(data, files, is_top=False)
         self.productform = ProductForm(data, files, is_top=False)
         self.material = MaterialTypeForm()
+        self.roleform = RoleForm()
+        self.roles = sequenceForm()
         self.is_top = is_top
         self.show_aggregate_errors = show_errors
         self.title = title
@@ -162,13 +167,8 @@ class EditForm(MultiForm):
         if "error_class" not in kwargs:
             kwargs["error_class"] = CerrErrorList
         super(EditForm, self).__init__(
-            data, {"urlform": self.urlform, "productform": self.productform}, **kwargs
+            data, {"urlform": self.urlform, "productform": self.productform,"role":self.roleform}, **kwargs
         )
-
-
-from django.db import models
-from mptt.models import MPTTModel, TreeForeignKey
-from cerr_curate_app.components.material.models import Material
 
 
 class MaterialTypeForm(forms.Form):
@@ -183,3 +183,27 @@ class MaterialTypeForm(forms.Form):
 
     def _clean_form(self):
         super(MaterialTypeForm)._clean_form()
+
+
+class RoleForm(ComposableForm):
+    role = forms.CharField(max_length=255, required=True, label="Role")
+    total_input_fields = forms.CharField(widget=forms.HiddenInput())
+    template_name = TMPL8S + "roleform.html"
+
+
+    def __init__(self, *args, **kwargs):
+
+      extra_fields = kwargs.pop('extra', 0)
+
+      # check if extra_fields exist. If they don't exist assign 0 to them
+      if not extra_fields:
+         extra_fields = 0
+
+      super(RoleForm, self).__init__(*args, **kwargs)
+      self.fields['total_input_fields'].initial = extra_fields
+
+      for index in range(int(extra_fields)):
+        # generate extra fields in the number specified via extra_fields
+        self.fields['extra_field_{index}'.format(index=index)] = forms.CharField()
+
+

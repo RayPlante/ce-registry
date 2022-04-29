@@ -56,6 +56,7 @@ class EditView(View):
     def get(self, request, **kwargs):
         draft_id = kwargs["draft_id"]
         form = EditForm(request.POST)
+
         try:
             draft_obj = draft_api.get_by_id(draft_id, request.user)
             draft_doc = draft_api.unrender_xml(draft_obj.form_data)

@@ -8,6 +8,8 @@
     <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/jquery.fancytree@2.27/dist/jquery.fancytree-all-deps.min.js"></script>
     <script src="{% static 'cerr_curate_app/user/js/keyword.js' %}"></script>
+    <script src="{% static 'cerr_curate_app/user/js/sequencerole.js' %}"></script>
+    <script src="{% static 'cerr_curate_app/user/js/sequencerole.raw.js' %}"></script>
 
     {% endblock %}
     {% block core_css %}
@@ -31,8 +33,8 @@
 
 Keywords:
 <input type="text" id="candidate"/>
-<button type="button" onclick="addItem()">add item</button>
-<button type="button" onclick="removeItem()">remove item</button>
+<button type="button" onclick="addItem()">Add Item</button>
+<button type="button" onclick="removeItem()">Remove Item</button>
     <div style="margin-top: 2ex">
 
     <input type="submit" class="btn btn-success" value="Save draft"/>
