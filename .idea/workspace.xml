@@ -2,24 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c218203-b5c3-4f42-a436-bc305897b356" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/user/js/sequencerole.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/user/js/sequencerole.raw.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/cerr_curate_app/user/forms/sequenceroleform.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/ajax.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/roles.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/components/material/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/components/material/api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/components/material/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/components/material/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/discover.py" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/discover.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/cerr_curate_app/user/draft/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/cerr_curate_app/user/draft/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/cerr_curate_app/user/forms/editform.html" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/cerr_curate_app/user/forms/editform.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/draft.py" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/draft.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/edit.py" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/edit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/ajax.py" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/ajax.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/roles.py" beforeDir="false" afterPath="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/roles.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,17 +17,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/draft.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/user/js/sequencerole.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="37" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="37" />
+            <state relative-caret-position="360">
+              <caret line="60" selection-start-line="60" selection-end-line="60" />
+              <folding>
+                <element signature="e#91#126#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -56,20 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/user/js/sequencerole.raw.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="50" selection-start-column="50" selection-end-column="50" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/roles.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-423">
-              <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+            <state relative-caret-position="-409">
+              <caret line="34" column="46" selection-start-line="34" selection-start-column="46" selection-end-line="34" selection-end-column="46" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -77,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/ajax.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="44" column="8" lean-forward="true" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="8" />
+            <state relative-caret-position="219">
+              <caret line="33" column="13" selection-start-line="33" selection-end-line="34" />
               <folding>
                 <element signature="e#0#69#0" expanded="true" />
               </folding>
@@ -90,36 +60,17 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/wsgi.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="294">
-              <caret line="22" column="68" selection-start-line="22" selection-start-column="68" selection-end-line="22" selection-end-column="68" />
+              <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
               <folding>
                 <element signature="e#649#686#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/discover.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/edit.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="166" selection-start-line="166" selection-end-line="166" />
-              <folding>
-                <element signature="e#70#79#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -137,7 +88,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>full_c</find>
       <find>edit</find>
       <find>full_clean</find>
       <find>clean</find>
@@ -165,8 +115,9 @@
       <find>keyword.js</find>
       <find>ajax_s</find>
       <find>ajax_get_role</find>
-      <find>fruit</find>
       <find>views</find>
+      <find>fruit</find>
+      <find>serviceapi</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -204,10 +155,10 @@
         <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/user/js/sequence.js" />
         <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/user/js/sequencerole.raw.js" />
         <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/cerr_curate_app/user/draft/edit.html" />
-        <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/urls.py" />
         <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/user/js/sequencerole.js" />
-        <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/roles.py" />
+        <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/urls.py" />
         <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/ajax.py" />
+        <option value="$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/roles.py" />
       </list>
     </option>
   </component>
@@ -365,13 +316,13 @@
     <frame x="-1" y="28" width="1680" height="940" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4991274" weight="0.2991453" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4991274" visible="true" weight="0.2991453" />
       <window_info id="Structure" order="1" sideWeight="0.5008726" side_tool="true" weight="0.25274727" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32897863" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39904988" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39904988" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32982457" />
@@ -435,34 +386,25 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/ajax.py</url>
-          <line>27</line>
+          <line>26</line>
           <option name="timeStamp" value="145" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/ajax.py</url>
-          <line>13</line>
-          <option name="timeStamp" value="146" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/ajax.py</url>
-          <line>15</line>
-          <option name="timeStamp" value="147" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/ajax.py</url>
-          <line>14</line>
-          <option name="timeStamp" value="148" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/ajax.py</url>
-          <line>16</line>
-          <option name="timeStamp" value="149" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>if &quot;role&quot; not in request.GET:</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>if &quot;role&quot; not in request.GET:
+    return HttpResponseBadRequest()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>Material.objects.all()[5]</expression-string>
         <language-id>Python</language-id>
@@ -505,80 +447,56 @@ material.objects.all()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>dict(request.POST.lists())['widget']
-from cerr_curate_app.components.material.models import Material</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>dict(request.POST.lists()).widget</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
     </expressions>
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>Material.delete(materials[0])</expression-string>
+        <expression-string>html_form = newform.render()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>materials = material_api.get_all()</expression-string>
+        <expression-string>request.GET['role']</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>materials.exists()</expression-string>
+        <expression-string>newform</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>materials.exists</expression-string>
+        <expression-string>roleForm.createForm(request.GET['role'], data = None)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>materials.exists is False</expression-string>
+        <expression-string>request.GET('role')</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>materials.exists == False</expression-string>
+        <expression-string>request.GET</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>materials.exist()</expression-string>
+        <expression-string>request</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>materials</expression-string>
+        <expression-string>if &quot;role&quot; not in request.GET</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>material_api.get_all()</expression-string>
+        <expression-string>if &quot;role&quot; not in request.GET:</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/anaconda3/envs/ce-registry/lib/python3.6/site-packages/core_main_app/access_control/decorators.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cerr_curate_app/docker/mongodb.sh">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cerr_curate_app/docker/load_schema.sh">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/cerr_curate_app/docker/inenv.sh">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -659,16 +577,6 @@ from cerr_curate_app.components.material.models import Material</expression-stri
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="67">
           <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/components/draft/api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="35" column="7" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -856,23 +764,6 @@ from cerr_curate_app.components.material.models import Material</expression-stri
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/anaconda3/envs/ce-registry/lib/python3.6/site-packages/django/core/handlers/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="114" selection-start-line="114" selection-end-line="114" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="22" column="68" selection-start-line="22" selection-start-column="68" selection-end-line="22" selection-end-column="68" />
-          <folding>
-            <element signature="e#649#686#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/static/cerr_curate_app/user/js/sequencerole.raw.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -887,6 +778,60 @@ from cerr_curate_app.components.material.models import Material</expression-stri
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/draft.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
+          <folding>
+            <element signature="e#91#126#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+          <folding>
+            <element signature="e#649#686#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/envs/ce-registry/lib/python3.6/site-packages/django/core/handlers/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="130" selection-start-line="130" selection-end-line="130" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/envs/ce-registry/lib/python3.6/site-packages/core_main_app/access_control/api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="234" selection-start-line="234" selection-end-line="234" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/envs/ce-registry/lib/python3.6/site-packages/core_main_app/access_control/decorators.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/components/draft/api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/templates/cerr_curate_app/user/forms/sequenceroleform.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -894,29 +839,22 @@ from cerr_curate_app.components.material.models import Material</expression-stri
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/draft.py">
+    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/ajax.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
+        <state relative-caret-position="219">
+          <caret line="33" column="13" selection-start-line="33" selection-end-line="34" />
+          <folding>
+            <element signature="e#0#69#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/forms/roles.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-423">
-          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+        <state relative-caret-position="-409">
+          <caret line="34" column="46" selection-start-line="34" selection-start-column="46" selection-end-line="34" selection-end-column="46" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cerr_curate_app/cerr_curate_app/views/user/ajax.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="44" column="8" lean-forward="true" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#69#0" expanded="true" />
           </folding>
         </state>
       </provider>

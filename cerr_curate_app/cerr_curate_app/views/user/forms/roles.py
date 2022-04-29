@@ -8,9 +8,10 @@ TMPL8S = "cerr_curate_app/user/forms/"
 class roleForm(MultiForm):
     @staticmethod
     def createForm(chosen_label, data):
-        if chosen_label == "Software": return softwareRoleForm(data)
-        if chosen_label == "serviceAPIForm": return serviceApiForm(data)
-        if chosen_label == "defaultRoleForm": return defaultRoleForm(data)
+        if chosen_label == "software": return softwareRoleForm(data)
+        if chosen_label == "serviceapi": return serviceApiForm(data)
+        if chosen_label == "semanticasset": return defaultRoleForm(data)
+        if chosen_label == "database": return defaultRoleForm(data)
 
 
 
