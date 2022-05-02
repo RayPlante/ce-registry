@@ -32,7 +32,7 @@ class defaultRoleForm(roleForm):
     """
     form for simple data
     """
-    template_name = TMPL8S + "defaultroleform"
+    template_name = TMPL8S + "defaultroleform.html"
 
     def __init__(self, data, label, **kwargs):
         defaultroleformfield = forms.Charfield(label=label)
@@ -40,7 +40,7 @@ class defaultRoleForm(roleForm):
 
 
 class serviceApiForm(roleForm):
-    template_name = TMPL8S + "serviceApiForm"
+    template_name = TMPL8S + "serviceApiForm.html"
     base_url = forms.CharField(label="Base Url")
     api_url = forms.CharField(label="URL where the API is documented")
     specification_url = forms.CharField(label="Specification URL", required=True)

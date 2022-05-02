@@ -9,6 +9,8 @@ var addRole = function(event) {
                 data: { "role": role,
                 },
             success: function(data){
+                $(".rolebutton").after(data);
+
             },
             error: function(data){
                 console.log(data)
