@@ -4,6 +4,7 @@ from mongoengine.queryset.base import NULLIFY
 from core_main_app.components.abstract_data.models import AbstractData
 from core_main_app.components.template.models import Template
 from core_main_app.components.workspace.models import Workspace
+from django.db import models
 
 
 class CerrData(AbstractData):

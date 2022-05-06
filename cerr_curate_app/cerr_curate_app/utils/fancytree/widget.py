@@ -7,7 +7,7 @@ from itertools import chain
 
 from django import forms
 from django.conf import settings
-from django.contrib.staticfiles.templatetags.staticfiles import static
+from django.templatetags.static import static
 from django.forms.widgets import Widget
 from django.utils.datastructures import MultiValueDict
 from django.utils.encoding import force_text

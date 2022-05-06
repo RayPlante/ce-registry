@@ -11,6 +11,7 @@ class InitApp(AppConfig):
     """Cerr curate app application settings"""
 
     name = "cerr_curate_app"
+    default_auto_field = 'django.db.models.AutoField'
 
     def ready(self):
         """Run when the app is ready.
@@ -18,6 +19,7 @@ class InitApp(AppConfig):
         Returns:
 
         """
-        if "migrate" not in sys.argv:
-            # Init registry
-            discover.init_cerr()
+        if "makemigrations" not in sys.argv:
+            if "migrate" not in sys.argv:
+                # Init registry
+                discover.init_cerr()

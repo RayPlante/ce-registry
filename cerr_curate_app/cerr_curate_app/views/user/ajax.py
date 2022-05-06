@@ -31,8 +31,11 @@ def get_role_form(request):
         #Create empty form instance
         newform = roleForm.createForm(request.GET['role'], data = None)
         #Create html and add it to the DOM
+       # role_html = "<div>Role:"+ request.GET['role'] + "</div>" +# add a remove button
         html_form = str(newform)
+   #     html_form = role_html+html_form
         json_data = json.dumps(html_form)
+        # fancy tree = product class
         return HttpResponse(json_data, content_type="application/json")
 
     except (AccessControlError, DoesNotExist) as exc:

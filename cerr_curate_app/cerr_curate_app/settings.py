@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "crispy_forms",
     "cerr_curate_app",
 
+
 ]
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 MIDDLEWARE = [
