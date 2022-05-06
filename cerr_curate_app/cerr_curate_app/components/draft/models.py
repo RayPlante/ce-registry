@@ -18,6 +18,7 @@ class Draft(Document):
     """Stores data being entered and not yet curated"""
 
     user_id = fields.StringField()
+
     # schema associated with the draft document
     template = fields.ReferenceField(Template)
     # name of the document
