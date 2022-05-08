@@ -25,7 +25,7 @@ from .selectrestype import ResourceTypeChoiceField
 
 class ProductForm(ComposableForm):
     choices = (("batteries", "electronics ", "packaging", "textiles"),)
-    template_name = TMPL8S + "ProductForm.html"
+    template_name = TMPL8S + "productform.html"
     restype = forms.MultipleChoiceField(choices=choices, widget=forms.RadioSelect)
 
     def __init__(self, data=None, files=None, is_top=True, show_errors=None, **kwargs):

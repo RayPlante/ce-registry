@@ -15,9 +15,9 @@ function addItem(){
 
 }
 </script>
-<form id="empty-layer-uploader" method="post" enctype="multipart/form-data">
+<!-- <form id="empty-layer-uploader" method="post" enctype="multipart/form-data"> -->
         <div id="form_empty_layer">
-          <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+<!--      <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}"> -->
             {{ form.errors }}
             {{ form.non_field_errors }}
             {% if errormsgs %}
@@ -34,4 +34,4 @@ function addItem(){
             {% endfor %}
         </div>
         </br>
-</form>
+<!-- </form> -->
