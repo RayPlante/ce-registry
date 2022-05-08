@@ -168,27 +168,30 @@ def draftdoc_to_edit(draft_doc, draft_id):
     data = {}
     draft = draft_doc.get("Resource", {})
     content = draft.get("content", {})
+    ident = draft.get("identity", {})
     if content:
         data["homepage"] = content.get("landingPage", "")
         data["resourceType"] = content.get("resourceType", "")
+        data["description"] = content.get("description", "")
+        data["publisher"] = ident.get("publisher", {}).get("title", "")
+    if ident:
+        data["restitle"] = ident.get("title", "")
     data["draft_id"] = draft_id
     return data
 
 
 def edit_to_draftdoc(data):
-    draft = OrderedDict([("identity", OrderedDict()), ("content", OrderedDict())])
-    if data.get("homepage"):
-        draft["content"]["landingPage"] = data.get("homepage", "")
-    if data.get("title"):
-        draft["content"]["title"] = data.get("title", "")
-    if data.get("description"):
-        draft["content"]["description"] = data.get("description", "")
-    if data.get("widget"):
-        draft["content"]["material"] = data.get("widget", "")
-
-    draft = OrderedDict([("Resource", draft)])
-    return draft
-
+    draft = Node(_schema)
+    if data.get('homepage'):
+        draft.add('Resource/content/landingPage', data.get('homepage',''))
+    if data.get('title'):
+        draft.add('Resource/identity/title', data.get('title',''))
+    if data.get('description'):
+        draft.add('Resource/content/description', data.get('description',''))
+    if data.get('widget'):
+        draft.add('Resource/applicability/materialType', data.get('widget',''))
+    out = draft.todict()
+    return {'Resource': out['Resource'][0]}
 
 def save_new_draft(draftdoc, name, request):
     """
