@@ -1,7 +1,7 @@
 """
 a module defining Forms used to edit an existing draft record
 """
-import os
+import os, pdb
 from collections import OrderedDict
 from collections.abc import Mapping
 
@@ -145,9 +145,7 @@ class EditForm(MultiForm):
     """
 
     template_name = TMPL8S + "editform.html"
-    title = forms.CharField(label="Title of Resource Type", required=True)
     description = forms.CharField(widget=forms.Textarea, label="Description")
-    publisher = forms.CharField(label="Publisher of Resource Type", required=True)
 
     def __init__(
         self, data=None, files=None, title=None, is_top=True, show_errors=None, **kwargs
@@ -158,6 +156,11 @@ class EditForm(MultiForm):
             )
         else:
             self.urlform = UrlForm(data, files, is_top=False)
+        self.resourcelabel = data.get('restype', 'nothing')
+        
+        self.restitle = forms.CharField(label="Title of "+self.resourcelabel, required=True)
+        self.publisher = forms.CharField(label="Publisher of "+self.resourcelabel, required=True)
+        
         self.productform = ProductForm(data, files, is_top=False)
         self.material = MaterialTypeForm()
         self.synthesis = SynthesisTypeForm()
@@ -172,9 +175,12 @@ class EditForm(MultiForm):
         if "error_class" not in kwargs:
             kwargs["error_class"] = CerrErrorList
         super(EditForm, self).__init__(
-            data, {"urlform": self.urlform, "productform": self.productform,"role":self.roleform}, **kwargs
+            data, {"urlform": self.urlform, "productform": self.productform,"role":self.roleform},
+            field_order="title publisher description".split(), **kwargs
         )
-
+        self.fields['title'] = self.restitle
+        self.fields['publisher'] = self.publisher
+        self.order_fields(self.field_order)
 
 class MaterialTypeForm(forms.Form):
     fields = ("name", "categories")

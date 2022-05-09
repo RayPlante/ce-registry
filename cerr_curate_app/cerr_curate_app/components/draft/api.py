@@ -187,6 +187,8 @@ def _load_children(parent, data):
         if key.startswith("@"):
             parent.attrib[key[1:]] = str(value)
         elif key == "#text":
+            if isinstance(value, (tuple, list)):
+                value = " ".join([str(v) for v in value])
             parent.text = str(value)
         else:
             if not isinstance(value, (tuple, list)):
