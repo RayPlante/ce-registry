@@ -1,20 +1,4 @@
 
-<script>
-// check how many times elements with this name attribute exist: extra_field_*
-form_count = $('input[name*="extra_field_*"]').length;
-
-// when the button 'add another' is clicked then create a new input element
-function addItem(){
-  var ul = document.getElementById("dynamic-list");
-  var candidate = document.getElementById("candidate");
-  if (candidate.value !=='')
-    var li = document.createElement("li");
-    li.setAttribute('id','keyword');
-    li.appendChild(document.createTextNode(candidate.value));
-    ul.appendChild(li);
-
-}
-</script>
 <!-- <form id="empty-layer-uploader" method="post" enctype="multipart/form-data"> -->
         <div id="form_empty_layer">
 <!--      <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}"> -->
