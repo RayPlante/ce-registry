@@ -443,7 +443,6 @@ nistoar.doi.set_client_info("NIST Circular Economy Registry",
 doilog = logging.getLogger("doi")
 
 def doi_into_draftdoc(doi, draft):
-    pdb.set_trace()
     try:
         md = nistoar.doi.resolve(doi, logger=doilog)
         draft.add("Resource/identity/title", md.data['title'])
