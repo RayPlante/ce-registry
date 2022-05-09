@@ -24,7 +24,7 @@
 
 </head>
 <body id="content">
-<h1>Edit Record: {{ recname }}</h1>
+<h1>Edit {{ restype }} record: {{ recname }}</h1>
 
 <form action="{% url 'edit' draft_id %}" method="post">
 {% csrf_token %}
