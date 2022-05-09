@@ -28,6 +28,7 @@
 
 <form action="{% url 'edit' draft_id %}" method="post">
 {% csrf_token %}
+<input type="hidden" name="name" value="{{recname}}"/>
   {{ editform }}
 <ul id="dynamic-list"></ul>
 
