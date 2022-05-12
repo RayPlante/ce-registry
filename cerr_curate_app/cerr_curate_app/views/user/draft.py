@@ -3,7 +3,7 @@ The module that provides the user views for creating and editing a draft record.
 """
 from collections import OrderedDict
 from collections.abc import Mapping
-import json, pdb, re
+import json, re, pdb
 
 from django.shortcuts import render
 from django.http import HttpResponse, Http404, HttpResponse, HttpResponseRedirect
@@ -65,8 +65,11 @@ class EditView(View):
             return handleFailure(Http401(message=str(ex)))
         form = EditForm(data=draftdoc_to_edit(draft_doc, draft_obj.id))
 
+        restype = _get_restype(draft_doc, Resource.schemauri)
+
         return render(
-            request, TMPL8S + "edit.html", {"editform": form, "draft_id": draft_id}
+            request, TMPL8S + "edit.html",
+            {"editform": form, "draft_id": draft_id, "recname": draft_obj.name, "restype": restype }
         )
 
     def post(self, request, **kwargs):
@@ -76,16 +79,20 @@ class EditView(View):
             try:
                 form = save_widgets(request,form)
                 draft = edit_to_draftdoc(form.cleaned_data)
-                draft_api.save_updated_draft(draft, draft_id, request)
-                draft_obj = draft
+                draft_obj = draft_api.save_updated_draft(draft, draft_id, request)
                 return HttpResponseRedirect(reverse("start"))
             except DetectedFailure as ex:
                 return handleFailure(ex)
             except draft_api.AccessControlError as ex:
                 return handleFailure(Http401(message=str(ex)))
 
+        restype = _get_restype(draft, Resource.schemauri)
+        recname = request.POST.get("name", [])
+        recname = "unkn" if len(recname) == 0 else recname[0]
+
         return render(
-            request, TMPL8S + "edit.html", {"editform": form, "draft_id": draft_id}
+            request, TMPL8S + "edit.html",
+            {"editform": form, "draft_id": draft_id, "recname": recname, "restype": restype }
         )
 
     def _load_assets(self):
@@ -135,16 +142,18 @@ def start_to_draftdoc(startdata, file_submission=None):
     """
 
     if file_submission is None or startdata['start_meth'] == 'create':
-        draft = Node(_schema)
+        draft = Resource()
         if startdata['create'].get('homepage'):
             draft.add('Resource/content/landingPage', startdata['create'].get('homepage'))
         draft.add('Resource/@status', 'active')
         draft.add('name', startdata['create'].get('name'))
+        if startdata['create'].get('restype'):
+            draft.add_role(startdata['create']['restype'][0].strip())
 
         if startdata['create'].get('scrape'):
             hp = startdata['create'].get('homepage');
-#            if hp and (hp.startswith('doi:') or hp.startswith('https://doi.org/')):
-#                doi_into_draftdoc(hp, draft)
+            if hp and (hp.startswith('doi:') or hp.startswith('https://doi.org/')):
+                doi_into_draftdoc(hp, draft)
         
         out = draft.todict()
         return {'Resource': out['Resource'][0], 'name': out['name'][0]}
@@ -159,29 +168,42 @@ def start_to_draftdoc(startdata, file_submission=None):
     else:
         raise Http400("Illegal start method specified")
 
-
 def uploaded_file_to_draft(filedata):
     raise Http501("not implemented")
 
 
 def draftdoc_to_edit(draft_doc, draft_id):
+    pfx = "{%s}" % Resource.schemauri
     data = {}
-    draft = draft_doc.get("Resource", {})
-    content = draft.get("content", {})
-    ident = draft.get("identity", {})
+    draft = draft_doc.get(pfx+"Resource", {})
+    content = draft.get(pfx+"content", {})
+    ident = draft.get(pfx+"identity", {})
     if content:
-        data["homepage"] = content.get("landingPage", "")
-        data["resourceType"] = content.get("resourceType", "")
-        data["description"] = content.get("description", "")
-        data["publisher"] = ident.get("publisher", {}).get("title", "")
+        data["homepage"] = content.get(pfx+"landingPage", "")
+        data["description"] = content.get(pfx+"description", "")
+        data["publisher"] = ident.get(pfx+"publisher", "")
     if ident:
-        data["restitle"] = ident.get("title", "")
+        data["title"] = ident.get(pfx+"title", "")
     data["draft_id"] = draft_id
+    data["restype"] = _get_restype(draft_doc, pfx)
+
     return data
 
+def _get_restype(draft, pfx):
+    if not pfx.startswith('{'):
+        pfx = "{%s}" % pfx
+    roles = draft.get(pfx+"Resource",{}).get(pfx+"role", [])
+    if roles is None:
+        roles = []
+    elif not isinstance(roles, (list, tuple)):
+        roles = [roles]
+    out = "resource"
+    if len(roles) > 0:
+        out = re.sub(r'[^:]*:\s*', '', roles[0].get(pfx+'type', out)) 
+    return out
 
 def edit_to_draftdoc(data):
-    draft = Node(_schema)
+    draft = Resource()
     if data.get('homepage'):
         draft.add('Resource/content/landingPage', data.get('homepage',''))
     if data.get('title'):
@@ -376,6 +398,9 @@ class Node(Mapping):
             if not isinstance(v, list):
                 if v is not None:
                     data.append((k,v))
+            elif k.startswith("@"):
+                v = '' if len(v) == 0 else v[-1]
+                data.append((k,v))
             else:
                 children = []
                 data.append((k, children))
@@ -385,3 +410,56 @@ class Node(Mapping):
                     children.append(e)
         return OrderedDict(data)
 
+class Resource(Node):
+    """
+    a Node for a handling Resource document
+    """
+    xsiuri = "http://www.w3.org/2001/XMLSchema-instance"
+    schemauri = "http://schema.nist.gov/xml/ce-res-md/1.0wd2"
+    nspfx = "rsm"
+    
+    def __init__(self):
+        super(Resource, self).__init__(_schema)
+        self.add("Resource/@xmlns", self.schemauri)
+        self.add("Resource/@xmlns:"+self.nspfx, self.schemauri)
+        self.add("Resource/@xmlns:xsi", self.xsiuri)
+        
+    def add_role(self, roletype):
+        """
+        add a role to this Resource object.
+        """
+        parts = re.split(r':\s*', roletype, 1)
+        self.add(parts[0]+"/type", roletype)
+        role = self.get(parts[0])
+        role[-1].add('@xsi:type', self.nspfx+":"+parts[0])
+        self.add('Resource/role', role[-1])
+        return role
+
+
+import logging
+import nistoar.doi 
+nistoar.doi.set_client_info("NIST Circular Economy Registry",
+                            "beta", "https://nist.gov", "raymond.plante@nist.gov")
+doilog = logging.getLogger("doi")
+
+def doi_into_draftdoc(doi, draft):
+    try:
+        md = nistoar.doi.resolve(doi, logger=doilog)
+        draft.add("Resource/identity/title", md.data['title'])
+        draft.add("Resource/content/reference/@pid", doi)
+        draft.add("Resource/content/reference/#text", md.citation_text)
+
+        publisher = md.data.get('publisher')
+        if md.data.get('container-title'):
+            # this is a journal, most likely
+            publisher = "%s (%s)" % (md.data.get('container-title'), publisher)
+        draft.add("Resource/identity/publisher", publisher)
+        
+        pubdate = md.data.get("published", {}).get("date-parts", [[]])
+        if len(pubdate) > 0 and pubdate[0]:
+            draft.add("Resource/identity/publicationYear", pubdate[0])
+            
+    except Exception as ex:
+        pass
+    
+    return draft
