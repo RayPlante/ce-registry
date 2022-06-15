@@ -18,12 +18,13 @@ Currently, the editing process can be demonstrated as a standalone app.  To run:
 
  2.  Prep the database:
      ```
+     python manage.py makemigrations
      python manage.py migrate
      ```
 
  3.  Run the server
      ```
-     python manage.py migrate
+     python manage.py runserver 127.0.0.1:8000
      ```
 
  4.  With a browser, access `http://127.0.0.1:8000/draft/start
