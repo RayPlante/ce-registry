@@ -27,45 +27,138 @@ cachedScript = function( url, options ) {
   // Return the jqXHR object so we can chain callbacks
   return $.ajax( options );
 };
+
+
 </script>
-{{form.title|as_crispy_field }}
-{{form.publisher|as_crispy_field }}
-{{form.description|as_crispy_field }}
+<head>
+    <style>
 
-  {{ errors }}
-  <div class="form-check">
-    {{ form.start_meth.0 }}
-  </div>
-  <div>
-  {{form.urlform|crispy }}
-    <button type ="button">Auto-Fill</button> Press this to autofill the form </br>
+.body-text {
+font-size: 18px;
+margin-right: 200px;
+}
+.sidebar {
+height: 100%;
+width: 200px;
+position: absolute;
+right: 0;
+top: 0;
+padding-top: 40px;
+}
 
-  </div>
-  <div style="margin-top: 1em;">
-  <div class="form-check">
-    {{ form.start_meth.1 }}
-  </div>
-  <div style="margin-left: 1.5rem; margin-top: .125rem;">
+.sidebar div {
+padding: 0px;
+font-size: 15px;
+display: block;
+}
 
-{{form.productform }}
-  </div>
-        <div style="margin-top: 1em;">
-  <div class="form-check">
-    {{ form.start_meth.2 }}
-  </div>
-  <div style="margin-left: 1.5rem; margin-top: .125rem;">
-{{form.media}}
-{{form.material|crispy }}
-  </div>
+.third  {
+
+  position: sticky;
+  font-size: 20px !important;
+  background-color: lightblue;
+}
+
+    </style>
+</head>
+<div class="body-text">
+    {{form.title|as_crispy_field }}
+    {{form.publisher|as_crispy_field }}
+    {{form.description|as_crispy_field }}
+
+    {{ errors }}
+    <div class="form-check">
+        {{ form.start_meth.0 }}
+    </div>
+    <div>
+        {{form.urlform|crispy }}
+        <button type="button">Auto-Fill</button>
+        Press this to autofill the form </br>
+
+    </div>
+    <div style="margin-top: 1em;">
+        <div class="form-check">
+            {{ form.start_meth.1 }}
         </div>
-  </div>
-  <div style="margin-left: 1.5rem; margin-top: .125rem;">
-{{form.roleform }}
+        <div style="margin-left: 1.5rem; margin-top: .125rem;">
 
-  </div>
-<div>
-{{form.roles}}
+            {{form.productform }}
+        </div>
+        <div style="margin-top: 1em;">
+            <div class="form-check">
+                {{ form.start_meth.2 }}
+            </div>
+            <div style="margin-left: 1.5rem; margin-top: .125rem;">
+                {{form.media}}
+                {{form.material|crispy }}
+            </div>
+        </div>
+    </div>
+    <div style="margin-left: 1.5rem; margin-top: .125rem;">
+        {{form.roleform }}
+
+    </div>
+    <div>
+        {{form.roles}}
+    </div>
+
+    <div>
+    </div>
 </div>
+<div class="sidebar">
+    <div class="second">
+        <input class="btn btn-success btn-sm" type="submit" value="Save draft"/>
+        <input class="btn btn-primary btn-sm" type="button" value="Undo">
+        <input class="btn btn-primary btn-sm" type="reset" value="Clear">
+    </div>
 
-<div>
+    <div class="third">
+    <div style=" margin-top : 10px; font-size:20px;">
+        <details>
+            <summary>Title</summary>
+            <p>Detailed content goes here …</p>
+
+        </details>
+        </div>        <div style=" margin-top : 10px; font-size:20px;">
+        <details>
+            <summary>Publisher</summary>
+            <p>Detailed content goes here …</p>
+
+        </details>
+        </div>
+    <div style=" margin-top : 10px; font-size:20px;">
+        <details>
+            <summary>Description</summary>
+            <p>Detailed content goes here …</p>
+
+        </details>
+        </div>            <div style=" margin-top : 10px; font-size:20px;">
+        <details>
+            <summary>Homepage URL</summary>
+            <p>Detailed content goes here …</p>
+
+        </details>
+        </div>
+      <div style=" margin-top : 10px; font-size:20px;">
+        <details>
+            <summary>Product Class</summary>
+            <p>Detailed content goes here …</p>
+
+        </details>
+        </div>
+         <div style=" margin-top : 10px; font-size:20px;">
+        <details>
+            <summary>Material Type</summary>
+            <p>Detailed content goes here …</p>
+
+        </details>
+        </div>
+         <div style=" margin-top : 10px; font-size:20px;">
+        <details>
+            <summary>Keywords</summary>
+            <p>Detailed content goes here …</p>
+
+        </details>
+        </div>
+    </div>
 </div>
