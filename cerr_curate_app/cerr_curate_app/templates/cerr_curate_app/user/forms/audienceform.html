@@ -1,0 +1,88 @@
+<script>
+    // Handle a maximum of 'limit' checkboxes selected
+
+    var limit = 2;
+    $(document).ready(function(){
+
+        $("input[type=checkbox]").click(function(){
+            areChecked=$("#primaryAudience input:checked")
+            var all = $("#primaryAudience input")
+            nb_checked= $("#primaryAudience input:checked").length;
+
+            if (nb_checked<limit) {
+                for (var el in all){
+                    if(all[el].parentElement){
+                        all[el].parentElement.classList.remove("grey");
+                    }
+                }
+             }
+            if (nb_checked == limit) {
+                 for (var el in all){
+                    if(!all[el].checked) {
+                        if(all[el].parentElement){
+                            all[el].parentElement.classList.add("grey");
+                       }
+                   }
+                }
+            }
+            if (nb_checked>limit) {
+                console.log('nop too many')
+                this.checked=false;
+            }
+        });
+    });
+</script>
+
+
+<head>
+<style>
+
+.title {
+font-weight: bold;
+display: inline-block;
+}
+
+.titleRow{
+margin-top: 1.5em;
+}
+
+.grey {
+color: grey;
+}
+
+.single-checkbox{
+margin: 0 0.5em
+}
+</style>
+
+
+
+<div id="primaryAudience">
+    <div class="titleRow">
+    <p class="title"> Primary Audience </p>
+    <span>(maximum 2)</span>
+</div>
+    <div id="contentRow">
+<div class="form-check-inline">
+    <input type="checkbox" class="single-checkbox" name="researchers" value ="researchers">
+<label for="researchers">researchers</label><br>
+</div>
+<div class="form-check-inline">
+    <input type="checkbox" class="single-checkbox" name="practitioners" value ="practitioners">
+<label for="practitioners">practitioners</label><br>
+</div>
+<div class="form-check-inline">
+    <input type="checkbox" class="single-checkbox" name="educators" value ="educators">
+<label for="educators">educators</label><br>
+</div>
+<div class="form-check-inline">
+    <input type="checkbox" class="single-checkbox" name="policy" value ="policy makers">
+<label for="policy makers">policy makers</label><br>
+</div>
+<div class="form-check-inline">
+    <input type="checkbox" class="single-checkbox" name="general" value ="general public">
+<label for="general public">general public</label><br>
+</div>
+    </div>
+</div>
+</head>

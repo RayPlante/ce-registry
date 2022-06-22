@@ -53,6 +53,36 @@ class ProductForm(ComposableForm):
             super(ProductForm, self).full_clean()
 
 
+class AudienceForm(ComposableForm):
+    choices = (("researchers", "practitioners ", "educators", "policy makers", "general public"),)
+    template_name = TMPL8S + "audienceform.html"
+    restype = forms.MultipleChoiceField(choices=choices, widget=forms.RadioSelect)
+
+    def __init__(self, data=None, files=None, is_top=True, show_errors=None, **kwargs):
+        self.is_top = is_top
+        self.show_aggregate_errors = show_errors
+        self.disabled = False
+        if self.show_aggregate_errors is None:
+            self.show_aggregate_errors = self.is_top
+        if "error_class" not in kwargs:
+            kwargs["error_class"] = CerrErrorList
+        super(AudienceForm, self).__init__(data, files, **kwargs)
+
+    @property
+    def homepage_errors(self):
+        """
+        return the errors associated with the homepage input
+        """
+        return self.errors.get("homepage", self.error_class(error_class="errorlist"))
+
+    def full_clean(self):
+        if self.disabled:
+            self._errors = ErrorDict()
+            self.cleaned_data = {}
+        else:
+            super(AudienceForm, self).full_clean()
+
+
 class UrlForm(ComposableForm):
     template_name = TMPL8S + "urlform.html"
     homepage = forms.URLField(label="Home Page URL")
@@ -162,6 +192,7 @@ class EditForm(MultiForm):
         self.publisher = forms.CharField(label="Publisher of "+self.resourcelabel, required=True)
         
         self.productform = ProductForm(data, files, is_top=False)
+        self.audienceform = AudienceForm(data, files, is_top=False)
         self.material = MaterialTypeForm()
         self.synthesis = SynthesisTypeForm()
         self.circular = CircularTypeForm()
@@ -175,7 +206,7 @@ class EditForm(MultiForm):
         if "error_class" not in kwargs:
             kwargs["error_class"] = CerrErrorList
         super(EditForm, self).__init__(
-            data, {"urlform": self.urlform, "productform": self.productform,"role":self.roleform},
+            data, {"urlform": self.urlform, "productform": self.productform, "audienceform": self.audienceform, "role":self.roleform},
             field_order="title publisher description".split(), **kwargs
         )
         self.fields['title'] = self.restitle
