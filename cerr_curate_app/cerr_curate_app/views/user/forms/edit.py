@@ -24,7 +24,7 @@ from .selectrestype import ResourceTypeChoiceField
 
 
 class ProductForm(ComposableForm):
-    choices = (("batteries", "electronics ", "packaging", "textiles"),)
+    choices = ("batteries", "electronics ", "packaging", "textiles")
     template_name = TMPL8S + "productform.html"
     restype = forms.MultipleChoiceField(choices=choices, widget=forms.RadioSelect)
 
@@ -37,6 +37,12 @@ class ProductForm(ComposableForm):
         if "error_class" not in kwargs:
             kwargs["error_class"] = CerrErrorList
         super(ProductForm, self).__init__(data, files, **kwargs)
+
+    # Override get_context to add choices to context
+    def get_context(self, **kwargs):
+        context = super(ProductForm, self).get_context(**kwargs)
+        context['choices'] = self.choices
+        return context
 
     @property
     def homepage_errors(self):
@@ -54,7 +60,7 @@ class ProductForm(ComposableForm):
 
 
 class AudienceForm(ComposableForm):
-    choices = (("researchers", "practitioners ", "educators", "policy makers", "general public"),)
+    choices = ("researchers", "practitioners ", "educators", "policy makers", "general public")
     template_name = TMPL8S + "audienceform.html"
     restype = forms.MultipleChoiceField(choices=choices, widget=forms.RadioSelect)
 
@@ -67,6 +73,14 @@ class AudienceForm(ComposableForm):
         if "error_class" not in kwargs:
             kwargs["error_class"] = CerrErrorList
         super(AudienceForm, self).__init__(data, files, **kwargs)
+
+    # Override get_context to add choices to context
+    def get_context(self, **kwargs):
+        context = super(AudienceForm, self).get_context(**kwargs)
+        context['choices'] = self.choices
+        return context
+
+
 
     @property
     def homepage_errors(self):

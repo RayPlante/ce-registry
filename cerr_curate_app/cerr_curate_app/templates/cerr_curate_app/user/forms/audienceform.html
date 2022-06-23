@@ -35,54 +35,38 @@
 
 
 <head>
-<style>
+    <style>
+        .title {
+        font-weight: bold;
+        display: inline-block;
+        }
 
-.title {
-font-weight: bold;
-display: inline-block;
-}
+        .titleRow{
+        margin-top: 1.5em;
+        }
 
-.titleRow{
-margin-top: 1.5em;
-}
+        .grey {
+        color: grey;
+        }
 
-.grey {
-color: grey;
-}
+        .single-checkbox{
+        margin: 0 0.5em
+        }
+    </style>
 
-.single-checkbox{
-margin: 0 0.5em
-}
-</style>
+    <div id="primaryAudience">
+        <div class="titleRow">
+            <p class="title"> Primary Audience </p>
+            <span>(maximum 2)</span>
+        </div>
 
-
-
-<div id="primaryAudience">
-    <div class="titleRow">
-    <p class="title"> Primary Audience </p>
-    <span>(maximum 2)</span>
-</div>
-    <div id="contentRow">
-<div class="form-check-inline">
-    <input type="checkbox" class="single-checkbox" name="researchers" value ="researchers">
-<label for="researchers">researchers</label><br>
-</div>
-<div class="form-check-inline">
-    <input type="checkbox" class="single-checkbox" name="practitioners" value ="practitioners">
-<label for="practitioners">practitioners</label><br>
-</div>
-<div class="form-check-inline">
-    <input type="checkbox" class="single-checkbox" name="educators" value ="educators">
-<label for="educators">educators</label><br>
-</div>
-<div class="form-check-inline">
-    <input type="checkbox" class="single-checkbox" name="policy" value ="policy makers">
-<label for="policy makers">policy makers</label><br>
-</div>
-<div class="form-check-inline">
-    <input type="checkbox" class="single-checkbox" name="general" value ="general public">
-<label for="general public">general public</label><br>
-</div>
+        <div id="contentRow">
+            {% for choice in choices %}
+                <div class="form-check-inline">
+                    <input type="checkbox" class="single-checkbox" name="{{choice}}" value ="{{choice}}">
+                    <label for="{{choice}}">{{choice}}</label><br>
+                </div>
+            {% endfor %}
+        </div>
     </div>
-</div>
 </head>
