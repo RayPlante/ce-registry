@@ -17,6 +17,7 @@ from cerr_curate_app.components.synthesis.models import Synthesis
 from cerr_curate_app.components.circular.models import Circular
 
 from .roles import sequenceForm as sequenceForm
+
 __all__ = ["EditForm"]
 
 TMPL8S = "cerr_curate_app/user/forms/"
@@ -41,7 +42,7 @@ class ProductForm(ComposableForm):
     # Override get_context to add choices to context
     def get_context(self, **kwargs):
         context = super(ProductForm, self).get_context(**kwargs)
-        context['choices'] = self.choices
+        context["choices"] = self.choices
         return context
 
     @property
@@ -60,7 +61,13 @@ class ProductForm(ComposableForm):
 
 
 class AudienceForm(ComposableForm):
-    choices = ("researchers", "practitioners ", "educators", "policy makers", "general public")
+    choices = (
+        "researchers",
+        "practitioners ",
+        "educators",
+        "policy makers",
+        "general public",
+    )
     template_name = TMPL8S + "audienceform.html"
     restype = forms.MultipleChoiceField(choices=choices, widget=forms.RadioSelect)
 
@@ -77,10 +84,8 @@ class AudienceForm(ComposableForm):
     # Override get_context to add choices to context
     def get_context(self, **kwargs):
         context = super(AudienceForm, self).get_context(**kwargs)
-        context['choices'] = self.choices
+        context["choices"] = self.choices
         return context
-
-
 
     @property
     def homepage_errors(self):
@@ -200,10 +205,14 @@ class EditForm(MultiForm):
             )
         else:
             self.urlform = UrlForm(data, files, is_top=False)
-        self.resourcelabel = data.get('restype', 'nothing')
+        self.resourcelabel = data.get("restype", "nothing")
 
-        self.restitle = forms.CharField(label="Title of "+self.resourcelabel, required=True)
-        self.publisher = forms.CharField(label="Publisher of "+self.resourcelabel, required=True)
+        self.restitle = forms.CharField(
+            label="Title of " + self.resourcelabel, required=True
+        )
+        self.publisher = forms.CharField(
+            label="Publisher of " + self.resourcelabel, required=True
+        )
 
         self.productform = ProductForm(data, files, is_top=False)
         self.audienceform = AudienceForm(data, files, is_top=False)
@@ -220,12 +229,20 @@ class EditForm(MultiForm):
         if "error_class" not in kwargs:
             kwargs["error_class"] = CerrErrorList
         super(EditForm, self).__init__(
-            data, {"urlform": self.urlform, "productform": self.productform, "audienceform": self.audienceform, "role":self.roleform},
-            field_order="title publisher description".split(), **kwargs
+            data,
+            {
+                "urlform": self.urlform,
+                "productform": self.productform,
+                "audienceform": self.audienceform,
+                "role": self.roleform,
+            },
+            field_order="title publisher description".split(),
+            **kwargs
         )
-        self.fields['title'] = self.restitle
-        self.fields['publisher'] = self.publisher
+        self.fields["title"] = self.restitle
+        self.fields["publisher"] = self.publisher
         self.order_fields(self.field_order)
+
 
 class MaterialTypeForm(forms.Form):
     fields = ("name", "categories")
@@ -235,7 +252,7 @@ class MaterialTypeForm(forms.Form):
         label="Material Type",
         required=False,
         queryset=categories,
-        widget=FancyTreeWidget(attrs={'id': id}, queryset=categories),
+        widget=FancyTreeWidget(attrs={"id": id}, queryset=categories),
     )
 
     def _clean_form(self):
@@ -250,7 +267,7 @@ class SynthesisTypeForm(forms.Form):
         label="Synthesis Type",
         required=False,
         queryset=categories,
-        widget=FancyTreeWidget(attrs={'id': id}, queryset=categories),
+        widget=FancyTreeWidget(attrs={"id": id}, queryset=categories),
     )
 
     def _clean_form(self):
@@ -265,7 +282,7 @@ class CircularTypeForm(forms.Form):
         label="Circular Pathway",
         required=False,
         queryset=categories,
-        widget=FancyTreeWidget(attrs={'id': id}, queryset=categories),
+        widget=FancyTreeWidget(attrs={"id": id}, queryset=categories),
     )
 
     def _clean_form(self):
@@ -277,20 +294,17 @@ class RoleForm(ComposableForm):
     total_input_fields = forms.CharField(widget=forms.HiddenInput())
     template_name = TMPL8S + "roleform.html"
 
-
     def __init__(self, *args, **kwargs):
 
-      extra_fields = kwargs.pop('extra', 0)
+        extra_fields = kwargs.pop("extra", 0)
 
-      # check if extra_fields exist. If they don't exist assign 0 to them
-      if not extra_fields:
-         extra_fields = 0
+        # check if extra_fields exist. If they don't exist assign 0 to them
+        if not extra_fields:
+            extra_fields = 0
 
-      super(RoleForm, self).__init__(*args, **kwargs)
-      self.fields['total_input_fields'].initial = extra_fields
+        super(RoleForm, self).__init__(*args, **kwargs)
+        self.fields["total_input_fields"].initial = extra_fields
 
-      for index in range(int(extra_fields)):
-        # generate extra fields in the number specified via extra_fields
-        self.fields['extra_field_{index}'.format(index=index)] = forms.CharField()
-
-
+        for index in range(int(extra_fields)):
+            # generate extra fields in the number specified via extra_fields
+            self.fields["extra_field_{index}".format(index=index)] = forms.CharField()

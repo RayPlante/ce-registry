@@ -9,6 +9,7 @@ def get_by_id(material_id):
     """
     return Material.get_by_id(material_id)
 
+
 def get_list_by_id(id_list):
     """
 
@@ -19,6 +20,7 @@ def get_list_by_id(id_list):
     for id in id_list:
         materials.append(Material.get_by_id(id))
     return materials
+
 
 def get_all():
     """List of all materials
