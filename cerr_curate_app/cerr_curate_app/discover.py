@@ -31,15 +31,15 @@ def _create_synthesis_list():
     if synthesis.exists() is False :
         synthesis =  Synthesis.objects.create(name="Synthesis_and_processing")
         synthesis_annealing_and_homogenization = Synthesis.objects.create(name="synthesis_annealing_and_homogenization",
-                                                                  parent="synthesis")
-        synthesis_casting = Synthesis.objects.create(name="synthesis_casting", parent="synthesis")
-        synthesis_forming = Synthesis.objects.create(name="synthesis_forming", parent="synthesis")
-        synthesis_mechanical_and_surface = Synthesis.objects.create(name="synthesis_mechanical_and_surface", parent="synthesis")
-        synthesis_powder_processing = Synthesis.objects.create(name="synthesis_powder_processing", parent="synthesis")
-        synthesis_quenching = Synthesis.objects.create(name="synthesis_quenching", parent="synthesis")
-        synthesis_reactive = Synthesis.objects.create(name="synthesis_reactive", parent="synthesis")
-        synthesis_self_assembly = Synthesis.objects.create(name="synthesis_self-assembly", parent="synthesis")
-        synthesis_solidification = Synthesis.objects.create(name="synthesis_solidification", parent="synthesis")
+                                                                  parent=synthesis)
+        synthesis_casting = Synthesis.objects.create(name="synthesis_casting", parent=synthesis)
+        synthesis_forming = Synthesis.objects.create(name="synthesis_forming", parent=synthesis)
+        synthesis_mechanical_and_surface = Synthesis.objects.create(name="synthesis_mechanical_and_surface", parent=synthesis)
+        synthesis_powder_processing = Synthesis.objects.create(name="synthesis_powder_processing", parent=synthesis)
+        synthesis_quenching = Synthesis.objects.create(name="synthesis_quenching", parent=synthesis)
+        synthesis_reactive = Synthesis.objects.create(name="synthesis_reactive", parent=synthesis)
+        synthesis_self_assembly = Synthesis.objects.create(name="synthesis_self-assembly", parent=synthesis)
+        synthesis_solidification = Synthesis.objects.create(name="synthesis_solidification", parent=synthesis)
 
 
 def _create_material_list():

@@ -1,0 +1,14 @@
+<div id="url_form">
+{% if form.show_aggregate_errors %}
+{% if form.errors %}<div style="color: red;"><i>Please correct the errors indicated below</i></div>{% endif %}
+{{ errors }}
+{% endif %}
+    <div class="url">
+        <label class="form-label" for="create-homepage">Resource's Home Page URL (optional):</label> <br/>
+    {{ form.homepage_errors }}
+    <input type="text" class="" id="create-homepage" size="80"
+           {% if form.homepage.value != None %}value="{{ form.homepage.value|stringformat:'s' }}"{% endif %}
+           name="{{ form.homepage.html_name }}"/> &nbsp; &nbsp;</br>
+    </div>
+</div>
+{{ data.homepage }}

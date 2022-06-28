@@ -2,41 +2,47 @@ from django import forms as forms
 
 from .base import MultiForm, CerrErrorList
 
-TMPL8S = "cerr_curate_app/user/forms/"
+TMPL8S = "cerr_curate_app/user/forms/roles/"
 
 
 class roleForm(MultiForm):
     @staticmethod
     def createForm(chosen_label, data):
-        if chosen_label == "software": return softwareRoleForm(data)
-        if chosen_label == "serviceapi": return serviceApiForm(data)
-        if chosen_label == "semanticasset": return defaultRoleForm(data)
-        if chosen_label == "database": return defaultRoleForm(data)
+        if chosen_label == "software" : return softwareRoleForm(data)
+        if chosen_label == "serviceapi" : return serviceApiForm(data)
+        if chosen_label == "semanticasset" : return semanticAssetRoleForm(data)
+        if chosen_label == "database" : return databaseRoleForm(data)
 
 
 
 class softwareRoleForm(roleForm):
-    template_name = TMPL8S + "softwareroleform"
+    template_name = TMPL8S + "softwareRoleForm.html"
     code_language = forms.CharField(label="Code Language Used")
     os_name = forms.CharField(label="OS Name", required=True)
     os_version = forms.CharField(label="OS Version", required=True)
     license_name = forms.CharField(label="Name of license applied to the software", required=True)
 
-    def __init__(self, data, **kwargs):
-        self.code_language = data.code_language
-
-        super(self, data, **kwargs)
+    def __init(self, data, **kwargs):
+        super(softwareRoleForm, self).__init(data, **kwargs)
 
 
-class defaultRoleForm(roleForm):
+class semanticAssetRoleForm(roleForm):
     """
     form for simple data
     """
     template_name = TMPL8S + "defaultroleform.html"
+    label = forms.CharField(label="SemanticAsset")
+    def __init(self, data, label, **kwargs):
+        super(semanticAssetRoleForm, self).__init(data, label, **kwargs)
 
-    def __init__(self, data, label, **kwargs):
-        defaultroleformfield = forms.Charfield(label=label)
-        super(defaultRoleForm, self).__init(data, label, **kwargs)
+class databaseRoleForm(roleForm):
+    """
+    form for simple data
+    """
+    template_name = TMPL8S + "defaultroleform.html"
+    label = forms.CharField(label="Database")
+    def __init(self, data, label, **kwargs):
+        super(databaseRoleForm, self).__init(data, label, **kwargs)
 
 
 class serviceApiForm(roleForm):
@@ -52,7 +58,7 @@ class serviceApiForm(roleForm):
 
 class sequenceForm(roleForm):
     #template_name = TMPL8S + "sequenceroleform"  # Create a button
-    template_name = "cerr_curate_app/user/forms/sequenceroleform.html"
+    template_name = "cerr_curate_app/user/forms/roles/sequenceroleform.html"
     label_choices = [
         ('serviceapi', 'ServiceApi'),
         ('software', 'Software'),
@@ -63,7 +69,7 @@ class sequenceForm(roleForm):
                                     widget=forms.Select(choices=label_choices))
     form_list = []
 
-    def __init__(self, formclass = None, form_list = [], labels = [], data=None, files=None, is_top=True, show_errors=None, **kwargs):
+    def __init(self, formclass = None, form_list = [], labels = [], data=None, files=None, is_top=True, show_errors=None, **kwargs):
         self.is_top = is_top
         #forms = {"forms": forms}
         if data is not None :
