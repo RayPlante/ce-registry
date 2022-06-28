@@ -201,10 +201,10 @@ class EditForm(MultiForm):
         else:
             self.urlform = UrlForm(data, files, is_top=False)
         self.resourcelabel = data.get('restype', 'nothing')
-        
+
         self.restitle = forms.CharField(label="Title of "+self.resourcelabel, required=True)
         self.publisher = forms.CharField(label="Publisher of "+self.resourcelabel, required=True)
-        
+
         self.productform = ProductForm(data, files, is_top=False)
         self.audienceform = AudienceForm(data, files, is_top=False)
         self.material = MaterialTypeForm()
@@ -229,12 +229,13 @@ class EditForm(MultiForm):
 
 class MaterialTypeForm(forms.Form):
     fields = ("name", "categories")
+    id = "material_type"
     categories = Material.objects.order_by("tree_id", "lft")
     widget = forms.ModelMultipleChoiceField(
         label="Material Type",
         required=False,
         queryset=categories,
-        widget=FancyTreeWidget(queryset=categories),
+        widget=FancyTreeWidget(attrs={'id': id}, queryset=categories),
     )
 
     def _clean_form(self):
@@ -243,12 +244,13 @@ class MaterialTypeForm(forms.Form):
 
 class SynthesisTypeForm(forms.Form):
     fields = ("name", "categories")
+    id = "synthesis_type"
     categories = Synthesis.objects.order_by("tree_id", "lft")
     widget = forms.ModelMultipleChoiceField(
         label="Synthesis Type",
         required=False,
         queryset=categories,
-        widget=FancyTreeWidget(queryset=categories),
+        widget=FancyTreeWidget(attrs={'id': id}, queryset=categories),
     )
 
     def _clean_form(self):
@@ -257,12 +259,13 @@ class SynthesisTypeForm(forms.Form):
 
 class CircularTypeForm(forms.Form):
     fields = ("name", "categories")
+    id = "circular_type"
     categories = Circular.objects.order_by("tree_id", "lft")
     widget = forms.ModelMultipleChoiceField(
         label="Circular Pathway",
         required=False,
         queryset=categories,
-        widget=FancyTreeWidget(queryset=categories),
+        widget=FancyTreeWidget(attrs={'id': id}, queryset=categories),
     )
 
     def _clean_form(self):

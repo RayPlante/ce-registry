@@ -100,14 +100,14 @@ class FancyTreeWidget(Widget):
             value = []
         if not isinstance(value, (list, tuple)):
             value = [value]
-        has_id = attrs and "id" in attrs
+        has_id = self.attrs and "id" in self.attrs
         final_attrs = self.build_attrs(attrs)
         if has_id:
             output = [
                 '<div id="%s" name="%s"></div>'
-                % (attrs["id"], self.choices.field.label)
+                % (self.attrs["id"], self.choices.field.label)
             ]
-            id_attr = ' id="%s_checkboxes"' % (attrs["id"])
+            id_attr = ' id="%s_checkboxes"' % (self.attrs["id"])
         else:
             output = ['<div name="%s"></div>' % self.choices.field.label]
             id_attr = ""
@@ -118,7 +118,7 @@ class FancyTreeWidget(Widget):
         for i, (option_value, option_label) in enumerate(chain(self.choices, choices)):
             if has_id:
                 final_attrs = dict(
-                    final_attrs, id="%s_%s" % (attrs["id"], option_value)
+                    final_attrs, id="%s_%s" % (self.attrs["id"], option_value)
                 )
                 label_for = ' for="%s"' % final_attrs["id"]
             else:
@@ -136,7 +136,7 @@ class FancyTreeWidget(Widget):
             )
         output.append("</ul>")
         output.append('<script type="text/javascript">')
-        js_data_var = "fancytree_data_%s" % (attrs["id"].replace("-", "_"))
+        js_data_var = "fancytree_data_%s" % (self.attrs["id"].replace("-", "_"))
         if has_id:
             output.append(
                 "var %s = %s;"
@@ -239,7 +239,7 @@ class FancyTreeWidget(Widget):
 
                 """
                 % {
-                    "id": attrs["id"],
+                    "id": self.attrs["id"],
                     "js_var": js_data_var,
                     "debug": settings.DEBUG and 1 or 0,
                     "select_mode": self.select_mode,
