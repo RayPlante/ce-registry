@@ -1,64 +1,64 @@
 {% load crispy_forms_tags %}
 
 <script>
-var onjQueryReady = function(method) {
-    if (window.jQuery){
-        method();
-    }
-    else{
-        setTimeout(function() { onjQueryReady(method) } , 50);
-    }
-};
-/**
- * Get script in param thanks to its url.
- * Use a cache to avoid getting several time the same script.
- * @param url
- * @param options
- */
-cachedScript = function( url, options ) {
-  // Allow user to set any option except for dataType, cache, and url
-  options = $.extend( options || {}, {
-    dataType: "script",
-    cache: true,
-    url: url
-  });
+    var onjQueryReady = function (method) {
+        if (window.jQuery) {
+            method();
+        }
+        else {
+            setTimeout(function () { onjQueryReady(method) }, 50);
+        }
+    };
+    /**
+     * Get script in param thanks to its url.
+     * Use a cache to avoid getting several time the same script.
+     * @param url
+     * @param options
+     */
+    cachedScript = function (url, options) {
+        // Allow user to set any option except for dataType, cache, and url
+        options = $.extend(options || {}, {
+            dataType: "script",
+            cache: true,
+            url: url
+        });
 
-  // Use $.ajax() since it is more flexible than $.getScript
-  // Return the jqXHR object so we can chain callbacks
-  return $.ajax( options );
-};
+        // Use $.ajax() since it is more flexible than $.getScript
+        // Return the jqXHR object so we can chain callbacks
+        return $.ajax(options);
+    };
 
 
 </script>
+
 <head>
     <style>
+        .body-text {
+            font-size: 18px;
+            margin-right: 200px;
+        }
 
-.body-text {
-font-size: 18px;
-margin-right: 200px;
-}
-.sidebar {
-height: 100%;
-width: 200px;
-position: absolute;
-right: 0;
-top: 0;
-padding-top: 40px;
-}
+        .sidebar {
+            height: 100%;
+            width: 200px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding-top: 40px;
+        }
 
-.sidebar div {
-padding: 0px;
-font-size: 15px;
-display: block;
-}
+        .sidebar div {
+            padding: 0px;
+            font-size: 15px;
+            display: block;
+        }
 
-.third  {
+        .third {
 
-  position: sticky;
-  font-size: 20px !important;
-  background-color: lightblue;
-}
-
+            position: sticky;
+            font-size: 20px !important;
+            background-color: lightblue;
+        }
     </style>
 </head>
 <div class="body-text">
@@ -94,9 +94,17 @@ display: block;
                 {{ form.start_meth.2 }}
             </div>
             <div style="margin-left: 1.5rem; margin-top: .125rem;">
-                {{form.media}}
-                {{form.material|crispy }}
+                {{form.material }}
             </div>
+
+            <div style="margin-left: 1.5rem; margin-top: .125rem;">
+                {{form.synthesis }}
+            </div>
+
+            <div style="margin-left: 1.5rem; margin-top: .125rem;">
+                {{form.circular }}
+            </div>
+
         </div>
     </div>
     <div style="margin-left: 1.5rem; margin-top: .125rem;">
@@ -108,62 +116,65 @@ display: block;
     </div>
 
     <div>
+        {{form.synthesisform}}
     </div>
 </div>
 <div class="sidebar">
     <div class="second">
-        <input class="btn btn-success btn-sm" type="submit" value="Save draft"/>
+        <input class="btn btn-success btn-sm" type="submit" value="Save draft" />
         <input class="btn btn-primary btn-sm" type="button" value="Undo">
         <input class="btn btn-primary btn-sm" type="reset" value="Clear">
     </div>
 
     <div class="third">
-    <div style=" margin-top : 10px; font-size:20px;">
-        <details>
-            <summary>Title</summary>
-            <p>Detailed content goes here …</p>
+        <div style=" margin-top : 10px; font-size:20px;">
+            <details>
+                <summary>Title</summary>
+                <p>Detailed content goes here …</p>
 
-        </details>
-        </div>        <div style=" margin-top : 10px; font-size:20px;">
-        <details>
-            <summary>Publisher</summary>
-            <p>Detailed content goes here …</p>
-
-        </details>
+            </details>
         </div>
-    <div style=" margin-top : 10px; font-size:20px;">
-        <details>
-            <summary>Description</summary>
-            <p>Detailed content goes here …</p>
+        <div style=" margin-top : 10px; font-size:20px;">
+            <details>
+                <summary>Publisher</summary>
+                <p>Detailed content goes here …</p>
 
-        </details>
-        </div>            <div style=" margin-top : 10px; font-size:20px;">
-        <details>
-            <summary>Homepage URL</summary>
-            <p>Detailed content goes here …</p>
-
-        </details>
+            </details>
         </div>
-      <div style=" margin-top : 10px; font-size:20px;">
-        <details>
-            <summary>Product Class</summary>
-            <p>Detailed content goes here …</p>
+        <div style=" margin-top : 10px; font-size:20px;">
+            <details>
+                <summary>Description</summary>
+                <p>Detailed content goes here …</p>
 
-        </details>
+            </details>
         </div>
-         <div style=" margin-top : 10px; font-size:20px;">
-        <details>
-            <summary>Material Type</summary>
-            <p>Detailed content goes here …</p>
+        <div style=" margin-top : 10px; font-size:20px;">
+            <details>
+                <summary>Homepage URL</summary>
+                <p>Detailed content goes here …</p>
 
-        </details>
+            </details>
         </div>
-         <div style=" margin-top : 10px; font-size:20px;">
-        <details>
-            <summary>Keywords</summary>
-            <p>Detailed content goes here …</p>
+        <div style=" margin-top : 10px; font-size:20px;">
+            <details>
+                <summary>Product Class</summary>
+                <p>Detailed content goes here …</p>
 
-        </details>
+            </details>
+        </div>
+        <div style=" margin-top : 10px; font-size:20px;">
+            <details>
+                <summary>Material Type</summary>
+                <p>Detailed content goes here …</p>
+
+            </details>
+        </div>
+        <div style=" margin-top : 10px; font-size:20px;">
+            <details>
+                <summary>Keywords</summary>
+                <p>Detailed content goes here …</p>
+
+            </details>
         </div>
     </div>
 </div>

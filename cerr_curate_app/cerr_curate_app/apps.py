@@ -11,7 +11,7 @@ class InitApp(AppConfig):
     """Cerr curate app application settings"""
 
     name = "cerr_curate_app"
-    default_auto_field = 'django.db.models.AutoField'
+    default_auto_field = "django.db.models.AutoField"
 
     def ready(self):
         """Run when the app is ready.

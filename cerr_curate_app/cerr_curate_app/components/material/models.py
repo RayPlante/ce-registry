@@ -20,8 +20,6 @@ class Material(MPTTModel):
     class MPTTMeta:
         order_insertion_by = ["name"]
 
-
-
     @staticmethod
     def get_by_id(material_id):
         """Return the object with the given id.

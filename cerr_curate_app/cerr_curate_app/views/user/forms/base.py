@@ -209,5 +209,3 @@ class MultiForm(ComposableForm):
 
 class CerrErrorList(ErrorList):
     template_name = TMPL8S + "errorlist.html"
-
-

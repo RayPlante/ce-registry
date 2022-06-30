@@ -4,6 +4,8 @@ from core_main_app.access_control.exceptions import AccessControlError
 from core_main_app.commons.exceptions import DoesNotExist
 from cerr_curate_app.views.user.forms.roles import roleForm
 import json
+
+
 def role_form(request):
     """Endpoint for role form value
 
@@ -14,6 +16,7 @@ def role_form(request):
         return get_role_form(request)
     elif request.method == "POST":
         return save_role_form(request)
+
 
 def get_role_form(request):
     """Gets the value of a data structure element
@@ -28,12 +31,12 @@ def get_role_form(request):
         return HttpResponseBadRequest()
 
     try:
-        #Create empty form instance
-        newform = roleForm.createForm(request.GET['role'], data = None)
-        #Create html and add it to the DOM
-       # role_html = "<div>Role:"+ request.GET['role'] + "</div>" +# add a remove button
+        # Create empty form instance
+        newform = roleForm.createForm(request.GET["role"], data=None)
+        # Create html and add it to the DOM
+        # role_html = "<div>Role:"+ request.GET['role'] + "</div>" +# add a remove button
         html_form = str(newform)
-   #     html_form = role_html+html_form
+        #     html_form = role_html+html_form
         json_data = json.dumps(html_form)
         # fancy tree = product class
         return HttpResponse(json_data, content_type="application/json")
@@ -44,5 +47,5 @@ def get_role_form(request):
 
 def save_role_form(request):
 
-    """Post value """
+    """Post value"""
     pass

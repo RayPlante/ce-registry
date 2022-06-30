@@ -9,7 +9,6 @@
     <input type="text" class="" id="create-homepage" size="80"
            {% if form.homepage.value != None %}value="{{ form.homepage.value|stringformat:'s' }}"{% endif %}
            name="{{ form.homepage.html_name }}"/> &nbsp; &nbsp;</br>
-        <button type ="button">Auto-Fill</button> Press this to autofill the form </br>
     </div>
 </div>
 {{ data.homepage }}
