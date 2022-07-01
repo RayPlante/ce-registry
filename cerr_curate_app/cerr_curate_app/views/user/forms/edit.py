@@ -42,7 +42,7 @@ class ProductForm(ComposableForm):
     # Override get_context to add choices to context
     def get_context(self, **kwargs):
         context = super(ProductForm, self).get_context(**kwargs)
-        context["choices"] = self.choices
+        context['choices'] = self.choices
         return context
 
     @property
@@ -61,13 +61,7 @@ class ProductForm(ComposableForm):
 
 
 class AudienceForm(ComposableForm):
-    choices = (
-        "researchers",
-        "practitioners ",
-        "educators",
-        "policy makers",
-        "general public",
-    )
+    choices = ("researchers", "practitioners ", "educators", "policy makers", "general public")
     template_name = TMPL8S + "audienceform.html"
     restype = forms.MultipleChoiceField(choices=choices, widget=forms.RadioSelect)
 
@@ -84,7 +78,7 @@ class AudienceForm(ComposableForm):
     # Override get_context to add choices to context
     def get_context(self, **kwargs):
         context = super(AudienceForm, self).get_context(**kwargs)
-        context["choices"] = self.choices
+        context['choices'] = self.choices
         return context
 
     @property
@@ -129,6 +123,37 @@ class UrlForm(ComposableForm):
             self.cleaned_data = {}
         else:
             super(UrlForm, self).full_clean()
+
+
+class KeywordsForm(ComposableForm):
+    template_name = TMPL8S + "keywordsform.html"
+    keywords = forms.CharField(widget=forms.Textarea, label="Keywords")
+    # homepage = forms.URLField(label="Home Page URL")
+
+    def __init__(self, data=None, files=None, is_top=True, show_errors=None, **kwargs):
+        self.is_top = is_top
+        self.show_aggregate_errors = show_errors
+        self.disabled = False
+        if self.show_aggregate_errors is None:
+            self.show_aggregate_errors = self.is_top
+        if "error_class" not in kwargs:
+            kwargs["error_class"] = CerrErrorList
+        super(KeywordsForm, self).__init__(data, files, **kwargs)
+
+    @property
+    def homepage_errors(self):
+        """
+        return the errors associated with the homepage input
+        """
+        return self.errors.get("homepage", self.error_class(error_class="errorlist"))
+
+    def full_clean(self):
+        if self.disabled:
+            self._errors = ErrorDict()
+            self.cleaned_data = {}
+        else:
+            super(KeywordsForm, self).full_clean()
+
 
 
 class CreateForm(ComposableForm):
@@ -205,15 +230,11 @@ class EditForm(MultiForm):
             )
         else:
             self.urlform = UrlForm(data, files, is_top=False)
-        self.resourcelabel = data.get("restype", "nothing")
+        self.resourcelabel = data.get('restype', 'nothing')
 
-        self.restitle = forms.CharField(
-            label="Title of " + self.resourcelabel, required=True
-        )
-        self.publisher = forms.CharField(
-            label="Publisher of " + self.resourcelabel, required=True
-        )
-
+        self.restitle = forms.CharField(label="Title of "+self.resourcelabel, required=True)
+        self.publisher = forms.CharField(label="Publisher of "+self.resourcelabel, required=True)
+        
         self.productform = ProductForm(data, files, is_top=False)
         self.audienceform = AudienceForm(data, files, is_top=False)
         self.material = MaterialTypeForm()
@@ -221,6 +242,7 @@ class EditForm(MultiForm):
         self.circular = CircularTypeForm()
         self.roleform = RoleForm()
         self.roles = sequenceForm()
+        self.keywordsform = KeywordsForm(data, files, is_top=False)
         self.is_top = is_top
         self.show_aggregate_errors = show_errors
         self.title = title
@@ -229,15 +251,8 @@ class EditForm(MultiForm):
         if "error_class" not in kwargs:
             kwargs["error_class"] = CerrErrorList
         super(EditForm, self).__init__(
-            data,
-            {
-                "urlform": self.urlform,
-                "productform": self.productform,
-                "audienceform": self.audienceform,
-                "role": self.roleform,
-            },
-            field_order="title publisher description".split(),
-            **kwargs
+            data, {"urlform": self.urlform, "productform": self.productform, "audienceform": self.audienceform, "role":self.roleform, "keywordsform":self.keywordsform},
+            field_order="title publisher description".split(), **kwargs
         )
         self.fields["title"] = self.restitle
         self.fields["publisher"] = self.publisher
