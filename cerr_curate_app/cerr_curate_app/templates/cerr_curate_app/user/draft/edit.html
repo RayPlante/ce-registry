@@ -30,15 +30,6 @@
 {% csrf_token %}
 <input type="hidden" name="name" value="{{recname}}"/>
   {{ editform }}
-<ul id="dynamic-list"></ul>
-
-Keywords:
-<input type="text" id="candidate"/>
-<button type="button" onclick="addItem()">Add Item</button>
-    <div style="margin-top: 2ex">
-
-    <input type="submit" class="btn btn-success" value="Save draft"/>
-    </div>
 
 </form>
 

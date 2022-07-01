@@ -3,10 +3,12 @@ function addItem(){
   var candidate = document.getElementById("candidate");
   if (candidate.value !=='')
     var li = document.createElement("li");
-    li.setAttribute('id','keyword');
+    var index = ul.getElementsByTagName("li").length
+    li.setAttribute('id','keyword_'+index);
     li.appendChild(document.createTextNode(candidate.value));
-    li.innerHTML += "<button type=\"button\" onclick=\"removeItem()\">x"
+    li.innerHTML += "<span class=\"rmBtn\" onclick=\"removeItem()\"><i class=\"fas fa-times\"></i><i id=\"circleFa\" class=\"far fa-circle\"></i></span"
     ul.appendChild(li);
+    candidate.value = ''
 }
 
 function removeItem(){
@@ -32,6 +34,7 @@ var saveElement = function(event) {
             success: function(data){
             },
             error: function(data){
+            console.log('HELLO ERROR')
                 console.log(data)
             }
         })
