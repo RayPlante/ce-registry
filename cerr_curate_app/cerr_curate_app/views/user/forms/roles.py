@@ -8,13 +8,13 @@ TMPL8S = "cerr_curate_app/user/forms/roles/"
 class roleForm(MultiForm):
     @staticmethod
     def createForm(chosen_label, data):
-        if chosen_label == "software":
+        if chosen_label == "Software":
             return softwareRoleForm(data)
-        if chosen_label == "serviceapi":
+        if chosen_label == "Service API":
             return serviceApiForm(data)
-        if chosen_label == "semanticasset":
+        if chosen_label == "Semantic Asset":
             return semanticAssetRoleForm(data)
-        if chosen_label == "database":
+        if chosen_label == "Database":
             return databaseRoleForm(data)
 
 
@@ -26,6 +26,7 @@ class softwareRoleForm(roleForm):
     license_name = forms.CharField(
         label="Name of license applied to the software", required=True
     )
+    highlighted_feature = forms.CharField(label="Highlighted feature", required=True)
 
     def __init(self, data, **kwargs):
         super(softwareRoleForm, self).__init(data, **kwargs)
@@ -57,9 +58,11 @@ class databaseRoleForm(roleForm):
 
 class serviceApiForm(roleForm):
     template_name = TMPL8S + "serviceApiForm.html"
-    base_url = forms.CharField(label="Base Url")
-    api_url = forms.CharField(label="URL where the API is documented")
-    specification_url = forms.CharField(label="Specification URL", required=True)
+    tool_choices = [("1", "Service: API"), ("2", "Tool")]
+    tool = forms.CharField(label="Tool", widget=forms.Select(choices=tool_choices))
+    base_url = forms.URLField(required=False)
+    api_url = forms.URLField(required=False)
+    specification_url = forms.URLField(label="Specification URL", required=False)
     compliance_id = forms.CharField(
         label="Name of license applied to the software", required=True
     )
@@ -72,10 +75,10 @@ class sequenceForm(roleForm):
     # template_name = TMPL8S + "sequenceroleform"  # Create a button
     template_name = "cerr_curate_app/user/forms/roles/sequenceroleform.html"
     label_choices = [
-        ("serviceapi", "ServiceApi"),
-        ("software", "Software"),
-        ("semanticasset", "SemanticAsset"),
-        ("database", "Database"),
+        ("Service API", "ServiceApi"),
+        ("Software", "Software"),
+        ("Semantic Asset", "SemanticAsset"),
+        ("Database", "Database"),
     ]
     role_list = forms.CharField(
         label="Chose a role", widget=forms.Select(choices=label_choices)

@@ -73,7 +73,7 @@ def get_tree(nodes, values, count_mode):
 
 class FancyTreeWidget(Widget):
     def __init__(
-        self, attrs=None, choices=(), queryset=None, select_mode=3, count_mode=False
+        self, attrs=None, choices=(), queryset=None, select_mode=2, count_mode=False
     ):
         """
 

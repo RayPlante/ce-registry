@@ -13,6 +13,8 @@ from .base import MultiForm, CerrErrorList, ComposableForm
 from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
 from cerr_curate_app.components.material.models import Material
+from cerr_curate_app.components.productclass.models import ProductClass
+
 from cerr_curate_app.components.synthesis.models import Synthesis
 from cerr_curate_app.components.circular.models import Circular
 
@@ -24,40 +26,16 @@ TMPL8S = "cerr_curate_app/user/forms/"
 from .selectrestype import ResourceTypeChoiceField
 
 
-class ProductForm(ComposableForm):
-    choices = ("batteries", "electronics ", "packaging", "textiles")
-    template_name = TMPL8S + "productform.html"
-    restype = forms.MultipleChoiceField(choices=choices, widget=forms.RadioSelect)
-
-    def __init__(self, data=None, files=None, is_top=True, show_errors=None, **kwargs):
-        self.is_top = is_top
-        self.show_aggregate_errors = show_errors
-        self.disabled = False
-        if self.show_aggregate_errors is None:
-            self.show_aggregate_errors = self.is_top
-        if "error_class" not in kwargs:
-            kwargs["error_class"] = CerrErrorList
-        super(ProductForm, self).__init__(data, files, **kwargs)
-
-    # Override get_context to add choices to context
-    def get_context(self, **kwargs):
-        context = super(ProductForm, self).get_context(**kwargs)
-        context['choices'] = self.choices
-        return context
-
-    @property
-    def homepage_errors(self):
-        """
-        return the errors associated with the homepage input
-        """
-        return self.errors.get("homepage", self.error_class(error_class="errorlist"))
-
-    def full_clean(self):
-        if self.disabled:
-            self._errors = ErrorDict()
-            self.cleaned_data = {}
-        else:
-            super(ProductForm, self).full_clean()
+class ProductClassForm(forms.Form):
+    fields = ("name", "categories")
+    id = "product_class"
+    categories = ProductClass.objects.order_by("tree_id", "lft")
+    widget = forms.ModelMultipleChoiceField(
+        label="Product Class",
+        required=False,
+        queryset=categories,
+        widget=FancyTreeWidget(attrs={"id": id}, queryset=categories),
+    )
 
 
 class AudienceForm(ComposableForm):
@@ -234,8 +212,8 @@ class EditForm(MultiForm):
 
         self.restitle = forms.CharField(label="Title of "+self.resourcelabel, required=True)
         self.publisher = forms.CharField(label="Publisher of "+self.resourcelabel, required=True)
-        
-        self.productform = ProductForm(data, files, is_top=False)
+
+        self.productform = ProductClassForm()
         self.audienceform = AudienceForm(data, files, is_top=False)
         self.material = MaterialTypeForm()
         self.synthesis = SynthesisTypeForm()

@@ -18,3 +18,8 @@ var addRole = function(event) {
         })
 }
 
+var removeRole = function() {
+
+    var id = event.target.closest("#role_form")
+    id.remove()
+}

@@ -47,3 +47,4 @@ m2repo
 # Mac OSX
 .DS_Store
 
+/.idea/workspace.xml

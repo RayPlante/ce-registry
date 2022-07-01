@@ -9,6 +9,7 @@ def init_cerr():
         _create_material_list()
         _create_circular_pathway_list()
         _create_synthesis_list()
+        _create_product_class_list()
         pass
     except Exception as e:
         logger.error("Impossible to init the registry: {0}".format(str(e)))
@@ -130,3 +131,56 @@ def _create_material_list():
         small_organic_compounds_child = Material.objects.create(
             name="small organic Compounds", parent=small_organic_compounds
         )
+
+
+def _create_product_class_list():
+    from cerr_curate_app.components.productclass import api as productclass_api
+    from cerr_curate_app.components.productclass.models import ProductClass
+
+    productclass = productclass_api.get_all()
+    if productclass.exists() is False:
+        batteries = ProductClass.objects.create(name="Batteries")
+        batteries_child = ProductClass.objects.create(
+            name="batteries", parent=batteries
+        )
+        electronics = ProductClass.objects.create(name="Electronics")
+        electronics_child = ProductClass.objects.create(
+            name="electronics", parent=electronics
+        )
+        organics = ProductClass.objects.create(name="Organics")
+        organics_child = ProductClass.objects.create(name="organics", parent=organics)
+        solarpanels = ProductClass.objects.create(name="Solar Panels")
+        solarpanels_child = ProductClass.objects.create(
+            name="solar panels", parent=solarpanels
+        )
+        packaging = ProductClass.objects.create(name="Packaging")
+        packaging_child = ProductClass.objects.create(
+            name="packaging", parent=packaging
+        )
+        packaging_glass = ProductClass.objects.create(
+            name="packaging: glass", parent=packaging
+        )
+        packaging_plastic = ProductClass.objects.create(
+            name="packaging: plastic", parent=packaging
+        )
+        packaging_metals = ProductClass.objects.create(
+            name="packaging: metals", parent=packaging
+        )
+        packaging_fiber = ProductClass.objects.create(
+            name="packaging: fiber", parent=packaging
+        )
+        building_materials = ProductClass.objects.create(name="Building Materials")
+        building_materials_child = ProductClass.objects.create(
+            name="building materials", parent=building_materials
+        )
+        building_materials_wood = ProductClass.objects.create(
+            name="building materials: wood", parent=building_materials
+        )
+        building_materials_glass = ProductClass.objects.create(
+            name="building materials: glass", parent=building_materials
+        )
+        building_materials_concrete = ProductClass.objects.create(
+            name="building materials: concrete", parent=building_materials
+        )
+        textiles = ProductClass.objects.create(name="Textiles")
+        textiles_child = ProductClass.objects.create(name="textiles", parent=textiles)
