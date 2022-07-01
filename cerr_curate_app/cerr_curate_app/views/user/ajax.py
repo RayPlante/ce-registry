@@ -34,8 +34,13 @@ def get_role_form(request):
         # Create empty form instance
         newform = roleForm.createForm(request.GET["role"], data=None)
         # Create html and add it to the DOM
-        # role_html = "<div>Role:"+ request.GET['role'] + "</div>" +# add a remove button
+        # TODO
+        role_html = (
+            "<div id ='role_form'>Role: <b>" + request.GET["role"] + "   </b>"
+        )  # add a remove button
+        button_html = '<button type="button" onclick="removeRole()" class = "btn btn-outline-danger">Delete Role</button>'
         html_form = str(newform)
+        html_form = role_html + button_html + html_form + "</div>"
         #     html_form = role_html+html_form
         json_data = json.dumps(html_form)
         # fancy tree = product class
