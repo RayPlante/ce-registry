@@ -15,7 +15,6 @@ from mptt.models import MPTTModel, TreeForeignKey
 from cerr_curate_app.components.material.models import Material
 from cerr_curate_app.components.productclass.models import ProductClass
 
-from cerr_curate_app.components.synthesis.models import Synthesis
 from cerr_curate_app.components.circular.models import Circular
 
 from .roles import sequenceForm as sequenceForm
@@ -226,7 +225,6 @@ class EditForm(MultiForm):
         self.productform = ProductClassForm()
         self.audienceform = AudienceForm(data, files, is_top=False)
         self.material = MaterialTypeForm()
-        self.synthesis = SynthesisTypeForm()
         self.circular = CircularTypeForm()
         self.roleform = RoleForm()
         self.roles = sequenceForm()
@@ -268,22 +266,6 @@ class MaterialTypeForm(forms.Form):
 
     def _clean_form(self):
         super(MaterialTypeForm)._clean_form()
-
-
-class SynthesisTypeForm(forms.Form):
-    fields = ("name", "categories")
-    id = "synthesis_type"
-    categories = Synthesis.objects.order_by("tree_id", "lft")
-    widget = forms.ModelMultipleChoiceField(
-        label="Synthesis Type",
-        required=False,
-        queryset=categories,
-        widget=FancyTreeWidget(attrs={"id": id}, queryset=categories),
-    )
-
-    def _clean_form(self):
-        super(SynthesisTypeForm)._clean_form()
-
 
 class CircularTypeForm(forms.Form):
     fields = ("name", "categories")
