@@ -9,7 +9,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-class Circular(MPTTModel):
+class Lifecycle(MPTTModel):
     # schema associated with the draft document
     template = fields.ReferenceField(Template)
     name = models.CharField(max_length=50, unique=True)
@@ -21,18 +21,18 @@ class Circular(MPTTModel):
         order_insertion_by = ["name"]
 
     @staticmethod
-    def get_by_id(circular_id):
+    def get_by_id(lifecycle_id):
         """Return the object with the given id.
 
         Args:
-            circular_id:
+            lifecycle_id:
 
         Returns:
-            Circular (obj): Circular object with the given id
+            Lifecycle (obj): Lifecycle object with the given id
 
         """
         try:
-            return Circular.objects.get(pk=str(circular_id))
+            return Lifecycle.objects.get(pk=str(lifecycle_id))
         except mongoengine_errors.DoesNotExist as e:
             raise exceptions.DoesNotExist(str(e))
         except Exception as ex:
@@ -40,9 +40,9 @@ class Circular(MPTTModel):
 
     @staticmethod
     def get_all():
-        """Get all Circulars
+        """Get all Lifecycles
 
         Returns:
 
         """
-        return Circular.objects.all()
+        return Lifecycle.objects.all()

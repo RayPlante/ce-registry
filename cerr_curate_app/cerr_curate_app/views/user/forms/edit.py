@@ -39,7 +39,14 @@ class ProductClassForm(forms.Form):
 
 
 class AudienceForm(ComposableForm):
-    choices = ("researchers", "practitioners ", "educators", "policy makers", "general public")
+    choices = (
+        "researchers",
+        "practitioners ",
+        "educators",
+        "policy makers",
+        "general public",
+        "communication specialists",
+    )
     template_name = TMPL8S + "audienceform.html"
     restype = forms.MultipleChoiceField(choices=choices, widget=forms.RadioSelect)
 
@@ -56,7 +63,7 @@ class AudienceForm(ComposableForm):
     # Override get_context to add choices to context
     def get_context(self, **kwargs):
         context = super(AudienceForm, self).get_context(**kwargs)
-        context['choices'] = self.choices
+        context["choices"] = self.choices
         return context
 
     @property
@@ -133,7 +140,6 @@ class KeywordsForm(ComposableForm):
             super(KeywordsForm, self).full_clean()
 
 
-
 class CreateForm(ComposableForm):
     """
     A Form for creating an initial draft of a record.
@@ -208,10 +214,14 @@ class EditForm(MultiForm):
             )
         else:
             self.urlform = UrlForm(data, files, is_top=False)
-        self.resourcelabel = data.get('restype', 'nothing')
+        self.resourcelabel = data.get("restype", "nothing")
 
-        self.restitle = forms.CharField(label="Title of "+self.resourcelabel, required=True)
-        self.publisher = forms.CharField(label="Publisher of "+self.resourcelabel, required=True)
+        self.restitle = forms.CharField(
+            label="Title of " + self.resourcelabel, required=True
+        )
+        self.publisher = forms.CharField(
+            label="Publisher of " + self.resourcelabel, required=True
+        )
 
         self.productform = ProductClassForm()
         self.audienceform = AudienceForm(data, files, is_top=False)
@@ -229,8 +239,16 @@ class EditForm(MultiForm):
         if "error_class" not in kwargs:
             kwargs["error_class"] = CerrErrorList
         super(EditForm, self).__init__(
-            data, {"urlform": self.urlform, "productform": self.productform, "audienceform": self.audienceform, "role":self.roleform, "keywordsform":self.keywordsform},
-            field_order="title publisher description".split(), **kwargs
+            data,
+            {
+                "urlform": self.urlform,
+                "productform": self.productform,
+                "audienceform": self.audienceform,
+                "role": self.roleform,
+                "keywordsform": self.keywordsform,
+            },
+            field_order="title publisher description".split(),
+            **kwargs
         )
         self.fields["title"] = self.restitle
         self.fields["publisher"] = self.publisher
@@ -272,7 +290,7 @@ class CircularTypeForm(forms.Form):
     id = "circular_type"
     categories = Circular.objects.order_by("tree_id", "lft")
     widget = forms.ModelMultipleChoiceField(
-        label="Circular Pathway",
+        label="Lifecycle Phase",
         required=False,
         queryset=categories,
         widget=FancyTreeWidget(attrs={"id": id}, queryset=categories),

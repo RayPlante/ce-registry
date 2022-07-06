@@ -7,7 +7,7 @@ logger = logging.getLogger("core_main_registry_app.discover")
 def init_cerr():
     try:
         _create_material_list()
-        _create_circular_pathway_list()
+        _create_lifeycle_phase_list()
         _create_synthesis_list()
         _create_product_class_list()
         pass
@@ -15,15 +15,37 @@ def init_cerr():
         logger.error("Impossible to init the registry: {0}".format(str(e)))
 
 
-def _create_circular_pathway_list():
-    from cerr_curate_app.components.circular import api as circular_api
-    from cerr_curate_app.components.circular.models import Circular
+def _create_lifeycle_phase_list():
+    from cerr_curate_app.components.lifecycle import api as lifecycle_api
+    from cerr_curate_app.components.lifecycle.models import Lifecycle
 
-    circular = circular_api.get_all()
-    if circular.exists() is False:
-        circular = Circular.objects.create(name="Circular Pathways")
-        solvent = Circular.objects.create(name="solvents", parent=circular)
-        mechanical = Circular.objects.create(name="mechanical", parent=circular)
+    lifecycle = lifecycle_api.get_all()
+    if lifecycle.exists() is False:
+        materials_design = Lifecycle.objects.create(name="materials design")
+        processing = Lifecycle.objects.create(name="processing")
+        product_design = Lifecycle.objects.create(name="product design")
+        use_reuse = Lifecycle.objects.create(name="use and reuse")
+        repair_refurbishment = Lifecycle.objects.create(name="repair and refurbishment")
+        collection_sortation = Lifecycle.objects.create(name="collection and sortation")
+        recycling = Lifecycle.objects.create(name="recycling")
+        solvent = Lifecycle.objects.create(name="solvents", parent=recycling)
+        mechanical = Lifecycle.objects.create(name="mechanical", parent=recycling)
+        chemical = Lifecycle.objects.create(name="chemical", parent=recycling)
+        carbon_capture = Lifecycle.objects.create(name="carbon capture")
+        end_life_management = Lifecycle.objects.create(name="end-of-life management")
+        unwanted_outcomes = Lifecycle.objects.create(name="unwanted outcomes")
+        material_losses = Lifecycle.objects.create(
+            name="material losses", parent=unwanted_outcomes
+        )
+        carbon_emissions = Lifecycle.objects.create(
+            name="carbon emissions", parent=unwanted_outcomes
+        )
+        public_health_impacts = Lifecycle.objects.create(
+            name="public health impacts", parent=unwanted_outcomes
+        )
+        environmental_impacts = Lifecycle.objects.create(
+            name="environmental impacts", parent=unwanted_outcomes
+        )
 
 
 def _create_synthesis_list():
@@ -71,10 +93,16 @@ def _create_material_list():
         # create method Add init materials
         biomass = Material.objects.create(name="Biomass")
         biomass_child = Material.objects.create(name="biomass", parent=biomass)
-
+        cellulosic = Material.objects.create(name="cellulosic", parent=biomass)
+        food = Material.objects.create(name="food", parent=biomass)
+        compost = Material.objects.create(name="compost", parent=biomass)
+        composites = Material.objects.create(name="Composites")
         glass = Material.objects.create(name="Glass")
         glass_child = Material.objects.create(name="glass", parent=glass)
-
+        concrete = Material.objects.create(name="Concrete")
+        gases = Material.objects.create(name="Gases")
+        chemicals = Material.objects.create(name="Chemicals")
+        chemicals_child = Material.objects.create(name="chemicals", parent=chemicals)
         metals = Material.objects.create(name="Metals and Alloys")
         metals_child = Material.objects.create(name="metals and alloys", parent=metals)
         metals_rare = Material.objects.create(
@@ -86,7 +114,6 @@ def _create_material_list():
         metals_non_ferrous = Material.objects.create(
             name="metals and alloys: non-ferrous", parent=metals
         )
-
         polymers = Material.objects.create(name="Polymers: property-based")
         polymers_property_based = Material.objects.create(
             name="polymers: property-based", parent=polymers
@@ -97,8 +124,14 @@ def _create_material_list():
         polymers_liquid_crystals = Material.objects.create(
             name="polymers: property-based: liquid crystals", parent=polymers
         )
+        polymers_marine_debris = Material.objects.create(
+            name="polymers: property-based: marine_debris", parent=polymers
+        )
+        polymers_micro_nano_plastics = Material.objects.create(
+            name="polymers: property-based: micro- and nano-plastics", parent=polymers
+        )
         polymers_thermosets = Material.objects.create(
-            name="polymers: property-based thermosets", parent=polymers
+            name="polymers: property-based: thermosets", parent=polymers
         )
         polymers_thermoplastics = Material.objects.create(
             name="polymers: property-based: thermoplastics", parent=polymers
@@ -147,15 +180,17 @@ def _create_product_class_list():
         electronics_child = ProductClass.objects.create(
             name="electronics", parent=electronics
         )
-        organics = ProductClass.objects.create(name="Organics")
-        organics_child = ProductClass.objects.create(name="organics", parent=organics)
-        solarpanels = ProductClass.objects.create(name="Solar Panels")
-        solarpanels_child = ProductClass.objects.create(
-            name="solar panels", parent=solarpanels
+        durableplastics = ProductClass.objects.create(name="Durable Plastics")
+        durableplastics_child = ProductClass.objects.create(
+            name="durable plastics", parent=durableplastics
         )
         packaging = ProductClass.objects.create(name="Packaging")
         packaging_child = ProductClass.objects.create(
             name="packaging", parent=packaging
+        )
+        solarpanels = ProductClass.objects.create(name="Solar Panels")
+        solarpanels_child = ProductClass.objects.create(
+            name="solar panels", parent=solarpanels
         )
         packaging_glass = ProductClass.objects.create(
             name="packaging: glass", parent=packaging
@@ -181,6 +216,9 @@ def _create_product_class_list():
         )
         building_materials_concrete = ProductClass.objects.create(
             name="building materials: concrete", parent=building_materials
+        )
+        building_materials_steel = ProductClass.objects.create(
+            name="building materials: steel", parent=building_materials
         )
         textiles = ProductClass.objects.create(name="Textiles")
         textiles_child = ProductClass.objects.create(name="textiles", parent=textiles)
