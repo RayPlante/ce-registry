@@ -92,19 +92,15 @@ def _create_material_list():
     if materials.exists() is False:
         # create method Add init materials
         biomass = Material.objects.create(name="Biomass")
-        biomass_child = Material.objects.create(name="biomass", parent=biomass)
         cellulosic = Material.objects.create(name="cellulosic", parent=biomass)
         food = Material.objects.create(name="food", parent=biomass)
         compost = Material.objects.create(name="compost", parent=biomass)
         composites = Material.objects.create(name="Composites")
         glass = Material.objects.create(name="Glass")
-        glass_child = Material.objects.create(name="glass", parent=glass)
         concrete = Material.objects.create(name="Concrete")
         gases = Material.objects.create(name="Gases")
         chemicals = Material.objects.create(name="Chemicals")
-        chemicals_child = Material.objects.create(name="chemicals", parent=chemicals)
         metals = Material.objects.create(name="Metals and Alloys")
-        metals_child = Material.objects.create(name="metals and alloys", parent=metals)
         metals_rare = Material.objects.create(
             name="metals and alloys: rare earth elements", parent=metals
         )
@@ -161,9 +157,7 @@ def _create_material_list():
         small_organic_compounds = Material.objects.create(
             name="Small organic Compounds"
         )
-        small_organic_compounds_child = Material.objects.create(
-            name="small organic Compounds", parent=small_organic_compounds
-        )
+
 
 
 def _create_product_class_list():
@@ -173,25 +167,10 @@ def _create_product_class_list():
     productclass = productclass_api.get_all()
     if productclass.exists() is False:
         batteries = ProductClass.objects.create(name="Batteries")
-        batteries_child = ProductClass.objects.create(
-            name="batteries", parent=batteries
-        )
         electronics = ProductClass.objects.create(name="Electronics")
-        electronics_child = ProductClass.objects.create(
-            name="electronics", parent=electronics
-        )
         durableplastics = ProductClass.objects.create(name="Durable Plastics")
-        durableplastics_child = ProductClass.objects.create(
-            name="durable plastics", parent=durableplastics
-        )
         packaging = ProductClass.objects.create(name="Packaging")
-        packaging_child = ProductClass.objects.create(
-            name="packaging", parent=packaging
-        )
         solarpanels = ProductClass.objects.create(name="Solar Panels")
-        solarpanels_child = ProductClass.objects.create(
-            name="solar panels", parent=solarpanels
-        )
         packaging_glass = ProductClass.objects.create(
             name="packaging: glass", parent=packaging
         )
@@ -205,9 +184,6 @@ def _create_product_class_list():
             name="packaging: fiber", parent=packaging
         )
         building_materials = ProductClass.objects.create(name="Building Materials")
-        building_materials_child = ProductClass.objects.create(
-            name="building materials", parent=building_materials
-        )
         building_materials_wood = ProductClass.objects.create(
             name="building materials: wood", parent=building_materials
         )
@@ -221,4 +197,3 @@ def _create_product_class_list():
             name="building materials: steel", parent=building_materials
         )
         textiles = ProductClass.objects.create(name="Textiles")
-        textiles_child = ProductClass.objects.create(name="textiles", parent=textiles)
