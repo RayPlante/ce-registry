@@ -16,34 +16,34 @@ def init_cerr():
 
 
 def _create_lifeycle_phase_list():
-    from cerr_curate_app.components.circular import api as circular_api
-    from cerr_curate_app.components.circular.models import Circular
+    from cerr_curate_app.components.lifecycle import api as lifecycle_api
+    from cerr_curate_app.components.lifecycle.models import Lifecycle
 
-    circular = circular_api.get_all()
-    if circular.exists() is False:
-        materials_design = Circular.objects.create(name="materials design")
-        processing = Circular.objects.create(name="processing")
-        product_design = Circular.objects.create(name="product design")
-        use_reuse = Circular.objects.create(name="use and reuse")
-        repair_refurbishment = Circular.objects.create(name="repair and refurbishment")
-        collection_sortation = Circular.objects.create(name="collection and sortation")
-        recycling = Circular.objects.create(name="recycling")
-        solvent = Circular.objects.create(name="solvents", parent=recycling)
-        mechanical = Circular.objects.create(name="mechanical", parent=recycling)
-        chemical = Circular.objects.create(name="chemical", parent=recycling)
-        carbon_capture = Circular.objects.create(name="carbon capture")
-        end_life_management = Circular.objects.create(name="end-of-life management")
-        unwanted_outcomes = Circular.objects.create(name="unwanted outcomes")
-        material_losses = Circular.objects.create(
+    lifecycle = lifecycle_api.get_all()
+    if lifecycle.exists() is False:
+        materials_design = Lifecycle.objects.create(name="materials design")
+        processing = Lifecycle.objects.create(name="processing")
+        product_design = Lifecycle.objects.create(name="product design")
+        use_reuse = Lifecycle.objects.create(name="use and reuse")
+        repair_refurbishment = Lifecycle.objects.create(name="repair and refurbishment")
+        collection_sortation = Lifecycle.objects.create(name="collection and sortation")
+        recycling = Lifecycle.objects.create(name="recycling")
+        solvent = Lifecycle.objects.create(name="solvents", parent=recycling)
+        mechanical = Lifecycle.objects.create(name="mechanical", parent=recycling)
+        chemical = Lifecycle.objects.create(name="chemical", parent=recycling)
+        carbon_capture = Lifecycle.objects.create(name="carbon capture")
+        end_life_management = Lifecycle.objects.create(name="end-of-life management")
+        unwanted_outcomes = Lifecycle.objects.create(name="unwanted outcomes")
+        material_losses = Lifecycle.objects.create(
             name="material losses", parent=unwanted_outcomes
         )
-        carbon_emissions = Circular.objects.create(
+        carbon_emissions = Lifecycle.objects.create(
             name="carbon emissions", parent=unwanted_outcomes
         )
-        public_health_impacts = Circular.objects.create(
+        public_health_impacts = Lifecycle.objects.create(
             name="public health impacts", parent=unwanted_outcomes
         )
-        environmental_impacts = Circular.objects.create(
+        environmental_impacts = Lifecycle.objects.create(
             name="environmental impacts", parent=unwanted_outcomes
         )
 
