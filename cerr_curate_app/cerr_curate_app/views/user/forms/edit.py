@@ -16,7 +16,7 @@ from cerr_curate_app.components.material.models import Material
 from cerr_curate_app.components.productclass.models import ProductClass
 
 from cerr_curate_app.components.synthesis.models import Synthesis
-from cerr_curate_app.components.circular.models import Circular
+from cerr_curate_app.components.lifecycle.models import Lifecycle
 
 from .roles import sequenceForm as sequenceForm
 
@@ -227,7 +227,7 @@ class EditForm(MultiForm):
         self.audienceform = AudienceForm(data, files, is_top=False)
         self.material = MaterialTypeForm()
         self.synthesis = SynthesisTypeForm()
-        self.circular = CircularTypeForm()
+        self.lifecycle = Lifecycle()
         self.roleform = RoleForm()
         self.roles = sequenceForm()
         self.keywordsform = KeywordsForm(data, files, is_top=False)
@@ -285,10 +285,10 @@ class SynthesisTypeForm(forms.Form):
         super(SynthesisTypeForm)._clean_form()
 
 
-class CircularTypeForm(forms.Form):
+class LifecycleTypeForm(forms.Form):
     fields = ("name", "categories")
-    id = "circular_type"
-    categories = Circular.objects.order_by("tree_id", "lft")
+    id = "lifecycle_type"
+    categories = Lifecycle.objects.order_by("tree_id", "lft")
     widget = forms.ModelMultipleChoiceField(
         label="Lifecycle Phase",
         required=False,
@@ -297,7 +297,7 @@ class CircularTypeForm(forms.Form):
     )
 
     def _clean_form(self):
-        super(CircularTypeForm)._clean_form()
+        super(LifecycleTypeForm)._clean_form()
 
 
 class RoleForm(ComposableForm):
