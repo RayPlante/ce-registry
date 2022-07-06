@@ -52,6 +52,12 @@
         .single-checkbox{
         margin: 0 0.5em
         }
+
+        .contentRow{
+        margin-top:-0.5em
+        }
+
+
     </style>
 
     <div id="primaryAudience">
@@ -60,7 +66,7 @@
             <span>(maximum 2)</span>
         </div>
 
-        <div id="contentRow">
+        <div class="contentRow">
             {% for choice in choices %}
                 <div class="form-check-inline">
                     <input type="checkbox" class="single-checkbox" name="{{choice}}" value ="{{choice}}">
