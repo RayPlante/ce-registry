@@ -21,6 +21,7 @@
     #dynamic-list li:hover {
     background-color:#99A3A4;
     color: white;
+    cursor: pointer;
     }
 
     .rmBtn {
@@ -45,7 +46,6 @@
     }
 
     #keyword_form {
-    margin-left: 1em;
     }
 
     .btn-keyword {

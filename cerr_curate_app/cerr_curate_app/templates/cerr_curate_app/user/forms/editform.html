@@ -1,5 +1,6 @@
 {% load crispy_forms_tags %}
 
+
 <script>
     var onjQueryReady = function (method) {
         if (window.jQuery) {
@@ -30,151 +31,129 @@
 
 
 </script>
-
 <head>
-    <style>
-        .body-text {
-            font-size: 18px;
-            margin-right: 200px;
-        }
+     {% load static %}
 
-        .sidebar {
-            height: 100%;
-            width: 200px;
-            position: absolute;
-            right: 0;
-            top: 0;
-            padding-top: 40px;
-        }
+<link rel="stylesheet" type="text/css" href="{% static '/cerr_curate_app/user/forms/css/editform.css' %}">
 
-        .sidebar div {
-            padding: 0px;
-            font-size: 15px;
-            display: block;
-        }
-
-        .third {
-
-            position: sticky;
-            font-size: 20px !important;
-            background-color: lightblue;
-        }
-    </style>
 </head>
+<div class="forms-content">
 <div class="body-text">
+    <div class="boldLabel">
     {{form.title|as_crispy_field }}
     {{form.publisher|as_crispy_field }}
     {{form.description|as_crispy_field }}
+    </div>
 
     {{ errors }}
     <div class="form-check">
         {{ form.start_meth.0 }}
     </div>
-    <div>
-        {{form.urlform|crispy }}
-        <button type="button">Auto-Fill</button>
-        Press this to autofill the form </br>
-
+    <div class="top1">
+        {{form.urlform}}
     </div>
-    <div style="margin-top: 1em;">
         <div class="form-check">
             {{ form.start_meth.1 }}
         </div>
 
 
-        <div style="margin-left: 1.5rem; margin-top: .125rem;">
+        <div>
 
             {{form.audienceform }}
         </div>
-        <div style="margin-left: 1.5rem; margin-top: .125rem;">
+        <div  class="boldLabel">
 
             {{form.productform }}
         </div>
-        <div style="margin-top: 1em;">
+        <div  class="boldLabel">
             <div class="form-check">
                 {{ form.start_meth.2 }}
             </div>
-            <div style="margin-left: 1.5rem; margin-top: .125rem;">
+            <div class="top1">
                 {{form.material }}
             </div>
 
-            <div style="margin-left: 1.5rem; margin-top: .125rem;">
+            <div class="top1">
                 {{form.synthesis }}
             </div>
 
-            <div style="margin-left: 1.5rem; margin-top: .125rem;">
+            <div class="top1">
                 {{form.circular }}
             </div>
 
         </div>
 
-        <div style="margin-top: 1em;">
+        <div class="top1">
             {{ form.keywordsform }}
         </div>
-    </div>
-    <div style="margin-left: 1.5rem; margin-top: .125rem;">
-        {{form.roleform }}
 
-    </div>
-    <div>
+    <div class="top1 boldLabel">
         {{form.roles}}
     </div>
 
-    <div>
-        {{form.synthesisform}}
-    </div>
+<!--    <div>-->
+<!--        {{form.synthesisform}}-->
+<!--    </div>-->
 </div>
-<div class="sidebar">
+
+
+    <div id="canvas-left">
+        <div class="fixed">
+
     <div class="second">
-        <input class="btn btn-success btn-sm" type="submit" value="Save draft" />
-        <input class="btn btn-primary btn-sm" type="button" value="Undo">
-        <input class="btn btn-primary btn-sm" type="reset" value="Clear">
+            <button class="btn btn-success btn-sm" type="submit"><span>Save</span> <i class="fas fa-save"></i> </button>
+
+
+            <button class="btn btn-warning btn-sm" type="button"><span>Undo</span><i class="fas fa-undo"></i></button>
+
+                <button class="btn btn-danger btn-sm" type="reset"><span>Clear</span><i class="fas fa-times"></i></button>
+
     </div>
 
     <div class="third">
-        <div style=" margin-top : 10px; font-size:20px;">
+        <div>
             <details>
                 <summary>Title</summary>
                 <p>Detailed content goes here …</p>
 
             </details>
         </div>
-        <div style=" margin-top : 10px; font-size:20px;">
+        <div>
             <details>
                 <summary>Publisher</summary>
                 <p>Detailed content goes here …</p>
 
             </details>
         </div>
-        <div style=" margin-top : 10px; font-size:20px;">
+        <div>
             <details>
                 <summary>Description</summary>
                 <p>Detailed content goes here …</p>
 
             </details>
         </div>
-        <div style=" margin-top : 10px; font-size:20px;">
+        <div>
             <details>
                 <summary>Homepage URL</summary>
                 <p>Detailed content goes here …</p>
 
             </details>
         </div>
-        <div style=" margin-top : 10px; font-size:20px;">
+        <div>
             <details>
                 <summary>Product Class</summary>
                 <p>Detailed content goes here …</p>
 
             </details>
         </div>
-        <div style=" margin-top : 10px; font-size:20px;">
+        <div>
             <details>
                 <summary>Material Type</summary>
                 <p>Detailed content goes here …</p>
 
             </details>
         </div>
-        <div style=" margin-top : 10px; font-size:20px;">
+        <div>
             <details>
                 <summary>Keywords</summary>
                 <p>Detailed content goes here …</p>
@@ -182,4 +161,6 @@
             </details>
         </div>
     </div>
+    </div>
+</div>
 </div>
