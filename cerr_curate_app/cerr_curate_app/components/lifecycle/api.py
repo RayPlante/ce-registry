@@ -1,13 +1,13 @@
-from cerr_curate_app.components.circular.models import Circular
+from cerr_curate_app.components.lifecycle.models import Lifecycle
 
 
-def get_by_id(circular_id):
+def get_by_id(lifecycle_id):
     """
 
     :param circular_id:
     :return: Circular
     """
-    return Circular.get_by_id(circular_id)
+    return Lifecycle.get_by_id(circular_id)
 
 
 def get_list_by_id(id_list):
@@ -16,9 +16,9 @@ def get_list_by_id(id_list):
     :param id_list: list of circular ids
     :return: list of circular objects
     """
-    circular = []
+    lifecycle = []
     for id in id_list:
-        circular.append(Circular.get_by_id(id))
+        lifecycle.append(Lifecycle.get_by_id(id))
     return circular
 
 
@@ -29,4 +29,4 @@ def get_all():
 
         List of all circular
     """
-    return Circular.get_all()
+    return Lifecycle.get_all()
