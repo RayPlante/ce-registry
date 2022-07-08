@@ -10,6 +10,7 @@ from django.core.exceptions import NON_FIELD_ERRORS, ValidationError
 from django.forms.utils import ErrorList
 from django.forms.renderers import get_default_renderer
 from django.utils.safestring import mark_safe, SafeString
+from django.utils.translation import gettext as _
 
 TMPL8S = "cerr_curate_app/user/base/"
 _template_name_fields_first = TMPL8S + "multiform_fields_first.html"

@@ -1,7 +1,7 @@
 """
 a module defining Forms used to edit an existing draft record
 """
-import os, pdb
+import os
 from collections import OrderedDict
 from collections.abc import Mapping
 
@@ -12,6 +12,7 @@ from cerr_curate_app.utils.fancytree.widget import FancyTreeWidget
 from .base import MultiForm, CerrErrorList, ComposableForm
 from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
+from mptt.querysets import TreeQuerySet
 from cerr_curate_app.components.material.models import Material
 from cerr_curate_app.components.productclass.models import ProductClass
 
@@ -24,6 +25,8 @@ __all__ = ["EditForm"]
 TMPL8S = "cerr_curate_app/user/forms/"
 from .selectrestype import ResourceTypeChoiceField
 
+class FancyTreeForm(ComposableForm):
+    template_name = TMPL8S + "fancytree.html"
 
 class AudienceForm(ComposableForm):
     choices = (
@@ -53,13 +56,6 @@ class AudienceForm(ComposableForm):
         context["choices"] = self.choices
         return context
 
-    @property
-    def homepage_errors(self):
-        """
-        return the errors associated with the homepage input
-        """
-        return self.errors.get("homepage", self.error_class(error_class="errorlist"))
-
     def full_clean(self):
         if self.disabled:
             self._errors = ErrorDict()
@@ -68,9 +64,9 @@ class AudienceForm(ComposableForm):
             super(AudienceForm, self).full_clean()
 
 
-class UrlForm(ComposableForm):
-    template_name = TMPL8S + "urlform.html"
-    homepage = forms.URLField(label="Home Page URL")
+class HomePageForm(ComposableForm):
+    template_name = TMPL8S + "homepageform.html"
+    url = forms.URLField(label="Home Page URL")
 
     def __init__(self, data=None, files=None, is_top=True, show_errors=None, **kwargs):
         self.is_top = is_top
@@ -80,21 +76,21 @@ class UrlForm(ComposableForm):
             self.show_aggregate_errors = self.is_top
         if "error_class" not in kwargs:
             kwargs["error_class"] = CerrErrorList
-        super(UrlForm, self).__init__(data, files, **kwargs)
+        super(HomePageForm, self).__init__(data, files, **kwargs)
 
     @property
-    def homepage_errors(self):
+    def url_errors(self):
         """
         return the errors associated with the homepage input
         """
-        return self.errors.get("homepage", self.error_class(error_class="errorlist"))
+        return self.errors.get("url", self.error_class(error_class="errorlist"))
 
     def full_clean(self):
         if self.disabled:
             self._errors = ErrorDict()
             self.cleaned_data = {}
         else:
-            super(UrlForm, self).full_clean()
+            super(HomePageForm, self).full_clean()
 
 
 class KeywordsForm(ComposableForm):
@@ -111,13 +107,6 @@ class KeywordsForm(ComposableForm):
         if "error_class" not in kwargs:
             kwargs["error_class"] = CerrErrorList
         super(KeywordsForm, self).__init__(data, files, **kwargs)
-
-    @property
-    def homepage_errors(self):
-        """
-        return the errors associated with the homepage input
-        """
-        return self.errors.get("homepage", self.error_class(error_class="errorlist"))
 
     def full_clean(self):
         if self.disabled:
@@ -191,60 +180,80 @@ class EditForm(MultiForm):
 
     template_name = TMPL8S + "editform.html"
     description = forms.CharField(widget=forms.Textarea, label="Description")
+    # recname = forms.CharField(widget=forms.HiddenInput)
 
-    def __init__(
-        self, data=None, files=None, title=None, is_top=True, show_errors=None, **kwargs
-    ):
-        if data.get("homepage"):
-            self.urlform = UrlForm(
-                data, files, is_top=False, initial={"homepage": data["homepage"]}
-            )
-        else:
-            self.urlform = UrlForm(data, files, is_top=False)
-        self.resourcelabel = data.get("restype", "nothing")
+    def __init__(self, data=None, files=None, resource_type="Resource", is_top=True, 
+                 show_errors=None, initial=None, **kwargs):
 
-        self.restitle = forms.CharField(
-            label="Title of " + self.resourcelabel, required=True
-        )
-        self.publisher = forms.CharField(
-            label="Publisher of " + self.resourcelabel, required=True
-        )
+        self.resourcetype = resource_type
+        initial = self._unclean_data(initial)
+        
+        self.restitle = forms.CharField(label="Title of "+self.resourcetype, required=True)
+        self.publisher = forms.CharField(label="Publisher of "+self.resourcetype, required=True)
 
-        self.productform = ProductClassForm()
-        self.lifecycle = LifecyclePhaseForm()
-        self.audienceform = AudienceForm(data, files, is_top=False)
-        self.material = MaterialTypeForm()
+        self.homepage = HomePageForm(data, files, is_top=False, initial=initial.get('homepage'))
+        self.audience = AudienceForm(data, files, is_top=False, initial=initial.get('audience'))
+
+        self.productclass = ProductClassForm(initial=initial.get('productClass'))
+        self.lifecyclephase = LifecyclePhaseForm(initial=initial.get('lifecyclePhase'))
+        self.materialtype = MaterialTypeForm(initial=initial.get('materialType'))
+
+        self.keywords = KeywordsForm(data, files, is_top=False, initial=initial.get('keywords'))
+
         self.roleform = RoleForm()
         self.roles = sequenceForm()
-        self.keywordsform = KeywordsForm(data, files, is_top=False)
         self.is_top = is_top
         self.show_aggregate_errors = show_errors
-        self.title = title
         if self.show_aggregate_errors is None:
             self.show_aggregate_errors = self.is_top
         if "error_class" not in kwargs:
             kwargs["error_class"] = CerrErrorList
         super(EditForm, self).__init__(
-            data,
-            {
-                "urlform": self.urlform,
-                "audienceform": self.audienceform,
+            data, files, {
+                "homepage": self.homepage,
+                "productClass": self.productclass,
+                "audience": self.audience,
                 "role": self.roleform,
-                "keywordsform": self.keywordsform,
+                "keywords": self.keywords,
+                "materialType": self.materialtype,
+                "lifecyclePhase": self.lifecyclephase
             },
-            field_order="title publisher description".split(),
-            **kwargs
+            initial=initial,
+            field_order="recname title publisher description".split(), **kwargs
         )
         self.fields["title"] = self.restitle
         self.fields["publisher"] = self.publisher
         self.order_fields(self.field_order)
+
+    def full_clean(self):
+        super(EditForm, self).full_clean()
+
+    def _post_clean(self):
+        # flatten the fancy tree data
+        for ft in "productClass materialType lifecyclePhase".split():
+            if ft in self.cleaned_data:
+                if isinstance(self.cleaned_data[ft], Mapping) and 'ft' in self.cleaned_data[ft]:
+                    self.cleaned_data[ft] = self.cleaned_data[ft]['ft']
+
+    def _unclean_data(self, data):
+        if isinstance(data, Mapping):
+            for ft in "product materialType".split():
+                if ft in data:
+                    data[ft] = {'ft': data[ft]}
+
+            if "homepage" in data and isinstance(data["homepage"], str):
+                data["homepage"] = {"url": data["homepage"]}
+        elif not data:
+            data = {}
+
+        return data
 
 
 class MaterialTypeForm(forms.Form):
     fields = ("name", "categories")
     id = "material_type"
     categories = Material.objects.order_by("tree_id", "lft")
-    widget = forms.ModelMultipleChoiceField(
+    ft = forms.ModelMultipleChoiceField(
         label="Material Type",
         required=False,
         queryset=categories,
@@ -252,23 +261,30 @@ class MaterialTypeForm(forms.Form):
     )
 
     def _clean_form(self):
-        super(MaterialTypeForm)._clean_form()
+        super(MaterialTypeForm, self)._clean_form()
 
 
 class ProductClassForm(forms.Form):
     fields = ("name", "categories")
     id = "product_class"
     categories = ProductClass.objects.order_by("tree_id", "lft")
-    widget = forms.ModelMultipleChoiceField(
+    ft = forms.ModelMultipleChoiceField(
         label="Product Class",
         required=False,
         queryset=categories,
         widget=FancyTreeWidget(attrs={"id": id}, queryset=categories),
     )
 
-    def _clean_form(self):
-        super(ProductClassForm)._clean_form()
+    def full_clean(self):
+        super(ProductClassForm, self).full_clean()
 
+    def _post_clean(self):
+        # resolve fancy tree TreeQuerySets into string values
+        if 'ft' in self.cleaned_data and isinstance(self.cleaned_data['ft'], TreeQuerySet):
+            terms = []
+            for cat in self.cleaned_data['ft']:
+                terms.append(cat.name)
+            self.cleaned_data['ft'] = terms
 
 class LifecyclePhaseForm(forms.Form):
     fields = ("name", "categories")

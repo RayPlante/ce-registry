@@ -3,7 +3,7 @@ The module that provides the user views for creating and editing a draft record.
 """
 from collections import OrderedDict
 from collections.abc import Mapping
-import json, re, pdb
+import json, re
 
 from django.shortcuts import render
 from django.http import HttpResponse, Http404, HttpResponse, HttpResponseRedirect
@@ -55,18 +55,18 @@ class EditView(View):
         super().__init__(**kwargs)
 
     def get(self, request, **kwargs):
-        draft_id = kwargs["draft_id"]
-        form = EditForm(request.POST)
-
-        try:
-            draft_obj = draft_api.get_by_id(draft_id, request.user)
-            draft_doc = draft_api.unrender_xml(draft_obj.form_data)
-        except draft_api.AccessControlError as ex:
-            return handleFailure(Http401(message=str(ex)))
-        form = EditForm(data=draftdoc_to_edit(draft_doc, draft_obj.id))
-
-        restype = _get_restype(draft_doc, Resource.schemauri)
-
+        draft_id = kwargs.get("draft_id")
+        if draft_id:
+            try:
+                draft_obj = draft_api.get_by_id(draft_id, request.user)
+                draft_doc = draft_api.unrender_xml(draft_obj.form_data)
+            except draft_api.AccessControlError as ex:
+                return handleFailure(Http401(message=str(ex)))
+            restype = _get_restype(draft_doc, Resource.schemauri)
+            form = EditForm(initial=draftdoc_to_edit(draft_doc, draft_obj.id))
+        else:
+            form = EditForm()
+            
         return render(
             request,
             TMPL8S + "edit.html",
@@ -92,9 +92,16 @@ class EditView(View):
             except draft_api.AccessControlError as ex:
                 return handleFailure(Http401(message=str(ex)))
 
-        restype = _get_restype(draft, Resource.schemauri)
-        recname = request.POST.get("name", [])
-        recname = "unkn" if len(recname) == 0 else recname[0]
+        try:
+            draft_obj = draft_api.get_by_id(draft_id, request.user)
+            draft_doc = draft_api.unrender_xml(draft_obj.form_data)
+            restype = _get_restype(draft_doc, Resource.schemauri)
+            recname = draft_obj.name
+        except draft_api.AccessControlError as ex:
+            restype = "Resource"
+            recname = request.POST.get("name", [])
+            if isinstance(recname, (list, tuple)):
+                recname = "unkn" if len(recname) == 0 else recname[0]
 
         return render(
             request,
@@ -520,7 +527,7 @@ doilog = logging.getLogger("doi")
 
 def doi_into_draftdoc(doi, draft):
     try:
-        md = nistoar.doi.resolve(doi, logger=doilog)
+        md = nistoar.doi.resolve(doi, logger=doilog, timeout=5)
         draft.add("Resource/identity/title", md.data["title"])
         draft.add("Resource/content/reference/@pid", doi)
         draft.add("Resource/content/reference/#text", md.citation_text)

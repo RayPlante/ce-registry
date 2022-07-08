@@ -51,35 +51,21 @@
     </div>
 
     {{ errors }}
-    <div class="form-check">
-        {{ form.start_meth.0 }}
-    </div>
     <div class="top1">
-        {{form.urlform}}
+        {{form.homepage}}
     </div>
-        <div class="form-check">
-            {{ form.start_meth.1 }}
-        </div>
-
         <div>
-            {{form.audienceform }}
+            {{form.audience}}
         </div>
         <div  class="boldLabel">
 
-            {{form.productform }}
+            {{form.productclass}}
         </div>
-        <div  class="boldLabel">
-            <div class="form-check">
-                {{ form.start_meth.2 }}
-            </div>
-            <div class="top1">
-                {{form.material }}
-            </div>
-
-            <div class="top1">
-                {{form.lifecycle }}
-            </div>
-
+        <div class="boldLabel" style="margin-top: 1em;">
+            {{form.materialtype}}
+        </div>
+        <div class="boldLabel" style="margin-top: 1em;">
+            {{form.lifecyclephase}}
         </div>
 
         <div class="top1">
@@ -90,9 +76,6 @@
         {{form.roles}}
     </div>
 
-<!--    <div>-->
-<!--        {{form.synthesisform}}-->
-<!--    </div>-->
 </div>
 
 
