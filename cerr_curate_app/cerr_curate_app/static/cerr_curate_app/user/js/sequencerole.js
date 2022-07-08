@@ -3,7 +3,6 @@ var addRole = function(event) {
 console.log(event)
 
     var role =  $("#id_role_list").val()
-console.log('ADD ROOOOOLE :D ')
         $.ajax({
                 'url': 'ajax_get_role',
                 type: "GET",
@@ -11,8 +10,6 @@ console.log('ADD ROOOOOLE :D ')
                 data: { "role": role,
                 },
             success: function(data){
-
-            console.log('AAAAAAAAAAAAAAAAAAAAAAAAAA');
                 $(".rolebutton").after(data);
 
             },
