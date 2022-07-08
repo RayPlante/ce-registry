@@ -7,15 +7,14 @@ logger = logging.getLogger("core_main_registry_app.discover")
 def init_cerr():
     try:
         _create_material_list()
-        _create_lifeycle_phase_list()
-        _create_synthesis_list()
+        _create_lifecycle_phase_list()
         _create_product_class_list()
         pass
     except Exception as e:
         logger.error("Impossible to init the registry: {0}".format(str(e)))
 
 
-def _create_lifeycle_phase_list():
+def _create_lifecycle_phase_list():
     from cerr_curate_app.components.lifecycle import api as lifecycle_api
     from cerr_curate_app.components.lifecycle.models import Lifecycle
 
@@ -45,42 +44,6 @@ def _create_lifeycle_phase_list():
         )
         environmental_impacts = Lifecycle.objects.create(
             name="environmental impacts", parent=unwanted_outcomes
-        )
-
-
-def _create_synthesis_list():
-    from cerr_curate_app.components.synthesis import api as synthesis_api
-    from cerr_curate_app.components.synthesis.models import Synthesis
-
-    synthesis = synthesis_api.get_all()
-    if synthesis.exists() is False:
-        synthesis = Synthesis.objects.create(name="Synthesis_and_processing")
-        synthesis_annealing_and_homogenization = Synthesis.objects.create(
-            name="synthesis_annealing_and_homogenization", parent=synthesis
-        )
-        synthesis_casting = Synthesis.objects.create(
-            name="synthesis_casting", parent=synthesis
-        )
-        synthesis_forming = Synthesis.objects.create(
-            name="synthesis_forming", parent=synthesis
-        )
-        synthesis_mechanical_and_surface = Synthesis.objects.create(
-            name="synthesis_mechanical_and_surface", parent=synthesis
-        )
-        synthesis_powder_processing = Synthesis.objects.create(
-            name="synthesis_powder_processing", parent=synthesis
-        )
-        synthesis_quenching = Synthesis.objects.create(
-            name="synthesis_quenching", parent=synthesis
-        )
-        synthesis_reactive = Synthesis.objects.create(
-            name="synthesis_reactive", parent=synthesis
-        )
-        synthesis_self_assembly = Synthesis.objects.create(
-            name="synthesis_self-assembly", parent=synthesis
-        )
-        synthesis_solidification = Synthesis.objects.create(
-            name="synthesis_solidification", parent=synthesis
         )
 
 
@@ -157,7 +120,6 @@ def _create_material_list():
         small_organic_compounds = Material.objects.create(
             name="Small organic Compounds"
         )
-
 
 
 def _create_product_class_list():

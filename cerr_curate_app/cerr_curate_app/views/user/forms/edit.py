@@ -25,18 +25,6 @@ TMPL8S = "cerr_curate_app/user/forms/"
 from .selectrestype import ResourceTypeChoiceField
 
 
-class ProductClassForm(forms.Form):
-    fields = ("name", "categories")
-    id = "product_class"
-    categories = ProductClass.objects.order_by("tree_id", "lft")
-    widget = forms.ModelMultipleChoiceField(
-        label="Product Class",
-        required=False,
-        queryset=categories,
-        widget=FancyTreeWidget(attrs={"id": id}, queryset=categories),
-    )
-
-
 class AudienceForm(ComposableForm):
     choices = (
         "researchers",
@@ -223,9 +211,9 @@ class EditForm(MultiForm):
         )
 
         self.productform = ProductClassForm()
+        self.lifecycle = LifecyclePhaseForm()
         self.audienceform = AudienceForm(data, files, is_top=False)
         self.material = MaterialTypeForm()
-        self.lifecycle = Lifecycle()
         self.roleform = RoleForm()
         self.roles = sequenceForm()
         self.keywordsform = KeywordsForm(data, files, is_top=False)
@@ -240,7 +228,6 @@ class EditForm(MultiForm):
             data,
             {
                 "urlform": self.urlform,
-                "productform": self.productform,
                 "audienceform": self.audienceform,
                 "role": self.roleform,
                 "keywordsform": self.keywordsform,
@@ -268,11 +255,24 @@ class MaterialTypeForm(forms.Form):
         super(MaterialTypeForm)._clean_form()
 
 
-
-
-class LifecycleTypeForm(forms.Form):
+class ProductClassForm(forms.Form):
     fields = ("name", "categories")
-    id = "lifecycle_type"
+    id = "product_class"
+    categories = ProductClass.objects.order_by("tree_id", "lft")
+    widget = forms.ModelMultipleChoiceField(
+        label="Product Class",
+        required=False,
+        queryset=categories,
+        widget=FancyTreeWidget(attrs={"id": id}, queryset=categories),
+    )
+
+    def _clean_form(self):
+        super(ProductClassForm)._clean_form()
+
+
+class LifecyclePhaseForm(forms.Form):
+    fields = ("name", "categories")
+    id = "lifecycle_phase"
     categories = Lifecycle.objects.order_by("tree_id", "lft")
     widget = forms.ModelMultipleChoiceField(
         label="Lifecycle Phase",
@@ -282,7 +282,7 @@ class LifecycleTypeForm(forms.Form):
     )
 
     def _clean_form(self):
-        super(LifecycleTypeForm)._clean_form()
+        super(LifecyclePhaseForm)._clean_form()
 
 
 class RoleForm(ComposableForm):
