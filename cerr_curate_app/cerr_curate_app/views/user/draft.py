@@ -83,7 +83,6 @@ class EditView(View):
         form = EditForm(request.POST)
         if form.is_valid():
             try:
-                # form = save_widgets(request, form)
                 draft = edit_to_draftdoc(form.cleaned_data)
                 draft_obj = draft_api.save_updated_draft(draft, draft_id, request)
                 return HttpResponseRedirect(reverse("start"))
@@ -260,21 +259,21 @@ def edit_to_draftdoc(data):
     if data.get("audience"):
         for term in data.get("audience", []):
             draft.add("Resource/content/primaryAudience", term)
-    if data.get("materialType"):
-        for term in data.get("materialType", []):
-            levs = term.rsplit(": ", 1)
-            levs[0] = levs[0][0:1].lower() + levs[0][1:]
-            draft.add(_term_delim_re.sub('_', "Resource/applicability/materialType/"+levs[0]), term)
-    if data.get("lifecyclePhase"):
-        for term in data.get("lifecyclePhase", []):
-            levs = term.rsplit(": ", 1)
-            levs[0] = levs[0][0:1].lower() + levs[0][1:]
-            draft.add(_term_delim_re.sub('_', "Resource/applicability/lifecyclePhase/"+levs[0]), term)
     if data.get("productClass"):
         for term in data.get("productClass", []):
             levs = term.rsplit(": ", 1)
             levs[0] = levs[0][0:1].lower() + levs[0][1:]
             draft.add(_term_delim_re.sub('_', "Resource/applicability/productClass/"+levs[0]), term)
+    if data.get("lifecyclePhase"):
+        for term in data.get("lifecyclePhase", []):
+            levs = term.rsplit(": ", 1)
+            levs[0] = levs[0][0:1].lower() + levs[0][1:]
+            draft.add(_term_delim_re.sub('_', "Resource/applicability/lifecyclePhase/"+levs[0]), term)
+    if data.get("materialType"):
+        for term in data.get("materialType", []):
+            levs = term.rsplit(": ", 1)
+            levs[0] = levs[0][0:1].lower() + levs[0][1:]
+            draft.add(_term_delim_re.sub('_', "Resource/applicability/materialType/"+levs[0]), term)
     out = draft.todict()
     return {"Resource": out["Resource"][0]}
 
@@ -339,21 +338,6 @@ class Http501(DetectedFailure):
 def handleFailure(exc):
     if isinstance(exc, DetectedFailure):
         return HttpResponse(status=exc.status_code, reason=exc.reason_phrase)
-
-
-# TODO HANDLE EMPTY WIDGET
-def save_widgets(request, form):
-    """
-    Retrieves the correct widget data and put it back in the form
-    :param request:
-    :param form:
-    :return: form with appended widget data
-    """
-    widget_ids = dict(request.POST.lists())["widget"]
-    materials = material_api.get_list_by_id(widget_ids)
-    object_string = ", ".join([str(x.name) for x in materials])
-    form.cleaned_data["widget"] = object_string
-    return form
 
 
 ################################

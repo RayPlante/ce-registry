@@ -118,60 +118,6 @@ class KeywordsForm(ComposableForm):
             super(KeywordsForm, self).full_clean()
 
 
-class CreateForm(ComposableForm):
-    """
-    A Form for creating an initial draft of a record.
-
-    It includes:
-     * a text field for entering a mnemonic name
-     * a URL field for entering the resource's landing page
-     * an array of radio buttons for selecting a type
-    """
-
-    template_name = TMPL8S + "createform.html"
-    name = forms.CharField(required=True)
-    homepage = forms.URLField(required=False)
-    restype = ResourceTypeChoiceField()
-
-    def __init__(self, data=None, is_top=True, show_errors=None, **kwargs):
-        self.is_top = is_top
-        self.show_aggregate_errors = show_errors
-        self.disabled = False
-        if self.show_aggregate_errors is None:
-            self.show_aggregate_errors = self.is_top
-        if "error_class" not in kwargs:
-            kwargs["error_class"] = CerrErrorList
-        super(CreateForm, self).__init__(data, **kwargs)
-
-    @property
-    def name_errors(self):
-        """
-        return the errors associated with the name input
-        """
-        return self.errors.get("name", self.error_class(error_class="errorlist"))
-
-    @property
-    def homepage_errors(self):
-        """
-        return the errors associated with the homepage input
-        """
-        return self.errors.get("homepage", self.error_class(error_class="errorlist"))
-
-    @property
-    def restype_errors(self):
-        """
-        return the errors associated with the homepage input
-        """
-        return self.errors.get("restype", self.error_class(error_class="errorlist"))
-
-    def full_clean(self):
-        if self.disabled:
-            self._errors = ErrorDict()
-            self.cleaned_data = {}
-        else:
-            super(CreateForm, self).full_clean()
-
-
 class EditForm(MultiForm):
     """
     Form that allows a user to create a new record.
