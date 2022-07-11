@@ -83,7 +83,7 @@ class EditView(View):
         form = EditForm(request.POST)
         if form.is_valid():
             try:
-                form = save_widgets(request, form)
+                # form = save_widgets(request, form)
                 draft = edit_to_draftdoc(form.cleaned_data)
                 draft_obj = draft_api.save_updated_draft(draft, draft_id, request)
                 return HttpResponseRedirect(reverse("start"))
@@ -200,12 +200,28 @@ def draftdoc_to_edit(draft_doc, draft_id):
     draft = draft_doc.get(pfx + "Resource", {})
     content = draft.get(pfx + "content", {})
     ident = draft.get(pfx + "identity", {})
+    providers = draft.get(pfx + "providers", {})
     if content:
         data["homepage"] = content.get(pfx + "landingPage", "")
         data["description"] = content.get(pfx + "description", "")
-        data["publisher"] = ident.get(pfx + "publisher", "")
+        data["keywords"] = content.get(pfx + "subject", [])
+        data["audience"] = content.get(pfx + "primaryAudience", [])
     if ident:
         data["title"] = ident.get(pfx + "title", "")
+    if providers:
+        data["publisher"] = providers.get(pfx + "publisher", "")
+        data["pubyear"] = providers.get(pfx + "publicationYear", "")
+
+    applic = draft.get(pfx + "applicability", {})
+    for cat in "productClass materialType lifecyclePhase".split():
+        if applic.get(cat):
+            top = applic.get(cat, {})
+            data[cat] = []
+            for key in applic.get(cat, {}):
+                term = top.get(key)
+                if term:
+                    data[cat].append(term)
+
     data["draft_id"] = draft_id
     data["restype"] = _get_restype(draft_doc, pfx)
 
@@ -234,8 +250,30 @@ def edit_to_draftdoc(data):
         draft.add("Resource/identity/title", data.get("title", ""))
     if data.get("description"):
         draft.add("Resource/content/description", data.get("description", ""))
-    if data.get("widget"):
-        draft.add("Resource/applicability/materialType", data.get("widget", ""))
+    if data.get("keywords"):
+        draft.add("Resource/content/keywords", data.get("keywords", ""))
+    if data.get("publisher"):
+        draft.add("Resource/providers/publisher", data.get("publisher", ""))
+    if data.get("pubyear"):
+        draft.add("Resource/providers/publicationYear", data.get("pubyear", ""))
+    if data.get("audience"):
+        for term in data.get("audience", []):
+            draft.add("Resource/content/primaryAudience", term)
+    if data.get("materialType"):
+        for term in data.get("materialType", []):
+            levs = term.rsplit(": ", 1)
+            levs[0] = levs[0][0:1].lower() + levs[0][1:]
+            draft.add("Resource/applicability/materialType/"+levs[0].replace(' ','_'), term)
+    if data.get("lifecyclePhase"):
+        for term in data.get("lifecyclePhase", []):
+            levs = term.rsplit(": ", 1)
+            levs[0] = levs[0][0:1].lower() + levs[0][1:]
+            draft.add("Resource/applicability/lifecyclePhase/"+levs[0].replace(' ','_'), term)
+    if data.get("productClass"):
+        for term in data.get("productClass", []):
+            levs = term.rsplit(": ", 1)
+            levs[0] = levs[0][0:1].lower() + levs[0][1:]
+            draft.add("Resource/applicability/productClass/"+levs[0].replace(' ','_'), term)
     out = draft.todict()
     return {"Resource": out["Resource"][0]}
 
@@ -536,11 +574,12 @@ def doi_into_draftdoc(doi, draft):
         if md.data.get("container-title"):
             # this is a journal, most likely
             publisher = "%s (%s)" % (md.data.get("container-title"), publisher)
-        draft.add("Resource/identity/publisher", publisher)
+        draft.add("Resource/providers/publisher", publisher)
 
         pubdate = md.data.get("published", {}).get("date-parts", [[]])
-        if len(pubdate) > 0 and pubdate[0]:
-            draft.add("Resource/identity/publicationYear", pubdate[0])
+        if len(pubdate) > 0 and pubdate[0] and isinstance(pubdate[0], (list, tuple)):
+            pubdate = pubdate[0][0]
+            draft.add("Resource/providers/publicationYear", pubdate)
 
     except Exception as ex:
         pass

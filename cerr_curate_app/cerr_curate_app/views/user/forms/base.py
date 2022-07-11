@@ -171,7 +171,7 @@ class MultiForm(ComposableForm):
 
         super(MultiForm, self).__init__(data, files, is_top, show_errors, **kwargs)
         for fname, form in self.forms.items():
-            form.prefix = fname
+            form.prefix = "%s-%s" % (form.prefix, fname) if form.prefix else fname
             if data is not None or files is not None:
                 form.is_bound = data is not None or files is not None
                 form.data = MultiValueDict() if data is None else data

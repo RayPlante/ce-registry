@@ -25,20 +25,18 @@ __all__ = ["EditForm"]
 TMPL8S = "cerr_curate_app/user/forms/"
 from .selectrestype import ResourceTypeChoiceField
 
-class FancyTreeForm(ComposableForm):
-    template_name = TMPL8S + "fancytree.html"
-
 class AudienceForm(ComposableForm):
     choices = (
-        "researchers",
-        "practitioners ",
-        "educators",
-        "policy makers",
-        "general public",
-        "communication specialists",
+        ("researchers", "researchers"),
+        ("practitioners ", "practitioners "),
+        ("educators", "educators"),
+        ("policy makers", "policy makers"),
+        ("general public", "general public"),
+        ("communication specialists", "communication specialists"),
     )
     template_name = TMPL8S + "audienceform.html"
-    restype = forms.MultipleChoiceField(choices=choices, widget=forms.RadioSelect)
+    categories = forms.MultipleChoiceField(choices=choices, widget=forms.CheckboxSelectMultiple,
+                                           required=False)
 
     def __init__(self, data=None, files=None, is_top=True, show_errors=None, **kwargs):
         self.is_top = is_top
@@ -53,7 +51,12 @@ class AudienceForm(ComposableForm):
     # Override get_context to add choices to context
     def get_context(self, **kwargs):
         context = super(AudienceForm, self).get_context(**kwargs)
-        context["choices"] = self.choices
+        context["choices"] = [{'value': c[0], 'label': c[1],
+                               'checked': "checked" if c[0] in self.initial['categories'] else ""}
+                              for c in self.choices]
+        context["input_name"] = self['categories'].html_name
+        context["max_selected"] = len(self.initial['categories']) > 1
+        
         return context
 
     def full_clean(self):
@@ -95,8 +98,7 @@ class HomePageForm(ComposableForm):
 
 class KeywordsForm(ComposableForm):
     template_name = TMPL8S + "keywordsform.html"
-    keywords = forms.CharField(widget=forms.Textarea, label="Keywords")
-    # homepage = forms.URLField(label="Home Page URL")
+    keywords = forms.CharField(widget=forms.Textarea, label="Keywords", required=False)
 
     def __init__(self, data=None, files=None, is_top=True, show_errors=None, **kwargs):
         self.is_top = is_top
@@ -180,6 +182,7 @@ class EditForm(MultiForm):
 
     template_name = TMPL8S + "editform.html"
     description = forms.CharField(widget=forms.Textarea, label="Description")
+    pubyear = forms.CharField(widget=forms.HiddenInput, required=False)
     # recname = forms.CharField(widget=forms.HiddenInput)
 
     def __init__(self, data=None, files=None, resource_type="Resource", is_top=True, 
@@ -219,7 +222,7 @@ class EditForm(MultiForm):
                 "lifecyclePhase": self.lifecyclephase
             },
             initial=initial,
-            field_order="recname title publisher description".split(), **kwargs
+            field_order="recname title publisher pubyear description".split(), **kwargs
         )
         self.fields["title"] = self.restitle
         self.fields["publisher"] = self.publisher
@@ -235,6 +238,15 @@ class EditForm(MultiForm):
                 if isinstance(self.cleaned_data[ft], Mapping) and 'ft' in self.cleaned_data[ft]:
                     self.cleaned_data[ft] = self.cleaned_data[ft]['ft']
 
+        if 'homepage' in self.cleaned_data and 'url' in self.cleaned_data['homepage']:
+            self.cleaned_data['homepage'] = self.cleaned_data['homepage'].get('url', '')
+
+        if 'audience' in self.cleaned_data and 'categories' in self.cleaned_data['audience']:
+            self.cleaned_data['audience'] = self.cleaned_data['audience'].get('categories', '')
+
+        if 'keywords' in self.cleaned_data and 'keywords' in self.cleaned_data['keywords']:
+            self.cleaned_data['keywords'] = self.cleaned_data['keywords'].get('keywords', [])
+
     def _unclean_data(self, data):
         if isinstance(data, Mapping):
             for ft in "product materialType".split():
@@ -243,6 +255,9 @@ class EditForm(MultiForm):
 
             if "homepage" in data and isinstance(data["homepage"], str):
                 data["homepage"] = {"url": data["homepage"]}
+
+            if "audience" in data and isinstance(data["audience"], (list, tuple)):
+                data["audience"] = {"categories": data["audience"]}
         elif not data:
             data = {}
 
@@ -260,8 +275,13 @@ class MaterialTypeForm(forms.Form):
         widget=FancyTreeWidget(attrs={"id": id}, queryset=categories),
     )
 
-    def _clean_form(self):
-        super(MaterialTypeForm, self)._clean_form()
+    def _post_clean(self):
+        # resolve fancy tree TreeQuerySets into string values
+        if 'ft' in self.cleaned_data and isinstance(self.cleaned_data['ft'], TreeQuerySet):
+            terms = []
+            for cat in self.cleaned_data['ft']:
+                terms.append(cat.name)
+            self.cleaned_data['ft'] = terms
 
 
 class ProductClassForm(forms.Form):
@@ -275,9 +295,6 @@ class ProductClassForm(forms.Form):
         widget=FancyTreeWidget(attrs={"id": id}, queryset=categories),
     )
 
-    def full_clean(self):
-        super(ProductClassForm, self).full_clean()
-
     def _post_clean(self):
         # resolve fancy tree TreeQuerySets into string values
         if 'ft' in self.cleaned_data and isinstance(self.cleaned_data['ft'], TreeQuerySet):
@@ -290,20 +307,25 @@ class LifecyclePhaseForm(forms.Form):
     fields = ("name", "categories")
     id = "lifecycle_phase"
     categories = Lifecycle.objects.order_by("tree_id", "lft")
-    widget = forms.ModelMultipleChoiceField(
+    ft = forms.ModelMultipleChoiceField(
         label="Lifecycle Phase",
         required=False,
         queryset=categories,
         widget=FancyTreeWidget(attrs={"id": id}, queryset=categories),
     )
 
-    def _clean_form(self):
-        super(LifecyclePhaseForm)._clean_form()
+    def _post_clean(self):
+        # resolve fancy tree TreeQuerySets into string values
+        if 'ft' in self.cleaned_data and isinstance(self.cleaned_data['ft'], TreeQuerySet):
+            terms = []
+            for cat in self.cleaned_data['ft']:
+                terms.append(cat.name)
+            self.cleaned_data['ft'] = terms
 
 
 class RoleForm(ComposableForm):
-    role = forms.CharField(max_length=255, required=True, label="Role")
-    total_input_fields = forms.CharField(widget=forms.HiddenInput())
+    role = forms.CharField(max_length=255, required=False, label="Role")
+    total_input_fields = forms.CharField(widget=forms.HiddenInput(), required=False)
     template_name = TMPL8S + "roleform.html"
 
     def __init__(self, *args, **kwargs):

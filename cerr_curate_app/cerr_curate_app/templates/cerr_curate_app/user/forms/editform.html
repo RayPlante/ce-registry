@@ -31,22 +31,18 @@
 
 
     click = function() {
-    console.log("CLIIIIIIICK")
+        console.log("CLIIIIIIICK")
     }
 
 
 </script>
-<head>
-     {% load static %}
 
-<link rel="stylesheet" type="text/css" href="{% static '/cerr_curate_app/user/forms/css/editform.css' %}">
-
-</head>
 <div class="forms-content">
 <div class="body-text">
     <div class="boldLabel">
     {{form.title|as_crispy_field }}
     {{form.publisher|as_crispy_field }}
+    {{form.pubyear}}
     {{form.description|as_crispy_field }}
     </div>
 
