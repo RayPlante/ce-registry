@@ -214,10 +214,10 @@ def draftdoc_to_edit(draft_doc, draft_id):
 
     applic = draft.get(pfx + "applicability", {})
     for cat in "productClass materialType lifecyclePhase".split():
-        if applic.get(cat):
-            top = applic.get(cat, {})
+        if applic.get(pfx + cat):
+            top = applic.get(pfx + cat, {})
             data[cat] = []
-            for key in applic.get(cat, {}):
+            for key in applic.get(pfx + cat, {}):
                 term = top.get(key)
                 if term:
                     data[cat].append(term)
@@ -241,6 +241,7 @@ def _get_restype(draft, pfx):
         out = re.sub(r"[^:]*:\s*", "", roles[0].get(pfx + "type", out))
     return out
 
+_term_delim_re = re.compile("[:\s]+")
 
 def edit_to_draftdoc(data):
     draft = Resource()
@@ -263,17 +264,17 @@ def edit_to_draftdoc(data):
         for term in data.get("materialType", []):
             levs = term.rsplit(": ", 1)
             levs[0] = levs[0][0:1].lower() + levs[0][1:]
-            draft.add("Resource/applicability/materialType/"+levs[0].replace(' ','_'), term)
+            draft.add(_term_delim_re.sub('_', "Resource/applicability/materialType/"+levs[0]), term)
     if data.get("lifecyclePhase"):
         for term in data.get("lifecyclePhase", []):
             levs = term.rsplit(": ", 1)
             levs[0] = levs[0][0:1].lower() + levs[0][1:]
-            draft.add("Resource/applicability/lifecyclePhase/"+levs[0].replace(' ','_'), term)
+            draft.add(_term_delim_re.sub('_', "Resource/applicability/lifecyclePhase/"+levs[0]), term)
     if data.get("productClass"):
         for term in data.get("productClass", []):
             levs = term.rsplit(": ", 1)
             levs[0] = levs[0][0:1].lower() + levs[0][1:]
-            draft.add("Resource/applicability/productClass/"+levs[0].replace(' ','_'), term)
+            draft.add(_term_delim_re.sub('_', "Resource/applicability/productClass/"+levs[0]), term)
     out = draft.todict()
     return {"Resource": out["Resource"][0]}
 
@@ -388,9 +389,8 @@ _schema = [
                 "applicabilty",
                 [
                     "productClass",
-                    "materialType",
-                    "synthesisProcessing",
-                    "circularPathway",
+                    "lifecyclePhase",
+                    "materialType"
                 ],
             ),
             ("@atts", ["localid", "status"]),

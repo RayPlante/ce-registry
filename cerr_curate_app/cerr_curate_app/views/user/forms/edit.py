@@ -249,7 +249,7 @@ class EditForm(MultiForm):
 
     def _unclean_data(self, data):
         if isinstance(data, Mapping):
-            for ft in "product materialType".split():
+            for ft in "productClass materialType lifecyclePhase".split():
                 if ft in data:
                     data[ft] = {'ft': data[ft]}
 
@@ -264,7 +264,36 @@ class EditForm(MultiForm):
         return data
 
 
-class MaterialTypeForm(forms.Form):
+class FancyTreeForm(forms.Form):
+    def __init__(self, data=None, files=None, initial=None, **kwargs):
+        initial = self._unclean_data(initial)
+        super(FancyTreeForm, self).__init__(data, files, initial=initial, **kwargs)
+
+    def _post_clean(self):
+        # resolve fancy tree TreeQuerySets into string values
+        if 'ft' in self.cleaned_data and isinstance(self.cleaned_data['ft'], TreeQuerySet):
+            terms = []
+            for cat in self.cleaned_data['ft']:
+                terms.append(cat.name)
+            self.cleaned_data['ft'] = terms
+
+    def _unclean_data(self, data):
+        # convert terms back into fancy tree indicies
+        if not isinstance(data, Mapping):
+            return data
+        if not data:
+            data = {}
+        
+        if 'ft' in data and isinstance(data['ft'], (list, tuple)):
+            indicies = []
+            for term in self.categories:
+                if term.name in data['ft']:
+                    indicies.append(str(term.id))
+            data['ft'] = indicies
+        return data
+
+
+class MaterialTypeForm(FancyTreeForm):
     fields = ("name", "categories")
     id = "material_type"
     categories = Material.objects.order_by("tree_id", "lft")
@@ -275,16 +304,8 @@ class MaterialTypeForm(forms.Form):
         widget=FancyTreeWidget(attrs={"id": id}, queryset=categories),
     )
 
-    def _post_clean(self):
-        # resolve fancy tree TreeQuerySets into string values
-        if 'ft' in self.cleaned_data and isinstance(self.cleaned_data['ft'], TreeQuerySet):
-            terms = []
-            for cat in self.cleaned_data['ft']:
-                terms.append(cat.name)
-            self.cleaned_data['ft'] = terms
 
-
-class ProductClassForm(forms.Form):
+class ProductClassForm(FancyTreeForm):
     fields = ("name", "categories")
     id = "product_class"
     categories = ProductClass.objects.order_by("tree_id", "lft")
@@ -295,13 +316,6 @@ class ProductClassForm(forms.Form):
         widget=FancyTreeWidget(attrs={"id": id}, queryset=categories),
     )
 
-    def _post_clean(self):
-        # resolve fancy tree TreeQuerySets into string values
-        if 'ft' in self.cleaned_data and isinstance(self.cleaned_data['ft'], TreeQuerySet):
-            terms = []
-            for cat in self.cleaned_data['ft']:
-                terms.append(cat.name)
-            self.cleaned_data['ft'] = terms
 
 class LifecyclePhaseForm(forms.Form):
     fields = ("name", "categories")
@@ -313,14 +327,6 @@ class LifecyclePhaseForm(forms.Form):
         queryset=categories,
         widget=FancyTreeWidget(attrs={"id": id}, queryset=categories),
     )
-
-    def _post_clean(self):
-        # resolve fancy tree TreeQuerySets into string values
-        if 'ft' in self.cleaned_data and isinstance(self.cleaned_data['ft'], TreeQuerySet):
-            terms = []
-            for cat in self.cleaned_data['ft']:
-                terms.append(cat.name)
-            self.cleaned_data['ft'] = terms
 
 
 class RoleForm(ComposableForm):
