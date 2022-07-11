@@ -205,6 +205,8 @@ def draftdoc_to_edit(draft_doc, draft_id):
         data["description"] = content.get(pfx + "description", "")
         data["keywords"] = content.get(pfx + "subject", [])
         data["audience"] = content.get(pfx + "primaryAudience", [])
+        if isinstance(data["audience"], str):
+            data["audience"] = [ data["audience"] ]
     if ident:
         data["title"] = ident.get(pfx + "title", "")
     if providers:
@@ -217,9 +219,11 @@ def draftdoc_to_edit(draft_doc, draft_id):
             top = applic.get(pfx + cat, {})
             data[cat] = []
             for key in applic.get(pfx + cat, {}):
-                term = top.get(key)
-                if term:
-                    data[cat].append(term)
+                terms = top.get(key)
+                if terms:
+                    if isinstance(terms, str):
+                        terms = [ terms ]
+                    data[cat].extend(terms)
 
     data["draft_id"] = draft_id
     data["restype"] = _get_restype(draft_doc, pfx)
