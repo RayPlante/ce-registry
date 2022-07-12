@@ -73,7 +73,7 @@ def _create_material_list():
         metals_non_ferrous = Material.objects.create(
             name="metals and alloys: non-ferrous", parent=metals
         )
-        polymers = Material.objects.create(name="polymers: property-based")
+        polymers = Material.objects.create(name="polymers: property_based")
         polymers_property_based = Material.objects.create(
             name="polymers: property-based", parent=polymers
         )

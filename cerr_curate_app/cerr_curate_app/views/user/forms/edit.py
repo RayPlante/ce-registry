@@ -263,7 +263,7 @@ class ProductClassForm(FancyTreeForm):
     )
 
 
-class LifecyclePhaseForm(forms.Form):
+class LifecyclePhaseForm(FancyTreeForm):
     fields = ("name", "categories")
     id = "lifecycle_phase"
     categories = Lifecycle.objects.order_by("tree_id", "lft")
