@@ -73,10 +73,7 @@ def _create_material_list():
         metals_non_ferrous = Material.objects.create(
             name="metals and alloys: non-ferrous", parent=metals
         )
-        polymers = Material.objects.create(name="polymers: property_based")
-        polymers_property_based = Material.objects.create(
-            name="polymers: property-based", parent=polymers
-        )
+        polymers = Material.objects.create(name="polymers: property-based")
         polymers_elastomers = Material.objects.create(
             name="polymers: property-based: elastomers", parent=polymers
         )
@@ -118,7 +115,7 @@ def _create_material_list():
         )
 
         small_organic_compounds = Material.objects.create(
-            name="Small organic Compounds"
+            name="small organic compounds"
         )
 
 
