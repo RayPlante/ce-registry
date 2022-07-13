@@ -37,7 +37,7 @@ class Resolver(object):
 
         self._log = logger
 
-    def resolve(self, doi):
+    def resolve(self, doi, timeout=None):
         """
         resolve a DOI to its metadata.  This is expected to make one or more 
         calls to a web service.
@@ -45,6 +45,11 @@ class Resolver(object):
         :param str doi:  the DOI to resolve.  This can be given in any of its 
                          legal forms including with the "doi:" prefix, in URL
                          format, or without any prefix.
+        :param timeout:  the number of seconds to wait to retrieve data before 
+                         giving up
+                         :type timeout: float or a 2-tuple of floats providing 
+                                        (connect_timeout, read_timeout) (same 
+                                        as for requests.request())
         """
         doi = _comm.strip_DOI(doi, self._resolver)
         url = self._resolver + doi
@@ -56,7 +61,7 @@ class Resolver(object):
 
         # Do a HEAD request on the DOI to examine where it gets forwarded to
         try:
-            resp = requests.head(url, headers=hdrs, allow_redirects=False)
+            resp = requests.head(url, headers=hdrs, allow_redirects=False, timeout=timeout)
         except (requests.ConnectionError,
                 requests.HTTPError,
                 requests.ConnectTimeout)   as ex:
@@ -96,12 +101,13 @@ class Resolver(object):
             info = DOIInfo(doi, resolver=self._resolver, logger=self._log)
 
         # pre-load the data
+        info.timeout = 5
         info.data
 
         return info
 
 
-def resolve(doi, resolver=None, logger=None):
+def resolve(doi, resolver=None, timeout=None, logger=None):
     """
     resolve a DOI to its metadata.  This is expected to make one or more 
     calls to a web service.
@@ -111,6 +117,11 @@ def resolve(doi, resolver=None, logger=None):
                      format, or without any prefix.
     :param str resolver:  the base URL to use as the resolver service.  If 
                      not given, "https://doi.org/" is used.
+    :param timeout:  the number of seconds to wait to retrieve data before 
+                     giving up
+                     :type timeout: float or a 2-tuple of floats providing 
+                                    (connect_timeout, read_timeout) (same 
+                                    as for requests.request())
     :param Logger logger:  a Logger instance to send debug messages to.  
                      Generally, the URLs used to retrieve metadata are 
                      recorded at the debug level.
@@ -118,5 +129,5 @@ def resolve(doi, resolver=None, logger=None):
                      of DOIInfo, specialized for the type of DOI provided
                      (e.g. Datacite, Crossref).  
     """
-    return Resolver(resolver=resolver, logger=logger).resolve(doi)
+    return Resolver(resolver=resolver, logger=logger).resolve(doi, timeout=timeout)
 

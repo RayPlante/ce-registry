@@ -67,7 +67,7 @@ class DOIInfo(object):
     information is loaded from a REST call to a DOI resolver.  
     """
 
-    def __init__(self, doi, source="unknown", resolver=None, logger=None, client_info=None):
+    def __init__(self, doi, source="unknown", resolver=None, logger=None, client_info=None, timeout=None):
         """
         create the DOIInfo base instance
         :param str           doi:  the DOI to resolve to metadata
@@ -78,6 +78,9 @@ class DOIInfo(object):
                                    client to the service.  The elements are the same as the 
                                    parameters accepted by set_client_info(), in order.  If not 
                                    provided, the values set via set_client_info() will be used.
+        :param timeout:  the number of seconds to wait to retrieve data before giving up
+                         :type timeout: float or a 2-tuple of floats providing (connect_timeout, read_timeout) 
+                                        (same as for requests.request())
         """
         if not resolver:
             resolver = default_doi_resolver
@@ -90,6 +93,7 @@ class DOIInfo(object):
         self._cite = None
         self._data = None
         self._native = None
+        self.timeout = timeout
 
         self._client_info = None
         if not client_info:
@@ -177,7 +181,7 @@ class DOIInfo(object):
 
         # this may raise an exception
         try:
-            resp = requests.get(url, headers=hdrs)
+            resp = requests.get(url, headers=hdrs, timeout=self.timeout)
         except (requests.ConnectionError,
                 requests.HTTPError,
                 requests.ConnectTimeout)   as ex:
