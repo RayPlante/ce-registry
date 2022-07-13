@@ -5,9 +5,9 @@
     $(document).ready(function(){
 
         $("input[type=checkbox]").click(function(){
-            areChecked=$("#primaryAudience input:checked")
-            var all = $("#primaryAudience input")
-            nb_checked= $("#primaryAudience input:checked").length;
+            areChecked=$("#div_id_audience input:checked")
+            var all = $("#div_id_audience input")
+            nb_checked= $("#div_id_audience input:checked").length;
 
             if (nb_checked<limit) {
                 for (var el in all){
@@ -60,7 +60,7 @@
 
     </style>
 
-    <div id="primaryAudience">
+    <div id="div_id_audience">
         <div class="titleRow">
             <p class="title"> Primary Audience </p>
             <span>(maximum 2)</span>

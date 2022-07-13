@@ -1,6 +1,6 @@
 {% load crispy_forms_tags %}
 
-
+<html>
 <script>
     var onjQueryReady = function (method) {
         if (window.jQuery) {
@@ -30,11 +30,6 @@
     };
 
 
-    click = function() {
-    console.log("CLIIIIIIICK")
-    }
-
-
 </script>
 <head>
      {% load static %}
@@ -54,7 +49,7 @@
     <div class="form-check">
         {{ form.start_meth.0 }}
     </div>
-    <div class="top1">
+    <div class="top1" id="div_id_url">
         {{form.urlform}}
     </div>
         <div class="form-check">
@@ -64,7 +59,7 @@
         <div>
             {{form.audienceform }}
         </div>
-        <div  class="boldLabel">
+        <div  class="boldLabel" id="div_id_product">
 
             {{form.productform }}
         </div>
@@ -72,11 +67,11 @@
             <div class="form-check">
                 {{ form.start_meth.2 }}
             </div>
-            <div class="top1">
+            <div class="top1" id="div_id_material">
                 {{form.material }}
             </div>
 
-            <div class="top1">
+            <div class="top1" id="div_id_lifecycle">
                 {{form.lifecycle }}
             </div>
 
@@ -86,7 +81,7 @@
             {{ form.keywordsform }}
         </div>
 
-    <div class="top1 boldLabel">
+    <div class="top1 boldLabel" id="div_id_role">
         {{form.roles}}
     </div>
 
@@ -110,51 +105,77 @@
     </div>
 
     <div class="third">
+        <div class="helper">
+            <p>Helpers</p>
+
+        </div>
         <div>
-            <details>
+            <details id="title_details">
                 <summary>Title</summary>
                 <p>Detailed content goes here …</p>
 
             </details>
         </div>
         <div>
-            <details>
+            <details id="publisher_details">
                 <summary>Publisher</summary>
                 <p>Detailed content goes here …</p>
 
             </details>
         </div>
         <div>
-            <details>
+            <details id="description_details">
                 <summary>Description</summary>
                 <p>Detailed content goes here …</p>
 
             </details>
         </div>
         <div>
-            <details>
+            <details id="url_details">
                 <summary>Homepage URL</summary>
+                <p value="dodo"></p>
                 <p>Detailed content goes here …</p>
 
             </details>
         </div>
         <div>
-            <details>
+            <details id="audience_details">
+                <summary>Primary Audience</summary>
+                <p>Detailed content goes here …</p>
+
+            </details>
+        </div>
+        <div>
+            <details id="product_details">
                 <summary>Product Class</summary>
                 <p>Detailed content goes here …</p>
 
             </details>
         </div>
         <div>
-            <details>
+            <details id="material_details">
                 <summary>Material Type</summary>
                 <p>Detailed content goes here …</p>
 
             </details>
         </div>
         <div>
-            <details>
+            <details id="lifecycle_details">
+                <summary>Lifecycle Phase</summary>
+                <p>Detailed content goes here …</p>
+
+            </details>
+        </div>
+        <div>
+            <details id="keywords_details">
                 <summary>Keywords</summary>
+                <p>Detailed content goes here …</p>
+
+            </details>
+        </div>
+        <div>
+            <details id="role_details">
+                <summary>Role</summary>
                 <p>Detailed content goes here …</p>
 
             </details>
@@ -162,4 +183,4 @@
     </div>
     </div>
 </div>
-</div>
+</div></html>
