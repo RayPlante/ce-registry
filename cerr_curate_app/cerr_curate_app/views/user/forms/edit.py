@@ -25,6 +25,7 @@ __all__ = ["EditForm"]
 TMPL8S = "cerr_curate_app/user/forms/"
 from .selectrestype import ResourceTypeChoiceField
 
+
 class AudienceForm(ComposableForm):
     choices = (
         ("researchers", "researchers"),
@@ -35,8 +36,9 @@ class AudienceForm(ComposableForm):
         ("communication specialists", "communication specialists"),
     )
     template_name = TMPL8S + "audienceform.html"
-    categories = forms.MultipleChoiceField(choices=choices, widget=forms.CheckboxSelectMultiple,
-                                           required=False)
+    categories = forms.MultipleChoiceField(
+        choices=choices, widget=forms.CheckboxSelectMultiple, required=False
+    )
 
     def __init__(self, data=None, files=None, is_top=True, show_errors=None, **kwargs):
         self.is_top = is_top
@@ -51,12 +53,17 @@ class AudienceForm(ComposableForm):
     # Override get_context to add choices to context
     def get_context(self, **kwargs):
         context = super(AudienceForm, self).get_context(**kwargs)
-        context["choices"] = [{'value': c[0], 'label': c[1],
-                               'checked': "checked" if c[0] in self.initial['categories'] else ""}
-                              for c in self.choices]
-        context["input_name"] = self['categories'].html_name
-        context["max_selected"] = len(self.initial['categories']) > 1
-        
+        context["choices"] = [
+            {
+                "value": c[0],
+                "label": c[1],
+                "checked": "checked" if c[0] in self.initial["categories"] else "",
+            }
+            for c in self.choices
+        ]
+        context["input_name"] = self["categories"].html_name
+        context["max_selected"] = len(self.initial["categories"]) > 1
+
         return context
 
     def full_clean(self):
@@ -104,11 +111,20 @@ class KeywordsForm(ComposableForm):
         self.is_top = is_top
         self.show_aggregate_errors = show_errors
         self.disabled = False
+        self.initial = None
         if self.show_aggregate_errors is None:
             self.show_aggregate_errors = self.is_top
         if "error_class" not in kwargs:
             kwargs["error_class"] = CerrErrorList
+        if "initial" in kwargs:
+            self.initial = kwargs["initial"]
         super(KeywordsForm, self).__init__(data, files, **kwargs)
+
+    def get_context(self, **kwargs):
+        context = super(KeywordsForm, self).get_context(**kwargs)
+        if self.initial:
+            context["prevKeywords"] = self.initial["keywords"]
+        return context
 
     def full_clean(self):
         if self.disabled:
@@ -131,23 +147,40 @@ class EditForm(MultiForm):
     pubyear = forms.CharField(widget=forms.HiddenInput, required=False)
     # recname = forms.CharField(widget=forms.HiddenInput)
 
-    def __init__(self, data=None, files=None, resource_type="Resource", is_top=True, 
-                 show_errors=None, initial=None, **kwargs):
+    def __init__(
+        self,
+        data=None,
+        files=None,
+        resource_type="Resource",
+        is_top=True,
+        show_errors=None,
+        initial=None,
+        **kwargs
+    ):
 
         self.resourcetype = resource_type
         initial = self._unclean_data(initial)
-        
-        self.restitle = forms.CharField(label="Title of "+self.resourcetype, required=True)
-        self.publisher = forms.CharField(label="Publisher of "+self.resourcetype, required=True)
 
-        self.homepage = HomePageForm(data, files, is_top=False, initial=initial.get('homepage'))
-        self.audience = AudienceForm(data, files, is_top=False, initial=initial.get('audience'))
+        self.restitle = forms.CharField(
+            label="Title of " + self.resourcetype, required=True
+        )
+        self.publisher = forms.CharField(
+            label="Publisher of " + self.resourcetype, required=True
+        )
+        self.homepage = HomePageForm(
+            data, files, is_top=False, initial=initial.get("homepage")
+        )
+        self.audience = AudienceForm(
+            data, files, is_top=False, initial=initial.get("audience")
+        )
 
-        self.productclass = ProductClassForm(initial=initial.get('productClass'))
-        self.lifecyclephase = LifecyclePhaseForm(initial=initial.get('lifecyclePhase'))
-        self.materialtype = MaterialTypeForm(initial=initial.get('materialType'))
+        self.productclass = ProductClassForm(initial=initial.get("productClass"))
+        self.lifecyclephase = LifecyclePhaseForm(initial=initial.get("lifecyclePhase"))
+        self.materialtype = MaterialTypeForm(initial=initial.get("materialType"))
 
-        self.keywords = KeywordsForm(data, files, is_top=False, initial=initial.get('keywords'))
+        self.keywords = KeywordsForm(
+            data, files, is_top=False, initial=initial.get("keywords")
+        )
 
         self.roleform = RoleForm()
         self.roles = sequenceForm()
@@ -158,17 +191,20 @@ class EditForm(MultiForm):
         if "error_class" not in kwargs:
             kwargs["error_class"] = CerrErrorList
         super(EditForm, self).__init__(
-            data, files, {
+            data,
+            files,
+            {
                 "homepage": self.homepage,
                 "productClass": self.productclass,
                 "audience": self.audience,
                 "role": self.roleform,
                 "keywords": self.keywords,
                 "materialType": self.materialtype,
-                "lifecyclePhase": self.lifecyclephase
+                "lifecyclePhase": self.lifecyclephase,
             },
             initial=initial,
-            field_order="recname title publisher pubyear description".split(), **kwargs
+            field_order="recname title publisher pubyear description".split(),
+            **kwargs
         )
         self.fields["title"] = self.restitle
         self.fields["publisher"] = self.publisher
@@ -181,26 +217,44 @@ class EditForm(MultiForm):
         # flatten the fancy tree data
         for ft in "productClass materialType lifecyclePhase".split():
             if ft in self.cleaned_data:
-                if isinstance(self.cleaned_data[ft], Mapping) and 'ft' in self.cleaned_data[ft]:
-                    self.cleaned_data[ft] = self.cleaned_data[ft]['ft']
+                if (
+                    isinstance(self.cleaned_data[ft], Mapping)
+                    and "ft" in self.cleaned_data[ft]
+                ):
+                    self.cleaned_data[ft] = self.cleaned_data[ft]["ft"]
 
-        if 'homepage' in self.cleaned_data and 'url' in self.cleaned_data['homepage']:
-            self.cleaned_data['homepage'] = self.cleaned_data['homepage'].get('url', '')
+        if "homepage" in self.cleaned_data and "url" in self.cleaned_data["homepage"]:
+            self.cleaned_data["homepage"] = self.cleaned_data["homepage"].get("url", "")
 
-        if 'audience' in self.cleaned_data and 'categories' in self.cleaned_data['audience']:
-            self.cleaned_data['audience'] = self.cleaned_data['audience'].get('categories', '')
+        if (
+            "audience" in self.cleaned_data
+            and "categories" in self.cleaned_data["audience"]
+        ):
+            self.cleaned_data["audience"] = self.cleaned_data["audience"].get(
+                "categories", ""
+            )
 
-        if 'keywords' in self.cleaned_data and 'keywords' in self.cleaned_data['keywords']:
-            self.cleaned_data['keywords'] = self.cleaned_data['keywords'].get('keywords', [])
+        if (
+            "keywords" in self.cleaned_data
+            and "keywords" in self.cleaned_data["keywords"]
+        ):
+            self.cleaned_data["keywords"] = self.cleaned_data["keywords"].get(
+                "keywords", []
+            )
 
     def _unclean_data(self, data):
+
         if isinstance(data, Mapping):
             for ft in "productClass materialType lifecyclePhase".split():
                 if ft in data:
-                    data[ft] = {'ft': data[ft]}
+                    data[ft] = {"ft": data[ft]}
 
             if "homepage" in data and isinstance(data["homepage"], str):
                 data["homepage"] = {"url": data["homepage"]}
+
+            if "keywords" in data and isinstance(data["keywords"], str):
+                data["keywords-keywords"] = "[dodo,dada]"
+                data["keywords"] = {"keywords": data["keywords"]}
 
             if "audience" in data and isinstance(data["audience"], (list, tuple)):
                 data["audience"] = {"categories": data["audience"]}
@@ -217,11 +271,13 @@ class FancyTreeForm(forms.Form):
 
     def _post_clean(self):
         # resolve fancy tree TreeQuerySets into string values
-        if 'ft' in self.cleaned_data and isinstance(self.cleaned_data['ft'], TreeQuerySet):
+        if "ft" in self.cleaned_data and isinstance(
+            self.cleaned_data["ft"], TreeQuerySet
+        ):
             terms = []
-            for cat in self.cleaned_data['ft']:
+            for cat in self.cleaned_data["ft"]:
                 terms.append(cat.name)
-            self.cleaned_data['ft'] = terms
+            self.cleaned_data["ft"] = terms
 
     def _unclean_data(self, data):
         # convert terms back into fancy tree indicies
@@ -229,13 +285,13 @@ class FancyTreeForm(forms.Form):
             return data
         if not data:
             data = {}
-        
-        if 'ft' in data and isinstance(data['ft'], (list, tuple)):
+
+        if "ft" in data and isinstance(data["ft"], (list, tuple)):
             indicies = []
             for term in self.categories:
-                if term.name in data['ft']:
+                if term.name in data["ft"]:
                     indicies.append(str(term.id))
-            data['ft'] = indicies
+            data["ft"] = indicies
         return data
 
 
