@@ -29,65 +29,43 @@
         return $.ajax(options);
     };
 
-
 </script>
-<head>
-     {% load static %}
 
-<link rel="stylesheet" type="text/css" href="{% static '/cerr_curate_app/user/forms/css/editform.css' %}">
-
-</head>
 <div class="forms-content">
 <div class="body-text">
     <div class="boldLabel">
     {{form.title|as_crispy_field }}
     {{form.publisher|as_crispy_field }}
+    {{form.pubyear}}
     {{form.description|as_crispy_field }}
     </div>
 
     {{ errors }}
-    <div class="form-check">
-        {{ form.start_meth.0 }}
-    </div>
     <div class="top1" id="div_id_url">
-        {{form.urlform}}
+        {{form.homepage}}
     </div>
-        <div class="form-check">
-            {{ form.start_meth.1 }}
-        </div>
-
         <div>
-            {{form.audienceform }}
+            {{form.audience}}
         </div>
         <div  class="boldLabel" id="div_id_product">
 
-            {{form.productform }}
+            {{form.productclass}}
         </div>
-        <div  class="boldLabel">
-            <div class="form-check">
-                {{ form.start_meth.2 }}
+            <div class="top1 boldLabel" id="div_id_material">
+                {{form.materialtype }}
             </div>
-            <div class="top1" id="div_id_material">
-                {{form.material }}
+            <div class="top1 boldLabel" id="div_id_lifecycle">
+                {{form.lifecyclephase }}
             </div>
-
-            <div class="top1" id="div_id_lifecycle">
-                {{form.lifecycle }}
-            </div>
-
-        </div>
 
         <div class="top1">
-            {{ form.keywordsform }}
+            {{ form.keywords }}
         </div>
 
     <div class="top1 boldLabel" id="div_id_role">
         {{form.roles}}
     </div>
 
-<!--    <div>-->
-<!--        {{form.synthesisform}}-->
-<!--    </div>-->
 </div>
 
 

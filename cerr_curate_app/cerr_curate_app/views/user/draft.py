@@ -3,7 +3,7 @@ The module that provides the user views for creating and editing a draft record.
 """
 from collections import OrderedDict
 from collections.abc import Mapping
-import json, re, pdb
+import json, re
 
 from django.shortcuts import render
 from django.http import HttpResponse, Http404, HttpResponse, HttpResponseRedirect
@@ -55,18 +55,18 @@ class EditView(View):
         super().__init__(**kwargs)
 
     def get(self, request, **kwargs):
-        draft_id = kwargs["draft_id"]
-        form = EditForm(request.POST)
-
-        try:
-            draft_obj = draft_api.get_by_id(draft_id, request.user)
-            draft_doc = draft_api.unrender_xml(draft_obj.form_data)
-        except draft_api.AccessControlError as ex:
-            return handleFailure(Http401(message=str(ex)))
-        form = EditForm(data=draftdoc_to_edit(draft_doc, draft_obj.id))
-
-        restype = _get_restype(draft_doc, Resource.schemauri)
-
+        draft_id = kwargs.get("draft_id")
+        if draft_id:
+            try:
+                draft_obj = draft_api.get_by_id(draft_id, request.user)
+                draft_doc = draft_api.unrender_xml(draft_obj.form_data)
+            except draft_api.AccessControlError as ex:
+                return handleFailure(Http401(message=str(ex)))
+            restype = _get_restype(draft_doc, Resource.schemauri)
+            form = EditForm(initial=draftdoc_to_edit(draft_doc, draft_obj.id))
+        else:
+            form = EditForm()
+            
         return render(
             request,
             TMPL8S + "edit.html",
@@ -83,7 +83,6 @@ class EditView(View):
         form = EditForm(request.POST)
         if form.is_valid():
             try:
-                form = save_widgets(request, form)
                 draft = edit_to_draftdoc(form.cleaned_data)
                 draft_obj = draft_api.save_updated_draft(draft, draft_id, request)
                 return HttpResponseRedirect(reverse("start"))
@@ -92,9 +91,16 @@ class EditView(View):
             except draft_api.AccessControlError as ex:
                 return handleFailure(Http401(message=str(ex)))
 
-        restype = _get_restype(draft, Resource.schemauri)
-        recname = request.POST.get("name", [])
-        recname = "unkn" if len(recname) == 0 else recname[0]
+        try:
+            draft_obj = draft_api.get_by_id(draft_id, request.user)
+            draft_doc = draft_api.unrender_xml(draft_obj.form_data)
+            restype = _get_restype(draft_doc, Resource.schemauri)
+            recname = draft_obj.name
+        except draft_api.AccessControlError as ex:
+            restype = "Resource"
+            recname = request.POST.get("name", [])
+            if isinstance(recname, (list, tuple)):
+                recname = "unkn" if len(recname) == 0 else recname[0]
 
         return render(
             request,
@@ -193,12 +199,32 @@ def draftdoc_to_edit(draft_doc, draft_id):
     draft = draft_doc.get(pfx + "Resource", {})
     content = draft.get(pfx + "content", {})
     ident = draft.get(pfx + "identity", {})
+    providers = draft.get(pfx + "providers", {})
     if content:
         data["homepage"] = content.get(pfx + "landingPage", "")
         data["description"] = content.get(pfx + "description", "")
-        data["publisher"] = ident.get(pfx + "publisher", "")
+        data["keywords"] = content.get(pfx + "subject", [])
+        data["audience"] = content.get(pfx + "primaryAudience", [])
+        if isinstance(data["audience"], str):
+            data["audience"] = [ data["audience"] ]
     if ident:
         data["title"] = ident.get(pfx + "title", "")
+    if providers:
+        data["publisher"] = providers.get(pfx + "publisher", "")
+        data["pubyear"] = providers.get(pfx + "publicationYear", "")
+
+    applic = draft.get(pfx + "applicability", {})
+    for cat in "productClass materialType lifecyclePhase".split():
+        if applic.get(pfx + cat):
+            top = applic.get(pfx + cat, {})
+            data[cat] = []
+            for key in applic.get(pfx + cat, {}):
+                terms = top.get(key)
+                if terms:
+                    if isinstance(terms, str):
+                        terms = [ terms ]
+                    data[cat].extend(terms)
+
     data["draft_id"] = draft_id
     data["restype"] = _get_restype(draft_doc, pfx)
 
@@ -218,6 +244,7 @@ def _get_restype(draft, pfx):
         out = re.sub(r"[^:]*:\s*", "", roles[0].get(pfx + "type", out))
     return out
 
+_term_delim_re = re.compile("[:\s]+")
 
 def edit_to_draftdoc(data):
     draft = Resource()
@@ -227,8 +254,30 @@ def edit_to_draftdoc(data):
         draft.add("Resource/identity/title", data.get("title", ""))
     if data.get("description"):
         draft.add("Resource/content/description", data.get("description", ""))
-    if data.get("widget"):
-        draft.add("Resource/applicability/materialType", data.get("widget", ""))
+    if data.get("keywords"):
+        draft.add("Resource/content/keywords", data.get("keywords", ""))
+    if data.get("publisher"):
+        draft.add("Resource/providers/publisher", data.get("publisher", ""))
+    if data.get("pubyear"):
+        draft.add("Resource/providers/publicationYear", data.get("pubyear", ""))
+    if data.get("audience"):
+        for term in data.get("audience", []):
+            draft.add("Resource/content/primaryAudience", term)
+    if data.get("productClass"):
+        for term in data.get("productClass", []):
+            levs = term.rsplit(": ", 1)
+            levs[0] = levs[0][0:1].lower() + levs[0][1:]
+            draft.add(_term_delim_re.sub('_', "Resource/applicability/productClass/"+levs[0]), term)
+    if data.get("lifecyclePhase"):
+        for term in data.get("lifecyclePhase", []):
+            levs = term.rsplit(": ", 1)
+            levs[0] = levs[0][0:1].lower() + levs[0][1:]
+            draft.add(_term_delim_re.sub('_', "Resource/applicability/lifecyclePhase/"+levs[0]), term)
+    if data.get("materialType"):
+        for term in data.get("materialType", []):
+            levs = term.rsplit(": ", 1)
+            levs[0] = levs[0][0:1].lower() + levs[0][1:]
+            draft.add(_term_delim_re.sub('_', "Resource/applicability/materialType/"+levs[0]), term)
     out = draft.todict()
     return {"Resource": out["Resource"][0]}
 
@@ -295,21 +344,6 @@ def handleFailure(exc):
         return HttpResponse(status=exc.status_code, reason=exc.reason_phrase)
 
 
-# TODO HANDLE EMPTY WIDGET
-def save_widgets(request, form):
-    """
-    Retrieves the correct widget data and put it back in the form
-    :param request:
-    :param form:
-    :return: form with appended widget data
-    """
-    widget_ids = dict(request.POST.lists())["widget"]
-    materials = material_api.get_list_by_id(widget_ids)
-    object_string = ", ".join([str(x.name) for x in materials])
-    form.cleaned_data["widget"] = object_string
-    return form
-
-
 ################################
 
 _schema = [
@@ -343,9 +377,8 @@ _schema = [
                 "applicabilty",
                 [
                     "productClass",
-                    "materialType",
-                    "synthesisProcessing",
-                    "circularPathway",
+                    "lifecyclePhase",
+                    "materialType"
                 ],
             ),
             ("@atts", ["localid", "status"]),
@@ -520,7 +553,7 @@ doilog = logging.getLogger("doi")
 
 def doi_into_draftdoc(doi, draft):
     try:
-        md = nistoar.doi.resolve(doi, logger=doilog)
+        md = nistoar.doi.resolve(doi, logger=doilog, timeout=5)
         draft.add("Resource/identity/title", md.data["title"])
         draft.add("Resource/content/reference/@pid", doi)
         draft.add("Resource/content/reference/#text", md.citation_text)
@@ -529,11 +562,12 @@ def doi_into_draftdoc(doi, draft):
         if md.data.get("container-title"):
             # this is a journal, most likely
             publisher = "%s (%s)" % (md.data.get("container-title"), publisher)
-        draft.add("Resource/identity/publisher", publisher)
+        draft.add("Resource/providers/publisher", publisher)
 
         pubdate = md.data.get("published", {}).get("date-parts", [[]])
-        if len(pubdate) > 0 and pubdate[0]:
-            draft.add("Resource/identity/publicationYear", pubdate[0])
+        if len(pubdate) > 0 and pubdate[0] and isinstance(pubdate[0], (list, tuple)):
+            pubdate = pubdate[0][0]
+            draft.add("Resource/providers/publicationYear", pubdate)
 
     except Exception as ex:
         pass

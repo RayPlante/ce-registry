@@ -34,7 +34,6 @@
 </script>
 
 
-<head>
     <style>
         .title {
         font-weight: bold;
@@ -68,11 +67,11 @@
 
         <div class="contentRow">
             {% for choice in choices %}
-                <div class="form-check-inline">
-                    <input type="checkbox" class="single-checkbox" name="{{choice}}" value ="{{choice}}">
-                    <label for="{{choice}}">{{choice}}</label><br>
+                <div class="form-check-inline{% if max_selected and not choice.selected %} grey{% endif %}">
+                    <input type="checkbox" class="single-checkbox" name="{{input_name}}"
+                           value="{{choice.value}}" {{choice.checked}}>
+                    <label for="{{choice.value}}">{{choice.label}}</label><br>
                 </div>
             {% endfor %}
         </div>
     </div>
-</head>
