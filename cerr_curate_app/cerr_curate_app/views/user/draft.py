@@ -255,7 +255,7 @@ def edit_to_draftdoc(data):
     if data.get("description"):
         draft.add("Resource/content/description", data.get("description", ""))
     if data.get("keywords"):
-        draft.add("Resource/content/keywords", data.get("keywords", ""))
+        draft.add("Resource/content/subject", data.get("keywords", ""))
     if data.get("publisher"):
         draft.add("Resource/providers/publisher", data.get("publisher", ""))
     if data.get("pubyear"):
