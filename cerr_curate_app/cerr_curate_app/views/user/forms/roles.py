@@ -1,6 +1,7 @@
 from django import forms as forms
 
 from .base import MultiForm, CerrErrorList
+from django.forms.utils import ErrorDict
 
 TMPL8S = "cerr_curate_app/user/forms/roles/"
 
@@ -38,7 +39,7 @@ class semanticAssetRoleForm(roleForm):
     """
 
     template_name = TMPL8S + "defaultroleform.html"
-    label = forms.CharField(label="SemanticAsset")
+    semanticasset_label = forms.CharField(label="SemanticAsset")
 
     def __init(self, data, label, **kwargs):
         super(semanticAssetRoleForm, self).__init(data, label, **kwargs)
@@ -50,7 +51,7 @@ class databaseRoleForm(roleForm):
     """
 
     template_name = TMPL8S + "defaultroleform.html"
-    label = forms.CharField(label="Database")
+    database_label = forms.CharField(label="Database")
 
     def __init(self, data, label, **kwargs):
         super(databaseRoleForm, self).__init(data, label, **kwargs)
@@ -83,7 +84,7 @@ class sequenceForm(roleForm):
     role_list = forms.CharField(
         label="Chose a role", widget=forms.Select(choices=label_choices)
     )
-    form_list = []
+    form_list = ''
 
     def __init(
         self,
@@ -97,6 +98,8 @@ class sequenceForm(roleForm):
         **kwargs
     ):
         self.is_top = is_top
+        self.initial = None
+
         # forms = {"forms": forms}
         if data is not None:
             for role in data:
@@ -107,8 +110,19 @@ class sequenceForm(roleForm):
         #     self.show_aggregate_errors = self.is_top
         if "error_class" not in kwargs:
             kwargs["error_class"] = CerrErrorList
+        if "initial" in kwargs:
+            self.initial = kwargs["initial"]
         super(sequenceForm, self).__init__(data, files, **kwargs)
 
+    def full_clean(self):
+        sequenceForm.form_list = self.data['form_list']
+        super(sequenceForm, self).full_clean()
+
+    def get_context(self,**kwargs):
+        context = super(sequenceForm, self).get_context(**kwargs)
+        if self.initial:
+            context["sequence"] = self.initial["sequenceform"]
+        return context
     def render(self):
         "loop through the forms and render individually each one"
         for form in self.forms_list():

@@ -183,7 +183,9 @@ class EditForm(MultiForm):
         )
 
         self.roleform = RoleForm()
-        self.roles = sequenceForm()
+        self.sequence = sequenceForm(
+            data, files, is_top=False, initial=initial.get("sequence")
+        )
         self.is_top = is_top
         self.show_aggregate_errors = show_errors
         if self.show_aggregate_errors is None:
@@ -197,7 +199,8 @@ class EditForm(MultiForm):
                 "homepage": self.homepage,
                 "productClass": self.productclass,
                 "audience": self.audience,
-                "role": self.roleform,
+                "sequence": self.sequence,
+                "role":self.roleform,
                 "keywords": self.keywords,
                 "materialType": self.materialtype,
                 "lifecyclePhase": self.lifecyclephase,
@@ -241,7 +244,21 @@ class EditForm(MultiForm):
             self.cleaned_data["keywords"] = self.cleaned_data["keywords"].get(
                 "keywords", []
             )
+        if (
+            "sequence" in self.cleaned_data
+            and "sequence" in self.cleaned_data["sequence"]
+        ):
+            self.cleaned_data["sequence"] = self.cleaned_data["sequence"].get(
+                "sequence", []
+            )
 
+        if (
+                "role" in self.cleaned_data
+                and "role" in self.cleaned_data["role"]
+        ):
+            self.cleaned_data["role"] = self.cleaned_data["role"].get(
+                "role", []
+            )
     def _unclean_data(self, data):
 
         if isinstance(data, Mapping):
@@ -258,6 +275,9 @@ class EditForm(MultiForm):
 
             if "audience" in data and isinstance(data["audience"], (list, tuple)):
                 data["audience"] = {"categories": data["audience"]}
+
+            if "sequence" in data and isinstance(data["sequence"], (list, tuple)):
+                data["sequence"] = {"sequence": data["sequence"]}
         elif not data:
             data = {}
 
