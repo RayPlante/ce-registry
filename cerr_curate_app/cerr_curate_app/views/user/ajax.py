@@ -53,4 +53,5 @@ def get_role_form(request):
 def save_role_form(request):
 
     """Post value"""
-    pass
+    if "role" not in request.POST:
+        pass

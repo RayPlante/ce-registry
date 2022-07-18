@@ -21,10 +21,10 @@ class roleForm(MultiForm):
 
 class softwareRoleForm(roleForm):
     template_name = TMPL8S + "softwareRoleForm.html"
-    code_language = forms.CharField(label="Code Language Used")
-    os_name = forms.CharField(label="OS Name", required=True)
-    os_version = forms.CharField(label="OS Version", required=True)
-    license_name = forms.CharField(
+    software_code_language = forms.CharField(label="Code Language Used")
+    software_os_name = forms.CharField(label="OS Name", required=True)
+    software_os_version = forms.CharField(label="OS Version", required=True)
+    software_license_name = forms.CharField(
         label="Name of license applied to the software", required=True
     )
     highlighted_feature = forms.CharField(label="Highlighted feature", required=True)
@@ -59,12 +59,12 @@ class databaseRoleForm(roleForm):
 
 class serviceApiForm(roleForm):
     template_name = TMPL8S + "serviceApiForm.html"
-    tool_choices = [("1", "Service: API"), ("2", "Tool")]
-    tool = forms.CharField(label="Tool", widget=forms.Select(choices=tool_choices))
-    base_url = forms.URLField(required=False)
-    api_url = forms.URLField(required=False)
-    specification_url = forms.URLField(label="Specification URL", required=False)
-    compliance_id = forms.CharField(
+    service_tool_choices = [("1", "Service: API"), ("2", "Tool")]
+    service_tool = forms.CharField(label="Tool", widget=forms.Select(choices=service_tool_choices))
+    service_base_url = forms.URLField(required=False)
+    service_api_url = forms.URLField(required=False)
+    service_specification_url = forms.URLField(label="Specification URL", required=False)
+    service_compliance_id = forms.CharField(
         label="Name of license applied to the software", required=True
     )
 
@@ -84,7 +84,7 @@ class sequenceForm(roleForm):
     role_list = forms.CharField(
         label="Chose a role", widget=forms.Select(choices=label_choices)
     )
-    form_list = ''
+    form_list = []
 
     def __init(
         self,
@@ -115,7 +115,6 @@ class sequenceForm(roleForm):
         super(sequenceForm, self).__init__(data, files, **kwargs)
 
     def full_clean(self):
-        sequenceForm.form_list = self.data['form_list']
         super(sequenceForm, self).full_clean()
 
     def get_context(self,**kwargs):
@@ -127,5 +126,9 @@ class sequenceForm(roleForm):
         "loop through the forms and render individually each one"
         for form in self.forms_list():
             form.render()
+   # def _clean_form(self):
+        ""
+       # for form in self.form_list():
+        #    pass
 
-    pass
+   # pass

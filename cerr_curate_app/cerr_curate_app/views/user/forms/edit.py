@@ -182,7 +182,7 @@ class EditForm(MultiForm):
             data, files, is_top=False, initial=initial.get("keywords")
         )
 
-        self.roleform = RoleForm()
+        self.roleform = RoleForm(data, files, is_top=False, initial=initial.get("role"))
         self.sequence = sequenceForm(
             data, files, is_top=False, initial=initial.get("sequence")
         )
@@ -278,6 +278,9 @@ class EditForm(MultiForm):
 
             if "sequence" in data and isinstance(data["sequence"], (list, tuple)):
                 data["sequence"] = {"sequence": data["sequence"]}
+
+            if "role" in data and isinstance(data["role"], (list, tuple)):
+                data["role"] = {"role": data["role"]}
         elif not data:
             data = {}
 
