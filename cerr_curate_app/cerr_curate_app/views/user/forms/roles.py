@@ -27,7 +27,7 @@ class softwareRoleForm(roleForm):
     software_license_name = forms.CharField(
         label="Name of license applied to the software", required=True
     )
-    highlighted_feature = forms.CharField(label="Highlighted feature", required=True)
+    software_highlighted_feature = forms.CharField(label="Highlighted feature", required=True)
 
     def __init(self, data, **kwargs):
         super(softwareRoleForm, self).__init(data, **kwargs)
@@ -149,7 +149,7 @@ class sequenceForm(roleForm):
             "software_os_name": [],
             "software_os_version": [],
             "software_license_name": [],
-            "highlighted_feature": [],
+            "software_highlighted_feature": [],
         }
 
         data = self.data
