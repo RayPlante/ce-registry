@@ -126,9 +126,14 @@ class sequenceForm(roleForm):
         "loop through the forms and render individually each one"
         for form in self.forms_list():
             form.render()
-   # def _clean_form(self):
+    def _clean_form(self):
         ""
-       # for form in self.form_list():
-        #    pass
+        form_data = []
+        data = self.data
+        if data is not None:
+            for item in data:
+                if (isinstance(item, str)):
+                    if (item.startswith(('service', 'database', 'semanticasset', 'software'))):
+                        form_data.append(item)
 
-   # pass
+    pass
