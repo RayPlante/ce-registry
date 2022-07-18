@@ -60,10 +60,14 @@ class databaseRoleForm(roleForm):
 class serviceApiForm(roleForm):
     template_name = TMPL8S + "serviceApiForm.html"
     service_tool_choices = [("1", "Service: API"), ("2", "Tool")]
-    service_tool = forms.CharField(label="Tool", widget=forms.Select(choices=service_tool_choices))
+    service_tool = forms.CharField(
+        label="Tool", widget=forms.Select(choices=service_tool_choices)
+    )
     service_base_url = forms.URLField(required=False)
     service_api_url = forms.URLField(required=False)
-    service_specification_url = forms.URLField(label="Specification URL", required=False)
+    service_specification_url = forms.URLField(
+        label="Specification URL", required=False
+    )
     service_compliance_id = forms.CharField(
         label="Name of license applied to the software", required=True
     )
@@ -117,23 +121,53 @@ class sequenceForm(roleForm):
     def full_clean(self):
         super(sequenceForm, self).full_clean()
 
-    def get_context(self,**kwargs):
+    def get_context(self, **kwargs):
         context = super(sequenceForm, self).get_context(**kwargs)
         if self.initial:
             context["sequence"] = self.initial["sequenceform"]
         return context
+
     def render(self):
         "loop through the forms and render individually each one"
         for form in self.forms_list():
             form.render()
+
     def _clean_form(self):
-        ""
-        form_data = []
+        """"""
+        service_values = {
+            "service_tool": [],
+            "service_tool_url": [],
+            "service_base_url": [],
+            "service_api_url": [],
+            "service_specification_url": [],
+            "service_compliance_id": [],
+        }
+        database_values = {"database_label": []}
+        semanticasset_values = {"semanticasset_label": []}
+        software_values = {
+            "software_code_language": [],
+            "software_os_name": [],
+            "software_os_version": [],
+            "software_license_name": [],
+            "highlighted_feature": [],
+        }
+
         data = self.data
         if data is not None:
             for item in data:
-                if (isinstance(item, str)):
-                    if (item.startswith(('service', 'database', 'semanticasset', 'software'))):
-                        form_data.append(item)
-
-    pass
+                if isinstance(item, str):
+                    if item.startswith(("service")):
+                        service_values[item].append(data[item])
+                    if item.startswith(("database")):
+                        database_values[item].append(data[item])
+                    if item.startswith(("semanticasset")):
+                        semanticasset_values[item].append(data[item])
+                    if item.startswith(("software")):
+                        software_values[item].append(data[item])
+        self.cleaned_data.update(
+            service=service_values,
+            database=database_values,
+            semanticasset=semanticasset_values,
+            software=software_values,
+        )
+        super(sequenceForm, self)._clean_form()

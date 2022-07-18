@@ -200,7 +200,7 @@ class EditForm(MultiForm):
                 "productClass": self.productclass,
                 "audience": self.audience,
                 "sequence": self.sequence,
-                "role":self.roleform,
+                "role": self.roleform,
                 "keywords": self.keywords,
                 "materialType": self.materialtype,
                 "lifecyclePhase": self.lifecyclephase,
@@ -248,17 +248,22 @@ class EditForm(MultiForm):
             "sequence" in self.cleaned_data
             and "sequence" in self.cleaned_data["sequence"]
         ):
-            self.cleaned_data["sequence"] = self.cleaned_data["sequence"].get(
-                "sequence", []
-            )
+            self.cleaned_data["sequence"]["service"] = self.cleaned_data[
+                "sequence"
+            ].get("service")
+            self.cleaned_data["sequence"]["database"] = self.cleaned_data[
+                "sequence"
+            ].get("database")
+            self.cleaned_data["sequence"]["semanticasset"] = self.cleaned_data[
+                "sequence"
+            ].get("semanticasset")
+            self.cleaned_data["sequence"]["software"] = self.cleaned_data[
+                "sequence"
+            ].get("software")
 
-        if (
-                "role" in self.cleaned_data
-                and "role" in self.cleaned_data["role"]
-        ):
-            self.cleaned_data["role"] = self.cleaned_data["role"].get(
-                "role", []
-            )
+        if "role" in self.cleaned_data and "role" in self.cleaned_data["role"]:
+            self.cleaned_data["role"] = self.cleaned_data["role"].get("role", [])
+
     def _unclean_data(self, data):
 
         if isinstance(data, Mapping):
