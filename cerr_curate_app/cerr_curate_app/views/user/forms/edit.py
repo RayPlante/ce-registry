@@ -182,8 +182,10 @@ class EditForm(MultiForm):
             data, files, is_top=False, initial=initial.get("keywords")
         )
 
-        self.roleform = RoleForm()
-        self.roles = sequenceForm()
+        self.roleform = RoleForm(data, files, is_top=False, initial=initial.get("role"))
+        self.sequence = sequenceForm(
+            data, files, is_top=False, initial=initial.get("sequence")
+        )
         self.is_top = is_top
         self.show_aggregate_errors = show_errors
         if self.show_aggregate_errors is None:
@@ -197,6 +199,7 @@ class EditForm(MultiForm):
                 "homepage": self.homepage,
                 "productClass": self.productclass,
                 "audience": self.audience,
+                "sequence": self.sequence,
                 "role": self.roleform,
                 "keywords": self.keywords,
                 "materialType": self.materialtype,
@@ -241,6 +244,25 @@ class EditForm(MultiForm):
             self.cleaned_data["keywords"] = self.cleaned_data["keywords"].get(
                 "keywords", []
             )
+        if (
+            "sequence" in self.cleaned_data
+            and "sequence" in self.cleaned_data["sequence"]
+        ):
+            self.cleaned_data["sequence"]["service"] = self.cleaned_data[
+                "sequence"
+            ].get("service")
+            self.cleaned_data["sequence"]["database"] = self.cleaned_data[
+                "sequence"
+            ].get("database")
+            self.cleaned_data["sequence"]["semanticasset"] = self.cleaned_data[
+                "sequence"
+            ].get("semanticasset")
+            self.cleaned_data["sequence"]["software"] = self.cleaned_data[
+                "sequence"
+            ].get("software")
+
+        if "role" in self.cleaned_data and "role" in self.cleaned_data["role"]:
+            self.cleaned_data["role"] = self.cleaned_data["role"].get("role", [])
 
     def _unclean_data(self, data):
 
@@ -258,6 +280,12 @@ class EditForm(MultiForm):
 
             if "audience" in data and isinstance(data["audience"], (list, tuple)):
                 data["audience"] = {"categories": data["audience"]}
+
+            if "sequence" in data and isinstance(data["sequence"], (list, tuple)):
+                data["sequence"] = {"sequence": data["sequence"]}
+
+            if "role" in data and isinstance(data["role"], (list, tuple)):
+                data["role"] = {"role": data["role"]}
         elif not data:
             data = {}
 

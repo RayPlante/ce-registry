@@ -28,8 +28,12 @@ def _create_lifecycle_phase_list():
         collection_sortation = Lifecycle.objects.create(name="collection and sortation")
         recycling = Lifecycle.objects.create(name="recycling")
         solvent = Lifecycle.objects.create(name="recycling: solvents", parent=recycling)
-        mechanical = Lifecycle.objects.create(name="recycling: mechanical", parent=recycling)
-        chemical = Lifecycle.objects.create(name="recycling: chemical", parent=recycling)
+        mechanical = Lifecycle.objects.create(
+            name="recycling: mechanical", parent=recycling
+        )
+        chemical = Lifecycle.objects.create(
+            name="recycling: chemical", parent=recycling
+        )
         carbon_capture = Lifecycle.objects.create(name="carbon capture")
         end_life_management = Lifecycle.objects.create(name="end-of-life management")
         unwanted_outcomes = Lifecycle.objects.create(name="unwanted outcomes")
